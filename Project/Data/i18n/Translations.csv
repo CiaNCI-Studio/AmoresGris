@@ -1,0 +1,64 @@
+keys;en;pt;es
+TR_TITLE;Game Template;Modelo de Jogo;Plantilla de juego
+TR_YES;Yes;Sim;Si
+TR_NO;No;Não;No
+TR_SAVE_GAME;Save Game;Salvar o Jogo;Guardar el Juego
+TR_LOAD_GAME;Load Game;Carregar Jogo;Cargar el Juego
+TR_NEW_GAME;New Game;Novo Jogo;Nuevo Juego
+TR_ABOUT;About;Sobre;Acerca
+TR_PAUSE;Pause;Pausa;Pausa
+TR_GAMEOVER;Gameover;Fim de Jogo;Fin del Juego
+TR_CONTINUE;Continue;Continuar;Continuar
+TR_MAIN_MENU;Main Menu;Menu Principal;Menú principal
+TR_EXIT;Exit;Sair;Salir
+TR_SKIP;Skip;Pular;Saltar
+TR_LANGUAGE;Language: ;Idioma: ;Idioma: 
+TR_MUSIC;Music: ;Música: ;Música: 
+TR_SFX;Sfx: ;Efeitos Sonoros: ;Efectos Sonoros: 
+TR_PROUD;Proudly made with;Orgulhosamente feito com;Orgullosamente hecho con
+TR_OPTIONS;Options;Opções;Opciones
+TR_BACK;Back;Voltar;Volver
+TR_NAME;Name: ;Nome: ;Nombre: 
+TR_DATE;Date: ;Data: ;Fecha: 
+TR_GAME_TIME;Game Time: ;Tempo de Jogo: ;Tiempo de juego: 
+TR_NAME_REQUIRED;Name is required;O nome é obrigatório;El nombre es obligatorio
+TR_DUPLICATED_NAME;Name already exists;Este nome já existe;El nombre ya existe
+TR_OK;Ok;Ok;Ok
+TR_CANCEL;Cancel;Cancelar;Cancelar
+TR_ATTENTION;Attention!;Atenção!;Atención
+TR_CONFIRM_DELETE;Delete can't be undone, are you sure?;A exclusão não pode ser desfeita, tem certeza?;Eliminar no se puede deshacer, ¿estás segure?
+TR_ABOUT_TEXT;"By CiaNCI - Game Studio
+
+Game Concept – Kelvys B.
+Story – Kelvys B.
+Art – Kelvys B.
+Music – Kelvys B.
+Programming – Kelvys B.";"Por CiaNCI - Estúdio de Jogos
+
+Conceito de jogo – Kelvys B.
+História – Kelvys B.
+Arte – Kelvys B.
+Música – Kelvys B.
+Programação – Kelvys B.";"Por CiaNCI - Estudio de juegos
+
+Concepto de juego – Kelvys B.
+Historia – Kelvys B.
+Arte – Kelvys B.
+Música – Kelvys B.
+Programación – Kelvys B."
+TR_CONTROLS;Controls;Controles;Controles
+TR_MOVEMENT;Movement;Movimentação;Movimiento
+TR_SPACE;Space;Espaço;Espacio
+TR_JUMP;Jump;Pular;Saltar
+TR_ACTION;Action;Ação;Acción
+TR_INVENTORY;Inventory;Inventário;Inventario
+TR_INTERACT;Interact;Interagir;Interactuar
+TR_PAUSE;Pause;Pausar;Pausar
+TR_MENU;Menu;Menu;Menu
+TR_SPRINT;Spring;Correr;Correr
+TR_ENTER;Enter;Enter;Enter
+TR_SHIFT;Shift;Shift;Shift
+TR_ESC;Esc;Esc;Esc
+TR_INVENTORY_SELECT;Select Item;Selecionar Item;Seleccionar item
+TR_PAUSED;Paused;Pausado;Pausado
+TR_SAVE;Save Game;Salvar o Jogo;Guardar juego

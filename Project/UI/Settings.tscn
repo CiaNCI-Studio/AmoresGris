@@ -1,0 +1,181 @@
+[gd_scene load_steps=8 format=3 uid="uid://dltg54v2noj2n"]
+
+[ext_resource type="Script" path="res://UI/settings.gd" id="1_bycen"]
+[ext_resource type="Script" path="res://addons/uiJuicer/Fader.gd" id="2_vbrjy"]
+[ext_resource type="Theme" uid="uid://buiuaglnsgymo" path="res://Assets/Themes/DefaultLabel_Light.tres" id="3_7enep"]
+[ext_resource type="Script" path="res://addons/uiJuicer/fadeLabel.gd" id="4_3rlf5"]
+[ext_resource type="Theme" uid="uid://dqb5bisyaahmt" path="res://Assets/Themes/DefaultOption_Light.tres" id="5_5hwwc"]
+[ext_resource type="Theme" uid="uid://c8wwbt4is82pd" path="res://Assets/Themes/DefaultButton_Light.tres" id="6_o0866"]
+[ext_resource type="Theme" uid="uid://cmfndxokwpbft" path="res://Assets/Themes/TitleTheme.tres" id="7_f6e1b"]
+
+[node name="Settings" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bycen")
+
+[node name="BlackScreen" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BlackScreenFader" type="Node" parent="BlackScreen"]
+script = ExtResource("2_vbrjy")
+AutoFadeIn = false
+StartVisible = true
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainFader" type="Node" parent="Main"]
+script = ExtResource("2_vbrjy")
+AutoFadeIn = false
+FadeInTime = 0.5
+FadeOutTime = 0.5
+
+[node name="MenuContainer" type="VBoxContainer" parent="Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -267.0
+offset_top = -78.0
+offset_right = 267.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="LanguageGroup" type="HBoxContainer" parent="Main/MenuContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="LanguageLabel" type="Label" parent="Main/MenuContainer/LanguageGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_7enep")
+text = "TR_LANGUAGE"
+script = ExtResource("4_3rlf5")
+AutoFadeIn = false
+StartVisible = true
+
+[node name="LanguageOpt" type="OptionButton" parent="Main/MenuContainer/LanguageGroup"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("5_5hwwc")
+alignment = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "Portugês"
+popup/item_1/text = "Español"
+popup/item_1/id = 1
+popup/item_2/text = "English"
+popup/item_2/id = 2
+
+[node name="MusicGroup" type="HBoxContainer" parent="Main/MenuContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="MusicLabel" type="Label" parent="Main/MenuContainer/MusicGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_7enep")
+text = "TR_MUSIC"
+script = ExtResource("4_3rlf5")
+AutoFadeIn = false
+StartVisible = true
+
+[node name="MusicSlider" type="HSlider" parent="Main/MenuContainer/MusicGroup"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="SFXGroup" type="HBoxContainer" parent="Main/MenuContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="SfxLabel" type="Label" parent="Main/MenuContainer/SFXGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_7enep")
+text = "TR_SFX"
+script = ExtResource("4_3rlf5")
+AutoFadeIn = false
+StartVisible = true
+
+[node name="SfxSlider" type="HSlider" parent="Main/MenuContainer/SFXGroup"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="Back" type="Button" parent="Main"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -163.0
+offset_top = -68.0
+offset_right = -58.0
+offset_bottom = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_o0866")
+text = "TR_BACK"
+
+[node name="Back2" type="Button" parent="Main"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -163.0
+offset_top = -68.0
+offset_right = -58.0
+offset_bottom = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_o0866")
+text = "TR_BACK"
+
+[node name="Label" type="Label" parent="Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -191.5
+offset_right = 20.0
+offset_bottom = -168.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_f6e1b")
+text = "TR_OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="item_selected" from="Main/MenuContainer/LanguageGroup/LanguageOpt" to="." method="_on_language_opt_item_selected"]
+[connection signal="drag_ended" from="Main/MenuContainer/MusicGroup/MusicSlider" to="." method="_on_music_slider_drag_ended"]
+[connection signal="drag_ended" from="Main/MenuContainer/SFXGroup/SfxSlider" to="." method="_on_sfx_slider_drag_ended"]
+[connection signal="pressed" from="Main/Back" to="." method="Back"]
+[connection signal="pressed" from="Main/Back2" to="." method="Back"]

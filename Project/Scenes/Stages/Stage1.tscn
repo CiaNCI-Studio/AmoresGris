@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://bg8lfgr35d3hl"]
+
+[ext_resource type="Script" path="res://Scenes/Stages/stage_1.gd" id="1_g7t6y"]
+[ext_resource type="PackedScene" uid="uid://dnwqra658xesk" path="res://Components/Player/Player.tscn" id="2_i11vo"]
+[ext_resource type="Script" path="res://addons/saveEngine/scripts/SaveAgent.gd" id="3_mlqey"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1jc3b"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_mgdir"]
+sky_material = SubResource("ProceduralSkyMaterial_1jc3b")
+
+[sub_resource type="Environment" id="Environment_dfxf2"]
+background_mode = 2
+sky = SubResource("Sky_mgdir")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tn0kw"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_p18bx"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_g7t6y")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dfxf2")
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="Map"]
+transform = Transform3D(36.9916, 0, 0, 0, 1, 0, 0, 0, 36.9916, 0, 0, 0)
+mesh = SubResource("PlaneMesh_tn0kw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_p18bx")
+
+[node name="Player" parent="." instance=ExtResource("2_i11vo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.24477, 0)
+
+[node name="SaveAgent" type="Node" parent="." groups=["saveAgent"]]
+process_mode = 3
+script = ExtResource("3_mlqey")

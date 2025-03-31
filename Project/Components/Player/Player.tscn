@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnwqra658xesk"]
+
+[ext_resource type="Script" path="res://Components/Player/player.gd" id="1_ddp38"]
+[ext_resource type="Script" path="res://addons/3d_controls_toolkit/ThirdPersonControler3D.gd" id="1_yem0v"]
+[ext_resource type="Script" path="res://addons/saveEngine/scripts/SaveElement3D.gd" id="3_7njhj"]
+[ext_resource type="PackedScene" uid="uid://blnu0vtsk5obv" path="res://UI/Pause.tscn" id="4_aen34"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3urrt"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6wtej"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r8wdc"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_ddp38")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_3urrt")
+
+[node name="ThirdPersonControler3D" type="Node3D" parent="."]
+script = ExtResource("1_yem0v")
+
+[node name="Geometry" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_6wtej")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(0.869716, 0, 0, 0, -1.33147e-08, 0.373989, 0, -0.304605, -1.63476e-08, 0, 0.400271, -0.436652)
+mesh = SubResource("CylinderMesh_r8wdc")
+
+[node name="SaveElement3D" type="Node3D" parent="."]
+script = ExtResource("3_7njhj")
+SaveProperties = Array[String](["Hp", "Geometry:rotation"])
+
+[node name="Pause" parent="." instance=ExtResource("4_aen34")]

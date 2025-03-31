@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cmfndxokwpbft"]
+
+[ext_resource type="FontFile" uid="uid://de10ohe7w4we4" path="res://Assets/Fonts/Sublima-ExtraBold.otf" id="1_4obhh"]
+
+[resource]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 80
+Label/fonts/font = ExtResource("1_4obhh")

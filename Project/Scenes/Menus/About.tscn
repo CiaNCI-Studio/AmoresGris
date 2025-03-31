@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3mx12tipbvmt"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/about.gd" id="1_6neqy"]
+[ext_resource type="Script" path="res://addons/uiJuicer/Fader.gd" id="2_osy40"]
+[ext_resource type="Theme" uid="uid://buiuaglnsgymo" path="res://Assets/Themes/DefaultLabel_Light.tres" id="3_u41u0"]
+[ext_resource type="Texture2D" uid="uid://3ylajf6omc44" path="res://Assets/2D/Logos/CiaNCI.svg" id="5_4w5u2"]
+[ext_resource type="Theme" uid="uid://c8wwbt4is82pd" path="res://Assets/Themes/DefaultButton_Light.tres" id="6_05ulr"]
+[ext_resource type="Texture2D" uid="uid://bqns6plejj1w7" path="res://Assets/2D/Logos/CianCiText.svg" id="6_83cdn"]
+[ext_resource type="Theme" uid="uid://cmfndxokwpbft" path="res://Assets/Themes/TitleTheme.tres" id="7_62viw"]
+
+[node name="About" type="Node2D"]
+script = ExtResource("1_6neqy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BlackScreen" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BlackScreenFader" type="Node" parent="CanvasLayer/BlackScreen"]
+script = ExtResource("2_osy40")
+AutoFadeIn = false
+StartVisible = true
+
+[node name="Main" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainFader" type="Node" parent="CanvasLayer/Main"]
+script = ExtResource("2_osy40")
+AutoFadeIn = false
+FadeInTime = 0.5
+FadeOutTime = 0.5
+
+[node name="Label" type="Label" parent="CanvasLayer/Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -253.5
+offset_right = 110.0
+offset_bottom = -212.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_62viw")
+text = "TR_ABOUT"
+
+[node name="Back" type="Button" parent="CanvasLayer/Main"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -163.0
+offset_top = -68.0
+offset_right = -58.0
+offset_bottom = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_05ulr")
+text = "TR_BACK"
+
+[node name="CenterGroup" type="HBoxContainer" parent="CanvasLayer/Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -654.0
+offset_top = -132.0
+offset_right = 654.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 42
+alignment = 1
+
+[node name="LogoStack" type="VBoxContainer" parent="CanvasLayer/Main/CenterGroup"]
+layout_mode = 2
+
+[node name="Logo" type="TextureRect" parent="CanvasLayer/Main/CenterGroup/LogoStack"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+texture = ExtResource("5_4w5u2")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="LogoText" type="TextureRect" parent="CanvasLayer/Main/CenterGroup/LogoStack"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+texture = ExtResource("6_83cdn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextGroup" type="VBoxContainer" parent="CanvasLayer/Main/CenterGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/Main/CenterGroup/TextGroup"]
+layout_mode = 2
+theme = ExtResource("3_u41u0")
+theme_override_font_sizes/font_size = 50
+text = "TR_TITLE"
+
+[node name="Text" type="Label" parent="CanvasLayer/Main/CenterGroup/TextGroup"]
+layout_mode = 2
+theme = ExtResource("3_u41u0")
+theme_override_font_sizes/font_size = 30
+text = "TR_ABOUT_TEXT"
+
+[connection signal="pressed" from="CanvasLayer/Main/Back" to="." method="Back"]

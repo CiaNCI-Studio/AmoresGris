@@ -1,0 +1,581 @@
+[gd_scene load_steps=22 format=3 uid="uid://lqfawuj370im"]
+
+[ext_resource type="Script" path="res://Scenes/Stages/controls.gd" id="1_jveni"]
+[ext_resource type="Theme" uid="uid://cmfndxokwpbft" path="res://Assets/Themes/TitleTheme.tres" id="2_bfi41"]
+[ext_resource type="Script" path="res://addons/uiJuicer/Fader.gd" id="2_u4u24"]
+[ext_resource type="Theme" uid="uid://c8wwbt4is82pd" path="res://Assets/Themes/DefaultButton_Light.tres" id="3_kia4x"]
+[ext_resource type="Texture2D" uid="uid://0b7bbpky1p24" path="res://Assets/2D/UI/KeySmall.svg" id="3_s1tl3"]
+[ext_resource type="Script" path="res://addons/uiJuicer/bounce_button.gd" id="4_jnmf0"]
+[ext_resource type="Theme" uid="uid://bb7ahhgg2jgfs" path="res://Assets/Themes/DefaultLabel.tres" id="4_ubctc"]
+[ext_resource type="Theme" uid="uid://buiuaglnsgymo" path="res://Assets/Themes/DefaultLabel_Light.tres" id="5_w8mpf"]
+[ext_resource type="Texture2D" uid="uid://dh4kn3sr5y1p8" path="res://Assets/2D/UI/KeyBig.svg" id="6_g5vnh"]
+[ext_resource type="Texture2D" uid="uid://dvlw8t17ky8t3" path="res://Assets/2D/UI/KeyMedium.svg" id="7_b5n3e"]
+[ext_resource type="Texture2D" uid="uid://cj0vlpd3xsc2a" path="res://Assets/2D/UI/JoypadDirectional.svg" id="7_wxsdq"]
+[ext_resource type="Texture2D" uid="uid://cthhydpuek70s" path="res://Assets/2D/UI/MouseLeft.svg" id="8_2hn3r"]
+[ext_resource type="Texture2D" uid="uid://d4eja7sw2jrhc" path="res://Assets/2D/UI/MouseRight.svg" id="9_sjksk"]
+[ext_resource type="Texture2D" uid="uid://d4eyjgdjctp70" path="res://Assets/2D/UI/JoypadY.svg" id="10_oxb2b"]
+[ext_resource type="Texture2D" uid="uid://djw6trxnnwj11" path="res://Assets/2D/UI/JoypadA.svg" id="12_7y1j1"]
+[ext_resource type="Texture2D" uid="uid://csq18xxm0a4od" path="res://Assets/2D/UI/MouseMiddle.svg" id="12_brga3"]
+[ext_resource type="Texture2D" uid="uid://dxod3pybh82gt" path="res://Assets/2D/UI/JoypadX.svg" id="12_qwxcp"]
+[ext_resource type="Texture2D" uid="uid://cgojjwil5sqkp" path="res://Assets/2D/UI/JoypadB.svg" id="14_27gu6"]
+[ext_resource type="Texture2D" uid="uid://cjib3jqcwhrfj" path="res://Assets/2D/UI/JoypadLR.svg" id="18_g014k"]
+[ext_resource type="Texture2D" uid="uid://cr22b6ipygauu" path="res://Assets/2D/UI/JoypadStart.svg" id="19_6e6nk"]
+[ext_resource type="Texture2D" uid="uid://bdvmmq24jhx7p" path="res://Assets/2D/UI/JoypadSelect.svg" id="20_tmef1"]
+
+[node name="Controls" type="Node2D"]
+script = ExtResource("1_jveni")
+
+[node name="Front" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Front"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Front/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -151.5
+offset_top = 30.0
+offset_right = 151.5
+offset_bottom = 71.0
+grow_horizontal = 2
+theme = ExtResource("2_bfi41")
+text = "TR_CONTROLS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkipButton" type="Button" parent="Front/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -66.0
+offset_right = -33.0
+offset_bottom = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("3_kia4x")
+text = "TR_SKIP"
+script = ExtResource("4_jnmf0")
+
+[node name="Columns" type="HBoxContainer" parent="Front/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -854.0
+offset_top = -284.0
+offset_right = 854.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="ControlsStack1" type="VBoxContainer" parent="Front/Control/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 17
+
+[node name="MovementGroup" type="HBoxContainer" parent="Front/Control/Columns/ControlsStack1"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Front/Control/Columns/ControlsStack1/MovementGroup"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Front/Control/Columns/ControlsStack1/MovementGroup/HBoxContainer"]
+custom_minimum_size = Vector2(180, 117)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonW" type="TextureRect" parent="Front/Control/Columns/ControlsStack1/MovementGroup/HBoxContainer/Control"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 4.0
+offset_right = 127.0
+offset_bottom = 57.0
+texture = ExtResource("3_s1tl3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Front/Control/Columns/ControlsStack1/MovementGroup/HBoxContainer/Control/ButtonW"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -25.5
+offset_right = 20.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ubctc")
+theme_override_font_sizes/font_size = 25
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonA" type="TextureRect" parent="Front/Control/Columns/ControlsStack1/MovementGroup/HBoxContainer/Control"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 58.0
+offset_right = 73.0
+offset_bottom = 111.0
+texture = ExtResource("3_s1tl3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Front/Control/Columns/ControlsStack1/MovementGroup/HBoxContainer/Control/ButtonA"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -26.5
+offset_right = 20.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ubctc")
+theme_override_font_sizes/font_size = 25
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonS" type="TextureRect" parent="Front/Control/Columns/ControlsStack1/MovementGroup/HBoxContainer/Control"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 58.0
+offset_right = 127.0
+offset_bottom = 111.0
+texture = ExtResource("3_s1tl3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Front/Control/Columns/ControlsStack1/MovementGroup/HBoxContainer/Control/ButtonS"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -26.5
+offset_right = 20.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ubctc")
+theme_override_font_sizes/font_size = 25
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonD" type="TextureRect" parent="Front/Control/Columns/ControlsStack1/MovementGroup/HBoxContainer/Control"]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 58.0
+offset_right = 181.0
+offset_bottom = 111.0
+texture = ExtResource("3_s1tl3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Front/Control/Columns/ControlsStack1/MovementGroup/HBoxContainer/Control/ButtonD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -26.5
+offset_right = 21.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ubctc")
+theme_override_font_sizes/font_size = 25
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonDirectional" type="TextureRect" parent="Front/Control/Columns/ControlsStack1/MovementGroup/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_wxsdq")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="LabelMovement" type="Label" parent="Front/Control/Columns/ControlsStack1/MovementGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_w8mpf")
+theme_override_font_sizes/font_size = 35
+text = "TR_MOVEMENT"
+
+[node name="JumpGroup" type="HBoxContainer" parent="Front/Control/Columns/ControlsStack1"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Front/Control/Columns/ControlsStack1/JumpGroup"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Front/Control/Columns/ControlsStack1/JumpGroup/HBoxContainer"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+
+[node name="ButtonSpace" type="TextureRect" parent="Front/Control/Columns/ControlsStack1/JumpGroup/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_g5vnh")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Front/Control/Columns/ControlsStack1/JumpGroup/HBoxContainer/Control/ButtonSpace"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -25.5
+offset_right = 20.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ubctc")
+theme_override_font_sizes/font_size = 30
+text = "TR_SPACE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonJump" type="TextureRect" parent="Front/Control/Columns/ControlsStack1/JumpGroup/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_oxb2b")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="LabelMovement" type="Label" parent="Front/Control/Columns/ControlsStack1/JumpGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_w8mpf")
+theme_override_font_sizes/font_size = 35
+text = "TR_JUMP"
+
+[node name="ActionGroup" type="HBoxContainer" parent="Front/Control/Columns/ControlsStack1"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Front/Control/Columns/ControlsStack1/ActionGroup"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Front/Control/Columns/ControlsStack1/ActionGroup/HBoxContainer"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+
+[node name="ButtonLeftMouse" type="TextureRect" parent="Front/Control/Columns/ControlsStack1/ActionGroup/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_2hn3r")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ButtonAction" type="TextureRect" parent="Front/Control/Columns/ControlsStack1/ActionGroup/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_7y1j1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="LabelAction" type="Label" parent="Front/Control/Columns/ControlsStack1/ActionGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_w8mpf")
+theme_override_font_sizes/font_size = 35
+text = "TR_ACTION"
+
+[node name="InteractGroup" type="HBoxContainer" parent="Front/Control/Columns/ControlsStack1"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Front/Control/Columns/ControlsStack1/InteractGroup"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Front/Control/Columns/ControlsStack1/InteractGroup/HBoxContainer"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+
+[node name="ButtonRightMouse" type="TextureRect" parent="Front/Control/Columns/ControlsStack1/InteractGroup/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_sjksk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ButtonInteract" type="TextureRect" parent="Front/Control/Columns/ControlsStack1/InteractGroup/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("14_27gu6")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="LabelInteract" type="Label" parent="Front/Control/Columns/ControlsStack1/InteractGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_w8mpf")
+theme_override_font_sizes/font_size = 35
+text = "TR_INTERACT"
+
+[node name="ControlsStack2" type="VBoxContainer" parent="Front/Control/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 17
+
+[node name="SprintGroup" type="HBoxContainer" parent="Front/Control/Columns/ControlsStack2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Front/Control/Columns/ControlsStack2/SprintGroup"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Front/Control/Columns/ControlsStack2/SprintGroup/HBoxContainer"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+
+[node name="ButtonShift" type="TextureRect" parent="Front/Control/Columns/ControlsStack2/SprintGroup/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_b5n3e")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Front/Control/Columns/ControlsStack2/SprintGroup/HBoxContainer/Control/ButtonShift"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -25.5
+offset_right = 20.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ubctc")
+theme_override_font_sizes/font_size = 30
+text = "TR_SHIFT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonSprint" type="TextureRect" parent="Front/Control/Columns/ControlsStack2/SprintGroup/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_qwxcp")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="LabelMovement" type="Label" parent="Front/Control/Columns/ControlsStack2/SprintGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_w8mpf")
+theme_override_font_sizes/font_size = 35
+text = "TR_SPRINT"
+
+[node name="InventoryGroup" type="HBoxContainer" parent="Front/Control/Columns/ControlsStack2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Front/Control/Columns/ControlsStack2/InventoryGroup"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Front/Control/Columns/ControlsStack2/InventoryGroup/HBoxContainer2"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+
+[node name="ButtonMiddleMouse" type="TextureRect" parent="Front/Control/Columns/ControlsStack2/InventoryGroup/HBoxContainer2/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_brga3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ButtonInventory" type="TextureRect" parent="Front/Control/Columns/ControlsStack2/InventoryGroup/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("18_g014k")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="LabelInventory" type="Label" parent="Front/Control/Columns/ControlsStack2/InventoryGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_w8mpf")
+theme_override_font_sizes/font_size = 35
+text = "TR_INVENTORY_SELECT"
+
+[node name="PauseGroup" type="HBoxContainer" parent="Front/Control/Columns/ControlsStack2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Front/Control/Columns/ControlsStack2/PauseGroup"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Front/Control/Columns/ControlsStack2/PauseGroup/HBoxContainer"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+
+[node name="ButtonEnter" type="TextureRect" parent="Front/Control/Columns/ControlsStack2/PauseGroup/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_b5n3e")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Front/Control/Columns/ControlsStack2/PauseGroup/HBoxContainer/Control/ButtonEnter"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -25.5
+offset_right = 20.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ubctc")
+theme_override_font_sizes/font_size = 30
+text = "TR_ENTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonPause" type="TextureRect" parent="Front/Control/Columns/ControlsStack2/PauseGroup/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("19_6e6nk")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="LabelPause" type="Label" parent="Front/Control/Columns/ControlsStack2/PauseGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_w8mpf")
+theme_override_font_sizes/font_size = 35
+text = "TR_PAUSE"
+
+[node name="MenuGroup" type="HBoxContainer" parent="Front/Control/Columns/ControlsStack2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Front/Control/Columns/ControlsStack2/MenuGroup"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Front/Control/Columns/ControlsStack2/MenuGroup/HBoxContainer2"]
+custom_minimum_size = Vector2(180, 62)
+layout_mode = 2
+
+[node name="ButtonEnter" type="TextureRect" parent="Front/Control/Columns/ControlsStack2/MenuGroup/HBoxContainer2/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s1tl3")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Front/Control/Columns/ControlsStack2/MenuGroup/HBoxContainer2/Control/ButtonEnter"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -29.5
+offset_right = 20.0
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ubctc")
+theme_override_font_sizes/font_size = 53
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonPause" type="TextureRect" parent="Front/Control/Columns/ControlsStack2/MenuGroup/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("20_tmef1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="LabelBack" type="Label" parent="Front/Control/Columns/ControlsStack2/MenuGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_w8mpf")
+theme_override_font_sizes/font_size = 35
+text = "TR_MENU"
+
+[node name="BlackScreen" type="ColorRect" parent="Front"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BlackScreenFader" type="Node" parent="Front/BlackScreen"]
+script = ExtResource("2_u4u24")
+AutoFadeIn = false
+StartVisible = true
+
+[connection signal="pressed" from="Front/Control/SkipButton" to="." method="_on_skip_button_pressed"]

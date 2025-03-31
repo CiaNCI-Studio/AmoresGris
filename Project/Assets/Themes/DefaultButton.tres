@@ -1,0 +1,27 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://kkt1erbkipo5"]
+
+[ext_resource type="FontFile" uid="uid://de10ohe7w4we4" path="res://Assets/Fonts/Sublima-ExtraBold.otf" id="1_csr4a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nbsl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lgu4p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqj6n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t5sfh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kp3gw"]
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.165655, 0.165657, 0.165657, 1)
+Button/colors/font_hover_pressed_color = Color(0.10748, 0.10748, 0.10748, 1)
+Button/colors/font_pressed_color = Color(0.215902, 0.215902, 0.215902, 1)
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_csr4a")
+Button/styles/disabled = SubResource("StyleBoxEmpty_7nbsl")
+Button/styles/focus = SubResource("StyleBoxEmpty_lgu4p")
+Button/styles/hover = SubResource("StyleBoxEmpty_bqj6n")
+Button/styles/normal = SubResource("StyleBoxEmpty_t5sfh")
+Button/styles/pressed = SubResource("StyleBoxEmpty_kp3gw")

@@ -1,0 +1,229 @@
+[gd_scene load_steps=14 format=3 uid="uid://cfp041r4xji6b"]
+
+[ext_resource type="Script" path="res://Scenes/Opening/opening_splash.gd" id="1_0j7ec"]
+[ext_resource type="Texture2D" uid="uid://3ylajf6omc44" path="res://Assets/2D/Logos/CiaNCI.svg" id="1_1gr0j"]
+[ext_resource type="Texture2D" uid="uid://bqns6plejj1w7" path="res://Assets/2D/Logos/CianCiText.svg" id="3_t73if"]
+[ext_resource type="Texture2D" uid="uid://c3yyv6ptw0iyp" path="res://Assets/2D/Logos/CiaNCI_Bucket.svg" id="4_jh0yw"]
+[ext_resource type="Texture2D" uid="uid://d0w45chf6lgov" path="res://Assets/2D/Logos/GodotLogo.svg" id="5_f0t5i"]
+[ext_resource type="Theme" uid="uid://bb7ahhgg2jgfs" path="res://Assets/Themes/DefaultLabel.tres" id="5_yj0pa"]
+[ext_resource type="Theme" uid="uid://kkt1erbkipo5" path="res://Assets/Themes/DefaultButton.tres" id="7_nxd55"]
+[ext_resource type="Script" path="res://addons/uiJuicer/bounce_button.gd" id="8_jllgk"]
+[ext_resource type="Shader" path="res://Assets/Shaders/CRT.gdshader" id="9_ajby2"]
+
+[sub_resource type="Gradient" id="Gradient_vmsqe"]
+colors = PackedColorArray(0.960784, 0.878431, 0.447059, 1, 0.930891, 0.834463, 0.311388, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6mq3c"]
+gradient = SubResource("Gradient_vmsqe")
+width = 2000
+height = 1300
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bdrwk"]
+shader = ExtResource("9_ajby2")
+shader_parameter/resolution = Vector2(1024, 720)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.05
+shader_parameter/noise_amount = 0.015
+shader_parameter/interference_amount = 0.112
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.036
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
+
+[sub_resource type="CameraTexture" id="CameraTexture_cupy1"]
+
+[node name="OpeningSplash" type="Node2D"]
+script = ExtResource("1_0j7ec")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(959.5, 537)
+scale = Vector2(1.2505, 1.04769)
+texture = SubResource("GradientTexture2D_6mq3c")
+
+[node name="ParticlesLayer" type="Node2D" parent="."]
+
+[node name="Pivot" type="Node2D" parent="."]
+position = Vector2(947, 71)
+scale = Vector2(1.47639, 1.47639)
+
+[node name="Logo" type="StaticBody2D" parent="Pivot"]
+position = Vector2(6, 264)
+scale = Vector2(0.823111, 0.823111)
+input_pickable = true
+
+[node name="LogoCollision" type="CollisionPolygon2D" parent="Pivot/Logo"]
+position = Vector2(23.6, -8.90001)
+scale = Vector2(0.871451, 0.871451)
+polygon = PackedVector2Array(-201.962, 159.504, -206.552, 121.636, -207.7, 80.3258, -203.109, 37.8679, -190.487, -3.44254, -173.274, -40.1629, -157.209, -61.9656, -150.324, -73.4407, -160.652, -90.6534, -162.947, -117.046, -152.619, -135.406, -135.406, -150.324, -120.489, -156.062, -102.128, -158.357, -83.7683, -153.767, -67.7031, -144.586, -58.5231, -131.964, -49.343, -131.964, -44.7529, -125.079, -10.3276, -126.226, 21.8027, -123.931, 51.638, -117.046, 82.6208, -103.276, 96.3909, -95.2434, 110.161, -117.046, 128.521, -131.964, 146.881, -135.406, 165.242, -130.816, 183.602, -121.636, 180.159, -110.161, 158.357, -119.341, 138.849, -122.784, 125.079, -115.899, 110.161, -97.5385, 106.719, -90.6534, 127.374, -75.7357, 146.881, -56.2281, 162.947, -36.7204, 177.864, -16.0652, 190.487, 6.88507, 201.962, 30.9828, 207.7, 48.1955, 180.159, 40.1629, 156.062, 34.4253, 129.669, 29.8353, 100.981, 26.3928, 95.2435, 25.2452, 96.3909, 39.0154, 94.0959, 60.8181, 86.0634, 86.0634, 67.7032, 110.161, 49.343, 125.079, 22.9503, 137.701, -5.73755, 142.291, -36.7203, 138.849, -60.8181, 127.374, -76.8832, 114.751, -91.8008, 96.3909, -105.571, 75.7357, -128.521, 89.5059, -156.062, 111.309, -182.454, 137.701)
+
+[node name="CiaNci" type="Sprite2D" parent="Pivot/Logo"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(23.6, -8.90001)
+scale = Vector2(0.35456, 0.35456)
+texture = ExtResource("1_1gr0j")
+
+[node name="CianCiText" type="Sprite2D" parent="Pivot/Logo"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(10.9341, 241.766)
+texture = ExtResource("3_t73if")
+
+[node name="Bucket" type="StaticBody2D" parent="Pivot"]
+position = Vector2(-2, 260)
+scale = Vector2(0.708015, 0.708015)
+input_pickable = true
+
+[node name="CiaNciBucket" type="Sprite2D" parent="Pivot/Bucket"]
+position = Vector2(21.186, -31.0728)
+scale = Vector2(0.581244, 0.581244)
+texture = ExtResource("4_jh0yw")
+
+[node name="BucketColision" type="CollisionPolygon2D" parent="Pivot/Bucket"]
+polygon = PackedVector2Array(-374.286, -329.089, -382.76, -185.024, -375.835, -74.3351, -377.111, 135.59, -371.461, 223.159, -252.82, 230.221, -73.4448, 221.747, 120.054, 231.634, 296.604, 223.159, 411.008, 223.159, 405.359, 142.652, 412.421, 64.9704, 402.534, -67.7952, 408.183, -331.914, 456.205, -331.914, 454.793, 264.119, -415.245, 262.706, -415.245, -329.089)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(1012, 1195)
+scale = Vector2(2.25065, 2.25065)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor"]
+position = Vector2(1, -20)
+polygon = PackedVector2Array(-513, 71, -434, 29, -349, -2, -250, -19, -123, -25, -1, -30, 126, -25, 249, -6, 387, 18, 495, 76)
+
+[node name="Points" type="Node2D" parent="."]
+position = Vector2(935, -67)
+scale = Vector2(1.0951, 1.52097)
+
+[node name="Point1" type="Marker2D" parent="Points"]
+position = Vector2(2, 1)
+
+[node name="Point2" type="Marker2D" parent="Points"]
+position = Vector2(39, 2)
+
+[node name="Point3" type="Marker2D" parent="Points"]
+position = Vector2(79, 2)
+
+[node name="Point4" type="Marker2D" parent="Points"]
+position = Vector2(118, 2)
+
+[node name="Point5" type="Marker2D" parent="Points"]
+position = Vector2(159, 2)
+
+[node name="Point6" type="Marker2D" parent="Points"]
+position = Vector2(200, 2)
+
+[node name="Point7" type="Marker2D" parent="Points"]
+position = Vector2(245, 2)
+
+[node name="Point8" type="Marker2D" parent="Points"]
+position = Vector2(292, 2)
+
+[node name="Point9" type="Marker2D" parent="Points"]
+position = Vector2(343, 2)
+
+[node name="Point10" type="Marker2D" parent="Points"]
+position = Vector2(-31, 2)
+
+[node name="Point11" type="Marker2D" parent="Points"]
+position = Vector2(-67, 2)
+
+[node name="Point12" type="Marker2D" parent="Points"]
+position = Vector2(-103, 2)
+
+[node name="Point13" type="Marker2D" parent="Points"]
+position = Vector2(-134, 2)
+
+[node name="Point14" type="Marker2D" parent="Points"]
+position = Vector2(-165, 2)
+
+[node name="Point15" type="Marker2D" parent="Points"]
+position = Vector2(-200, 2)
+
+[node name="Point16" type="Marker2D" parent="Points"]
+position = Vector2(-235, 2)
+
+[node name="Point17" type="Marker2D" parent="Points"]
+position = Vector2(-270, 2)
+
+[node name="Point18" type="Marker2D" parent="Points"]
+position = Vector2(-310, 2)
+
+[node name="Front" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Front"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GodotStack" type="VBoxContainer" parent="Front/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 58.0
+offset_top = -218.0
+offset_right = 407.0
+offset_bottom = -51.0
+grow_vertical = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="Front/Control/GodotStack"]
+layout_mode = 2
+theme = ExtResource("5_yj0pa")
+text = "TR_PROUD"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Front/Control/GodotStack"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("5_f0t5i")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="BlackScreen" type="ColorRect" parent="Front/Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SkipButton" type="Button" parent="Front/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -261.0
+offset_top = -109.0
+offset_right = -88.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("7_nxd55")
+text = "TR_SKIP"
+script = ExtResource("8_jllgk")
+
+[node name="PostProc" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="TextureRect" parent="PostProc"]
+material = SubResource("ShaderMaterial_bdrwk")
+use_parent_material = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("CameraTexture_cupy1")
+
+[connection signal="pressed" from="Front/Control/SkipButton" to="." method="_on_skip_button_pressed"]

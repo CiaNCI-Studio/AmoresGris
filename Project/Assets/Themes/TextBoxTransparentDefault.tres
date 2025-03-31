@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://c5rwwax6x4rqt"]
+
+[ext_resource type="FontFile" uid="uid://de10ohe7w4we4" path="res://Assets/Fonts/Sublima-ExtraBold.otf" id="1_ltfms"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hlavw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0434n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5bk7m"]
+
+[resource]
+TextEdit/font_sizes/font_size = 18
+TextEdit/fonts/font = ExtResource("1_ltfms")
+TextEdit/styles/focus = SubResource("StyleBoxEmpty_hlavw")
+TextEdit/styles/normal = SubResource("StyleBoxEmpty_0434n")
+TextEdit/styles/read_only = SubResource("StyleBoxEmpty_5bk7m")

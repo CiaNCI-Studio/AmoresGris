@@ -1,0 +1,42 @@
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://dqb5bisyaahmt"]
+
+[ext_resource type="FontFile" uid="uid://de10ohe7w4we4" path="res://Assets/Fonts/Sublima-ExtraBold.otf" id="1_jsond"]
+[ext_resource type="Texture2D" uid="uid://bxpfom8ucx6vc" path="res://Assets/2D/UI/Translation.svg" id="2_7lri5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yp5uu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xuws"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pcqui"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yyqci"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_51bpr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_la2ks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ssx2e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mqfue"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ai4gm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_whxc4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17hep"]
+
+[resource]
+OptionButton/font_sizes/font_size = 32
+OptionButton/fonts/font = ExtResource("1_jsond")
+OptionButton/icons/icon = ExtResource("2_7lri5")
+OptionButton/styles/disabled = SubResource("StyleBoxEmpty_yp5uu")
+OptionButton/styles/disabled_mirrored = SubResource("StyleBoxEmpty_3xuws")
+OptionButton/styles/focus = SubResource("StyleBoxEmpty_pcqui")
+OptionButton/styles/hover = SubResource("StyleBoxEmpty_yyqci")
+OptionButton/styles/hover_mirrored = SubResource("StyleBoxEmpty_51bpr")
+OptionButton/styles/hover_pressed = SubResource("StyleBoxEmpty_la2ks")
+OptionButton/styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ssx2e")
+OptionButton/styles/normal = SubResource("StyleBoxEmpty_mqfue")
+OptionButton/styles/normal_mirrored = SubResource("StyleBoxEmpty_ai4gm")
+OptionButton/styles/pressed = SubResource("StyleBoxEmpty_whxc4")
+OptionButton/styles/pressed_mirrored = SubResource("StyleBoxEmpty_17hep")

@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://da88fm01nouvx"]
+
+[ext_resource type="Script" path="res://Scenes/Stages/first_run_cut_scene.gd" id="1_0pubk"]
+[ext_resource type="Script" path="res://addons/uiJuicer/Fader.gd" id="2_e61iu"]
+[ext_resource type="Theme" uid="uid://c8wwbt4is82pd" path="res://Assets/Themes/DefaultButton_Light.tres" id="2_lpre1"]
+[ext_resource type="Script" path="res://addons/uiJuicer/bounce_button.gd" id="3_novof"]
+[ext_resource type="Theme" uid="uid://cmfndxokwpbft" path="res://Assets/Themes/TitleTheme.tres" id="5_pa045"]
+
+[node name="FirstRunCutScene" type="Node2D"]
+script = ExtResource("1_0pubk")
+
+[node name="Front" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Front"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SkipButton" type="Button" parent="Front/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -66.0
+offset_right = -33.0
+offset_bottom = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_lpre1")
+text = "TR_SKIP"
+script = ExtResource("3_novof")
+
+[node name="Label" type="Label" parent="Front/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -20.5
+offset_right = 102.0
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_pa045")
+text = "Cut Scene"
+
+[node name="BlackScreen" type="ColorRect" parent="Front/Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Fader" type="Node" parent="Front/Control/BlackScreen"]
+script = ExtResource("2_e61iu")
+AutoFadeIn = false
+StartVisible = true
+
+[connection signal="pressed" from="Front/Control/SkipButton" to="." method="_on_skip_button_pressed"]

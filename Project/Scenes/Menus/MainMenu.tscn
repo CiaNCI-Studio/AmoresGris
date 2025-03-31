@@ -1,0 +1,329 @@
+[gd_scene load_steps=12 format=3 uid="uid://ci6fa5e7cpnqq"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/main_menu.gd" id="1_87uu1"]
+[ext_resource type="Theme" uid="uid://cmfndxokwpbft" path="res://Assets/Themes/TitleTheme.tres" id="2_lg251"]
+[ext_resource type="Script" path="res://addons/uiJuicer/fadeLabel.gd" id="3_kqyq3"]
+[ext_resource type="Theme" uid="uid://c8wwbt4is82pd" path="res://Assets/Themes/DefaultButton_Light.tres" id="4_64l0l"]
+[ext_resource type="Script" path="res://addons/uiJuicer/fadeButton.gd" id="5_o3kib"]
+[ext_resource type="Theme" uid="uid://buiuaglnsgymo" path="res://Assets/Themes/DefaultLabel_Light.tres" id="6_or3ij"]
+[ext_resource type="Theme" uid="uid://dqb5bisyaahmt" path="res://Assets/Themes/DefaultOption_Light.tres" id="7_h78sn"]
+[ext_resource type="Script" path="res://addons/uiJuicer/Fader.gd" id="7_hgh3f"]
+[ext_resource type="Texture2D" uid="uid://d4n3j4lvatwxb" path="res://addons/dialogic/Editor/Images/Pieces/warning.svg" id="9_dilf1"]
+[ext_resource type="Texture2D" uid="uid://bti2s7i3qx3l3" path="res://Assets/2D/UI/Next.svg" id="10_bckbi"]
+
+[sub_resource type="Theme" id="Theme_s7tt8"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_87uu1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BlackScreen" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BlackScreenFader" type="Node" parent="CanvasLayer/BlackScreen"]
+script = ExtResource("7_hgh3f")
+AutoFadeIn = false
+StartVisible = true
+
+[node name="Main" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainFader" type="Node" parent="CanvasLayer/Main"]
+script = ExtResource("7_hgh3f")
+AutoFadeIn = false
+StartVisible = true
+FadeInTime = 0.5
+FadeOutTime = 0.5
+
+[node name="Title" type="Label" parent="CanvasLayer/Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -217.0
+offset_right = 304.0
+offset_bottom = -97.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_lg251")
+text = "TR_TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_kqyq3")
+AutoFadeIn = false
+
+[node name="MenuContainer" type="VBoxContainer" parent="CanvasLayer/Main"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -316.0
+offset_top = -180.0
+offset_right = -68.0
+offset_bottom = -63.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 9
+
+[node name="LoadGameButton" type="Button" parent="CanvasLayer/Main/MenuContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../LanguageContainer/LanguageOpt")
+focus_neighbor_bottom = NodePath("../NewGameButton")
+focus_next = NodePath("../NewGameButton")
+focus_previous = NodePath("../../LanguageContainer/LanguageOpt")
+theme = ExtResource("4_64l0l")
+text = "TR_LOAD_GAME"
+script = ExtResource("5_o3kib")
+AutoFadeIn = false
+
+[node name="NewGameButton" type="Button" parent="CanvasLayer/Main/MenuContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../LoadGameButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+focus_next = NodePath("../SettingsButton")
+focus_previous = NodePath("../LoadGameButton")
+theme = ExtResource("4_64l0l")
+text = "TR_NEW_GAME"
+script = ExtResource("5_o3kib")
+AutoFadeIn = false
+
+[node name="SettingsButton" type="Button" parent="CanvasLayer/Main/MenuContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../NewGameButton")
+focus_neighbor_bottom = NodePath("../AboutButton")
+focus_next = NodePath("../AboutButton")
+focus_previous = NodePath("../NewGameButton")
+theme = ExtResource("4_64l0l")
+text = "TR_OPTIONS"
+script = ExtResource("5_o3kib")
+AutoFadeIn = false
+
+[node name="AboutButton" type="Button" parent="CanvasLayer/Main/MenuContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../SettingsButton")
+theme = ExtResource("4_64l0l")
+text = "TR_ABOUT"
+script = ExtResource("5_o3kib")
+AutoFadeIn = false
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/Main/MenuContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../AboutButton")
+focus_neighbor_bottom = NodePath("../../LanguageContainer/LanguageOpt")
+focus_next = NodePath("../../LanguageContainer/LanguageOpt")
+focus_previous = NodePath("../AboutButton")
+theme = ExtResource("4_64l0l")
+text = "TR_EXIT"
+script = ExtResource("5_o3kib")
+AutoFadeIn = false
+
+[node name="LanguageContainer" type="HBoxContainer" parent="CanvasLayer/Main"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -472.0
+offset_top = 18.0
+offset_right = -23.0
+offset_bottom = 58.0
+grow_horizontal = 0
+
+[node name="LanguageLabel" type="Label" parent="CanvasLayer/Main/LanguageContainer"]
+layout_mode = 2
+theme = ExtResource("6_or3ij")
+text = "TR_LANGUAGE"
+script = ExtResource("3_kqyq3")
+AutoFadeIn = false
+
+[node name="LanguageOpt" type="OptionButton" parent="CanvasLayer/Main/LanguageContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_top = NodePath("../../MenuContainer/ExitButton")
+focus_neighbor_bottom = NodePath("../../MenuContainer/LoadGameButton")
+focus_next = NodePath("../../MenuContainer/LoadGameButton")
+focus_previous = NodePath("../../MenuContainer/ExitButton")
+theme = ExtResource("7_h78sn")
+selected = 0
+item_count = 3
+popup/item_0/text = "Portugês"
+popup/item_1/text = "Español"
+popup/item_1/id = 1
+popup/item_2/text = "English"
+popup/item_2/id = 2
+
+[node name="LanguageOptFader" type="Node" parent="CanvasLayer/Main/LanguageContainer/LanguageOpt"]
+script = ExtResource("7_hgh3f")
+AutoFadeIn = false
+
+[node name="LoadGame" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_s7tt8")
+
+[node name="LoadGameFader" type="Node" parent="CanvasLayer/LoadGame"]
+script = ExtResource("7_hgh3f")
+AutoFadeIn = false
+FadeInTime = 0.5
+FadeOutTime = 0.5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/LoadGame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -407.0
+offset_top = -212.0
+offset_right = 407.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="SavesStack" type="VBoxContainer" parent="CanvasLayer/LoadGame/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="LoadBack" type="Button" parent="CanvasLayer/LoadGame"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -163.0
+offset_top = -68.0
+offset_right = -58.0
+offset_bottom = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("4_64l0l")
+text = "TR_BACK"
+
+[node name="NewGame" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_s7tt8")
+
+[node name="NewGameFader" type="Node" parent="CanvasLayer/NewGame"]
+script = ExtResource("7_hgh3f")
+AutoFadeIn = false
+FadeInTime = 0.5
+FadeOutTime = 0.5
+
+[node name="Container" type="VBoxContainer" parent="CanvasLayer/NewGame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -407.0
+offset_top = -212.0
+offset_right = 407.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="NameGroup" type="HBoxContainer" parent="CanvasLayer/NewGame/Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/NewGame/Container/NameGroup"]
+layout_mode = 2
+theme = ExtResource("6_or3ij")
+theme_override_font_sizes/font_size = 40
+text = "TR_NAME"
+
+[node name="NewGameName" type="TextEdit" parent="CanvasLayer/NewGame/Container/NameGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+scroll_fit_content_height = true
+
+[node name="NewNameWarning" type="TextureRect" parent="CanvasLayer/NewGame/Container/NameGroup"]
+visible = false
+layout_mode = 2
+texture = ExtResource("9_dilf1")
+stretch_mode = 5
+
+[node name="NameButtonGroup" type="HBoxContainer" parent="CanvasLayer/NewGame/Container"]
+layout_mode = 2
+alignment = 2
+
+[node name="CreateNewGame" type="Button" parent="CanvasLayer/NewGame/Container/NameButtonGroup"]
+layout_mode = 2
+theme = ExtResource("4_64l0l")
+text = "TR_NEW_GAME"
+icon = ExtResource("10_bckbi")
+icon_alignment = 2
+
+[node name="NewBack" type="Button" parent="CanvasLayer/NewGame"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -163.0
+offset_top = -68.0
+offset_right = -58.0
+offset_bottom = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("4_64l0l")
+text = "TR_BACK"
+
+[node name="DeleteConfirmationDialog" type="ConfirmationDialog" parent="CanvasLayer"]
+title = "TR_ATTENTION"
+initial_position = 1
+ok_button_text = "TR_OK"
+dialog_text = "TR_CONFIRM_DELETE"
+cancel_button_text = "TR_CANCEL"
+
+[connection signal="pressed" from="CanvasLayer/Main/MenuContainer/LoadGameButton" to="." method="_on_load_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main/MenuContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main/MenuContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main/MenuContainer/AboutButton" to="." method="_on_about_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main/MenuContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="item_selected" from="CanvasLayer/Main/LanguageContainer/LanguageOpt" to="." method="_on_language_opt_item_selected"]
+[connection signal="pressed" from="CanvasLayer/LoadGame/LoadBack" to="." method="BackButtons"]
+[connection signal="pressed" from="CanvasLayer/NewGame/Container/NameButtonGroup/CreateNewGame" to="." method="_on_create_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/NewGame/NewBack" to="." method="BackButtons"]
+[connection signal="canceled" from="CanvasLayer/DeleteConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
+[connection signal="confirmed" from="CanvasLayer/DeleteConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]

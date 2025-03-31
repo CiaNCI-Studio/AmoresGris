@@ -1,0 +1,148 @@
+[gd_scene load_steps=6 format=3 uid="uid://blnu0vtsk5obv"]
+
+[ext_resource type="Script" path="res://UI/pause.gd" id="1_fyyyx"]
+[ext_resource type="Script" path="res://addons/uiJuicer/Fader.gd" id="1_ler6u"]
+[ext_resource type="Theme" uid="uid://cmfndxokwpbft" path="res://Assets/Themes/TitleTheme.tres" id="3_5vo0a"]
+[ext_resource type="Theme" uid="uid://c8wwbt4is82pd" path="res://Assets/Themes/DefaultButton_Light.tres" id="3_lhdog"]
+[ext_resource type="Script" path="res://addons/uiJuicer/fadeButton.gd" id="4_u0gck"]
+
+[node name="Pause" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fyyyx")
+
+[node name="Fader" type="Node" parent="."]
+script = ExtResource("1_ler6u")
+AutoFadeIn = false
+FadeInTime = 0.5
+FadeOutTime = 0.5
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.752941)
+
+[node name="PauseGroup" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="PauseGroup"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -121.0
+offset_top = 90.0
+offset_right = 121.0
+offset_bottom = 131.0
+grow_horizontal = 2
+theme = ExtResource("3_5vo0a")
+text = "TR_PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuContainer" type="VBoxContainer" parent="PauseGroup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -49.0
+offset_right = 124.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 13
+
+[node name="ContinueButton" type="Button" parent="PauseGroup/MenuContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../MainMenuButton")
+focus_neighbor_bottom = NodePath("../SaveButton")
+focus_next = NodePath("../SaveButton")
+focus_previous = NodePath("../MainMenuButton")
+theme = ExtResource("3_lhdog")
+text = "TR_CONTINUE"
+script = ExtResource("4_u0gck")
+AutoFadeIn = false
+FadeInTime = 0.5
+FadeOutTime = 0.5
+
+[node name="SaveButton" type="Button" parent="PauseGroup/MenuContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../ContinueButton")
+focus_neighbor_bottom = NodePath("../OptionsButton")
+focus_next = NodePath("../OptionsButton")
+focus_previous = NodePath("../ContinueButton")
+theme = ExtResource("3_lhdog")
+text = "TR_SAVE"
+script = ExtResource("4_u0gck")
+AutoFadeIn = false
+FadeInTime = 0.5
+FadeOutTime = 0.5
+
+[node name="OptionsButton" type="Button" parent="PauseGroup/MenuContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../SaveButton")
+focus_neighbor_bottom = NodePath("../MainMenuButton")
+focus_next = NodePath("../MainMenuButton")
+focus_previous = NodePath("../SaveButton")
+theme = ExtResource("3_lhdog")
+text = "TR_OPTIONS"
+script = ExtResource("4_u0gck")
+AutoFadeIn = false
+FadeInTime = 0.5
+FadeOutTime = 0.5
+
+[node name="MainMenuButton" type="Button" parent="PauseGroup/MenuContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../OptionsButton")
+focus_neighbor_bottom = NodePath("../ContinueButton")
+focus_next = NodePath("../ContinueButton")
+focus_previous = NodePath("../OptionsButton")
+theme = ExtResource("3_lhdog")
+text = "TR_MAIN_MENU"
+script = ExtResource("4_u0gck")
+AutoFadeIn = false
+FadeInTime = 0.5
+FadeOutTime = 0.5
+
+[node name="PauseGroupFader" type="Node" parent="PauseGroup"]
+script = ExtResource("1_ler6u")
+AutoFadeIn = false
+StartVisible = true
+FadeInTime = 0.5
+FadeOutTime = 0.5
+
+[node name="BlackScreen" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BlackScrenFader" type="Node" parent="BlackScreen"]
+script = ExtResource("1_ler6u")
+AutoFadeIn = false
+
+[connection signal="pressed" from="PauseGroup/MenuContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PauseGroup/MenuContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="PauseGroup/MenuContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="PauseGroup/MenuContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
