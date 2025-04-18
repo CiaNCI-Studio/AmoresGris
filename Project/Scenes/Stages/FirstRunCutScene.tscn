@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://da88fm01nouvx"]
 
-[ext_resource type="Script" path="res://Scenes/Stages/first_run_cut_scene.gd" id="1_0pubk"]
-[ext_resource type="Script" path="res://addons/uiJuicer/Fader.gd" id="2_e61iu"]
+[ext_resource type="Script" uid="uid://bdxpqpbc60ksa" path="res://Scenes/Stages/first_run_cut_scene.gd" id="1_0pubk"]
+[ext_resource type="Script" uid="uid://dqk7ntehf58k6" path="res://addons/uiJuicer/Fader.gd" id="2_e61iu"]
 [ext_resource type="Theme" uid="uid://c8wwbt4is82pd" path="res://Assets/Themes/DefaultButton_Light.tres" id="2_lpre1"]
-[ext_resource type="Script" path="res://addons/uiJuicer/bounce_button.gd" id="3_novof"]
+[ext_resource type="Script" uid="uid://x6ymfvx2p5v2" path="res://addons/uiJuicer/bounce_button.gd" id="3_novof"]
 [ext_resource type="Theme" uid="uid://cmfndxokwpbft" path="res://Assets/Themes/TitleTheme.tres" id="5_pa045"]
 
 [node name="FirstRunCutScene" type="Node2D"]

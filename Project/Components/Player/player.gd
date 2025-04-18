@@ -1,9 +1,13 @@
-extends CharacterBody3D
-class_name Player
+class_name Player extends CharacterBody2D
 
-@export var Hp : int = 100
+@onready var sampler_instrument: SamplerInstrument = $SamplerInstrument
 
-@onready var third_person_controler_3d: ThirdPersonControler3D = $ThirdPersonControler3D
-
-func _physics_process(delta: float) -> void:
+func _ready() -> void:
+	NotesColorService.NotePressed.connect(PlayNote)
+	NotesColorService.NoteReleased.connect(ReleaseNote)
+	
+func PlayNote(note : NoteEvent):	
+	sampler_instrument.play_note(note.NoteBase.NoteName, note.NoteBase.Octave)
+		
+func ReleaseNote(note : NoteEvent):
 	pass

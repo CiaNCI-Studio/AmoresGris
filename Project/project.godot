@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="GameTemplate"
+config/name="AmoresGris"
 run/main_scene="res://Scenes/Opening/OpeningSplash.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
@@ -25,6 +25,8 @@ GameState="*res://Scripts/GameState.gd"
 PlayerState="*res://Scripts/PlayerState.gd"
 GameOptions="*res://Scripts/GameOptions.gd"
 GlobalAudio="*res://Scripts/GlobalAudio.gd"
+NotesColorService="*res://Scripts/NotesColorService.gd"
+NoteValue="*res://addons/SimpleSampler/note_value.gd"
 
 [dialogic]
 
@@ -66,7 +68,7 @@ window/stretch/aspect="keep_height"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/3d_controls_toolkit/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/saveEngine/plugin.cfg", "res://addons/uiJuicer/plugin.cfg")
+enabled=PackedStringArray("res://addons/2d_controls_toolkit/plugin.cfg", "res://addons/SimpleSampler/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/saveEngine/plugin.cfg", "res://addons/uiJuicer/plugin.cfg")
 
 [file_customization]
 
@@ -82,6 +84,7 @@ folder_colors={
 [global_group]
 
 saveAgent=""
+player="player group"
 
 [input]
 

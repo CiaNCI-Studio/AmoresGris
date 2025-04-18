@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://dltg54v2noj2n"]
 
-[ext_resource type="Script" path="res://UI/settings.gd" id="1_bycen"]
-[ext_resource type="Script" path="res://addons/uiJuicer/Fader.gd" id="2_vbrjy"]
+[ext_resource type="Script" uid="uid://briibobbc3mky" path="res://UI/settings.gd" id="1_bycen"]
+[ext_resource type="Script" uid="uid://dqk7ntehf58k6" path="res://addons/uiJuicer/Fader.gd" id="2_vbrjy"]
 [ext_resource type="Theme" uid="uid://buiuaglnsgymo" path="res://Assets/Themes/DefaultLabel_Light.tres" id="3_7enep"]
-[ext_resource type="Script" path="res://addons/uiJuicer/fadeLabel.gd" id="4_3rlf5"]
+[ext_resource type="Script" uid="uid://dfkio5csrgf1e" path="res://addons/uiJuicer/fadeLabel.gd" id="4_3rlf5"]
 [ext_resource type="Theme" uid="uid://dqb5bisyaahmt" path="res://Assets/Themes/DefaultOption_Light.tres" id="5_5hwwc"]
 [ext_resource type="Theme" uid="uid://c8wwbt4is82pd" path="res://Assets/Themes/DefaultButton_Light.tres" id="6_o0866"]
 [ext_resource type="Theme" uid="uid://cmfndxokwpbft" path="res://Assets/Themes/TitleTheme.tres" id="7_f6e1b"]

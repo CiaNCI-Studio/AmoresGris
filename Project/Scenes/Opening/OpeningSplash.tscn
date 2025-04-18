@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=3 uid="uid://cfp041r4xji6b"]
 
-[ext_resource type="Script" path="res://Scenes/Opening/opening_splash.gd" id="1_0j7ec"]
+[ext_resource type="Script" uid="uid://dgcegehos0xy" path="res://Scenes/Opening/opening_splash.gd" id="1_0j7ec"]
 [ext_resource type="Texture2D" uid="uid://3ylajf6omc44" path="res://Assets/2D/Logos/CiaNCI.svg" id="1_1gr0j"]
 [ext_resource type="Texture2D" uid="uid://bqns6plejj1w7" path="res://Assets/2D/Logos/CianCiText.svg" id="3_t73if"]
 [ext_resource type="Texture2D" uid="uid://c3yyv6ptw0iyp" path="res://Assets/2D/Logos/CiaNCI_Bucket.svg" id="4_jh0yw"]
 [ext_resource type="Texture2D" uid="uid://d0w45chf6lgov" path="res://Assets/2D/Logos/GodotLogo.svg" id="5_f0t5i"]
 [ext_resource type="Theme" uid="uid://bb7ahhgg2jgfs" path="res://Assets/Themes/DefaultLabel.tres" id="5_yj0pa"]
 [ext_resource type="Theme" uid="uid://kkt1erbkipo5" path="res://Assets/Themes/DefaultButton.tres" id="7_nxd55"]
-[ext_resource type="Script" path="res://addons/uiJuicer/bounce_button.gd" id="8_jllgk"]
-[ext_resource type="Shader" path="res://Assets/Shaders/CRT.gdshader" id="9_ajby2"]
+[ext_resource type="Script" uid="uid://x6ymfvx2p5v2" path="res://addons/uiJuicer/bounce_button.gd" id="8_jllgk"]
+[ext_resource type="Shader" uid="uid://clv1ksi8c2iyp" path="res://Assets/Shaders/CRT.gdshader" id="9_ajby2"]
 
 [sub_resource type="Gradient" id="Gradient_vmsqe"]
 colors = PackedColorArray(0.960784, 0.878431, 0.447059, 1, 0.930891, 0.834463, 0.311388, 1)

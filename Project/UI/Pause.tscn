@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://blnu0vtsk5obv"]
 
-[ext_resource type="Script" path="res://UI/pause.gd" id="1_fyyyx"]
-[ext_resource type="Script" path="res://addons/uiJuicer/Fader.gd" id="1_ler6u"]
+[ext_resource type="Script" uid="uid://d2ntaqbnhaegv" path="res://UI/pause.gd" id="1_fyyyx"]
+[ext_resource type="Script" uid="uid://dqk7ntehf58k6" path="res://addons/uiJuicer/Fader.gd" id="1_ler6u"]
 [ext_resource type="Theme" uid="uid://cmfndxokwpbft" path="res://Assets/Themes/TitleTheme.tres" id="3_5vo0a"]
 [ext_resource type="Theme" uid="uid://c8wwbt4is82pd" path="res://Assets/Themes/DefaultButton_Light.tres" id="3_lhdog"]
-[ext_resource type="Script" path="res://addons/uiJuicer/fadeButton.gd" id="4_u0gck"]
+[ext_resource type="Script" uid="uid://q80f422ouris" path="res://addons/uiJuicer/fadeButton.gd" id="4_u0gck"]
 
 [node name="Pause" type="Control"]
 process_mode = 3

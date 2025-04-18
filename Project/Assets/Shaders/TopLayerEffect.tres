@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bx5rsu4s6py0q"]
+
+[ext_resource type="Shader" uid="uid://b0own6vini8y4" path="res://Assets/Shaders/TopLayerShader.tres" id="1_201w3"]
+[ext_resource type="Texture2D" uid="uid://c6fyow6t0nkki" path="res://Assets/2D/Textures/Foreground.png" id="2_ew6pq"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rhccp"]
+frequency = 0.008
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nc056"]
+width = 2048
+height = 2048
+invert = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_rhccp")
+
+[resource]
+shader = ExtResource("1_201w3")
+shader_parameter/CoverStrenght = 0.3
+shader_parameter/CoverTexture = ExtResource("2_ew6pq")
+shader_parameter/Distortion = SubResource("NoiseTexture2D_nc056")
+shader_parameter/DistortionStrenght = 0.01

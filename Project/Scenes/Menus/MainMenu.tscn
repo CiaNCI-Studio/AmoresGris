@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://ci6fa5e7cpnqq"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/main_menu.gd" id="1_87uu1"]
+[ext_resource type="Script" uid="uid://4bmak8v523dd" path="res://Scenes/Menus/main_menu.gd" id="1_87uu1"]
 [ext_resource type="Theme" uid="uid://cmfndxokwpbft" path="res://Assets/Themes/TitleTheme.tres" id="2_lg251"]
-[ext_resource type="Script" path="res://addons/uiJuicer/fadeLabel.gd" id="3_kqyq3"]
+[ext_resource type="Script" uid="uid://dfkio5csrgf1e" path="res://addons/uiJuicer/fadeLabel.gd" id="3_kqyq3"]
 [ext_resource type="Theme" uid="uid://c8wwbt4is82pd" path="res://Assets/Themes/DefaultButton_Light.tres" id="4_64l0l"]
-[ext_resource type="Script" path="res://addons/uiJuicer/fadeButton.gd" id="5_o3kib"]
+[ext_resource type="Script" uid="uid://q80f422ouris" path="res://addons/uiJuicer/fadeButton.gd" id="5_o3kib"]
 [ext_resource type="Theme" uid="uid://buiuaglnsgymo" path="res://Assets/Themes/DefaultLabel_Light.tres" id="6_or3ij"]
 [ext_resource type="Theme" uid="uid://dqb5bisyaahmt" path="res://Assets/Themes/DefaultOption_Light.tres" id="7_h78sn"]
-[ext_resource type="Script" path="res://addons/uiJuicer/Fader.gd" id="7_hgh3f"]
+[ext_resource type="Script" uid="uid://dqk7ntehf58k6" path="res://addons/uiJuicer/Fader.gd" id="7_hgh3f"]
 [ext_resource type="Texture2D" uid="uid://d4n3j4lvatwxb" path="res://addons/dialogic/Editor/Images/Pieces/warning.svg" id="9_dilf1"]
 [ext_resource type="Texture2D" uid="uid://bti2s7i3qx3l3" path="res://Assets/2D/UI/Next.svg" id="10_bckbi"]
 

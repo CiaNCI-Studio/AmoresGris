@@ -1,34 +1,824 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnwqra658xesk"]
+[gd_scene load_steps=183 format=3 uid="uid://df5fil5bw4u0j"]
 
-[ext_resource type="Script" path="res://Components/Player/player.gd" id="1_ddp38"]
-[ext_resource type="Script" path="res://addons/3d_controls_toolkit/ThirdPersonControler3D.gd" id="1_yem0v"]
-[ext_resource type="Script" path="res://addons/saveEngine/scripts/SaveElement3D.gd" id="3_7njhj"]
-[ext_resource type="PackedScene" uid="uid://blnu0vtsk5obv" path="res://UI/Pause.tscn" id="4_aen34"]
+[ext_resource type="Script" uid="uid://yubo6b6hoqam" path="res://addons/2d_controls_toolkit/SideScrollingControler2D.gd" id="1_a50ic"]
+[ext_resource type="Script" uid="uid://cw61tjqtrqj4x" path="res://Components/Player/player.gd" id="1_ddp38"]
+[ext_resource type="PackedScene" uid="uid://bcegs2k8ek6q7" path="res://Components/Player/PlayerAnim.tscn" id="2_cyqth"]
+[ext_resource type="Script" uid="uid://cfqoxd54gtglh" path="res://addons/SimpleSampler/sampler_instrument.gd" id="4_n5pqa"]
+[ext_resource type="Script" uid="uid://568eu7ak3h1m" path="res://addons/SimpleSampler/sample_resource.gd" id="5_c5wmn"]
+[ext_resource type="AudioStream" uid="uid://tjdkbsyf235m" path="res://Assets/Audio/Samples/Piano/A0.wav" id="6_thsem"]
+[ext_resource type="AudioStream" uid="uid://bakmot302cpy" path="res://Assets/Audio/Samples/Piano/A#0.wav" id="7_ii58f"]
+[ext_resource type="AudioStream" uid="uid://bfryaun4kql4x" path="res://Assets/Audio/Samples/Piano/B0.wav" id="8_cbjo2"]
+[ext_resource type="AudioStream" uid="uid://djvm2mar68cwu" path="res://Assets/Audio/Samples/Piano/C1.wav" id="9_4r051"]
+[ext_resource type="AudioStream" uid="uid://blrynl0opj76g" path="res://Assets/Audio/Samples/Piano/C#1.wav" id="10_8wapv"]
+[ext_resource type="AudioStream" uid="uid://bfuj27yrkub6f" path="res://Assets/Audio/Samples/Piano/D1.wav" id="11_k2un7"]
+[ext_resource type="AudioStream" uid="uid://b8fuolc61x2u2" path="res://Assets/Audio/Samples/Piano/D#1.wav" id="12_0pcn3"]
+[ext_resource type="AudioStream" uid="uid://c8qy70tlofiwm" path="res://Assets/Audio/Samples/Piano/E1.wav" id="13_u2773"]
+[ext_resource type="AudioStream" uid="uid://ujt4ubg0ju7u" path="res://Assets/Audio/Samples/Piano/F1.wav" id="14_jvur2"]
+[ext_resource type="AudioStream" uid="uid://bum7mkrnvavwg" path="res://Assets/Audio/Samples/Piano/F#1.wav" id="15_wlb1y"]
+[ext_resource type="AudioStream" uid="uid://c3o8yvl5ltwi8" path="res://Assets/Audio/Samples/Piano/G1.wav" id="16_huslp"]
+[ext_resource type="AudioStream" uid="uid://dfvweci1qr77h" path="res://Assets/Audio/Samples/Piano/G#1.wav" id="17_p50tl"]
+[ext_resource type="AudioStream" uid="uid://dq7n7qh0s6mp1" path="res://Assets/Audio/Samples/Piano/A1.wav" id="18_ffop6"]
+[ext_resource type="AudioStream" uid="uid://3lsxbipdevay" path="res://Assets/Audio/Samples/Piano/A#1.wav" id="19_terc3"]
+[ext_resource type="AudioStream" uid="uid://bdw7yl8yi6vjt" path="res://Assets/Audio/Samples/Piano/B1.wav" id="20_2qnq8"]
+[ext_resource type="AudioStream" uid="uid://bd0tud5ibtem5" path="res://Assets/Audio/Samples/Piano/C2.wav" id="21_tme81"]
+[ext_resource type="AudioStream" uid="uid://cgebtugmol7m4" path="res://Assets/Audio/Samples/Piano/C#2.wav" id="22_kv2ip"]
+[ext_resource type="AudioStream" uid="uid://diwpvm23ue77k" path="res://Assets/Audio/Samples/Piano/D2.wav" id="23_80ghd"]
+[ext_resource type="AudioStream" uid="uid://1fsqt2ogcpif" path="res://Assets/Audio/Samples/Piano/D#2.wav" id="24_gwyqw"]
+[ext_resource type="AudioStream" uid="uid://d1rod6oa8l8as" path="res://Assets/Audio/Samples/Piano/E2.wav" id="25_er8dj"]
+[ext_resource type="AudioStream" uid="uid://8ki8dyo70cvn" path="res://Assets/Audio/Samples/Piano/F2.wav" id="26_ikkqt"]
+[ext_resource type="AudioStream" uid="uid://bovndgn63sr05" path="res://Assets/Audio/Samples/Piano/F#2.wav" id="27_3no57"]
+[ext_resource type="AudioStream" uid="uid://ckxxhkehg8cww" path="res://Assets/Audio/Samples/Piano/G2.wav" id="28_j1nmi"]
+[ext_resource type="AudioStream" uid="uid://bphln6s51lfi3" path="res://Assets/Audio/Samples/Piano/G#2.wav" id="29_6uuvk"]
+[ext_resource type="AudioStream" uid="uid://hgay2x8ujux1" path="res://Assets/Audio/Samples/Piano/A2.wav" id="30_b55wq"]
+[ext_resource type="AudioStream" uid="uid://1ogks4djj6yu" path="res://Assets/Audio/Samples/Piano/A#2.wav" id="31_autyh"]
+[ext_resource type="AudioStream" uid="uid://d1ucywgfp4k7t" path="res://Assets/Audio/Samples/Piano/B2.wav" id="32_hquxv"]
+[ext_resource type="AudioStream" uid="uid://hb4xmdjlkf1h" path="res://Assets/Audio/Samples/Piano/C3.wav" id="33_081e1"]
+[ext_resource type="AudioStream" uid="uid://d4jqagrwiyhbt" path="res://Assets/Audio/Samples/Piano/C#3.wav" id="34_toxye"]
+[ext_resource type="AudioStream" uid="uid://bo4wftrya82nu" path="res://Assets/Audio/Samples/Piano/D3.wav" id="35_vyxcy"]
+[ext_resource type="AudioStream" uid="uid://0jkoawo336am" path="res://Assets/Audio/Samples/Piano/D#3.wav" id="36_x7rfd"]
+[ext_resource type="AudioStream" uid="uid://bvhfdtb611crc" path="res://Assets/Audio/Samples/Piano/E3.wav" id="37_xyrol"]
+[ext_resource type="AudioStream" uid="uid://c450ufafcey0l" path="res://Assets/Audio/Samples/Piano/F3.wav" id="38_1oggs"]
+[ext_resource type="AudioStream" uid="uid://cjqd6w4hdlcbb" path="res://Assets/Audio/Samples/Piano/F#3.wav" id="39_2p7o6"]
+[ext_resource type="AudioStream" uid="uid://drguveho1luqx" path="res://Assets/Audio/Samples/Piano/G3.wav" id="40_x7hip"]
+[ext_resource type="AudioStream" uid="uid://bt7w14fd6wbyk" path="res://Assets/Audio/Samples/Piano/G#3.wav" id="41_sldwi"]
+[ext_resource type="AudioStream" uid="uid://ga0t2nwg5y37" path="res://Assets/Audio/Samples/Piano/A3.wav" id="42_q4wvu"]
+[ext_resource type="AudioStream" uid="uid://2xdmpgd4o6e7" path="res://Assets/Audio/Samples/Piano/A#3.wav" id="43_ar1at"]
+[ext_resource type="AudioStream" uid="uid://jimtl2xa34jg" path="res://Assets/Audio/Samples/Piano/B3.wav" id="44_i2mly"]
+[ext_resource type="AudioStream" uid="uid://da7kos4a4jb22" path="res://Assets/Audio/Samples/Piano/C4.wav" id="45_dh0jq"]
+[ext_resource type="AudioStream" uid="uid://di7k4y6l77fov" path="res://Assets/Audio/Samples/Piano/C#4.wav" id="46_vo2t6"]
+[ext_resource type="AudioStream" uid="uid://7d2cybve4gwo" path="res://Assets/Audio/Samples/Piano/D4.wav" id="47_8o2kw"]
+[ext_resource type="AudioStream" uid="uid://b23s7ck86wm0j" path="res://Assets/Audio/Samples/Piano/D#4.wav" id="48_5yquj"]
+[ext_resource type="AudioStream" uid="uid://bhvpdmru3n1oq" path="res://Assets/Audio/Samples/Piano/E4.wav" id="49_chqfw"]
+[ext_resource type="AudioStream" uid="uid://co1aoseoohom6" path="res://Assets/Audio/Samples/Piano/F4.wav" id="50_1bjh2"]
+[ext_resource type="AudioStream" uid="uid://dv0ld6vgh5y3" path="res://Assets/Audio/Samples/Piano/F#4.wav" id="51_4s5sg"]
+[ext_resource type="AudioStream" uid="uid://cafhs53hclvmv" path="res://Assets/Audio/Samples/Piano/G4.wav" id="52_r4uw4"]
+[ext_resource type="AudioStream" uid="uid://c12suhrx63brl" path="res://Assets/Audio/Samples/Piano/G#4.wav" id="53_8r1bt"]
+[ext_resource type="AudioStream" uid="uid://hgsfsla5p1ta" path="res://Assets/Audio/Samples/Piano/A4.wav" id="54_n3ylk"]
+[ext_resource type="AudioStream" uid="uid://bbmvo6ou1e1sf" path="res://Assets/Audio/Samples/Piano/A#4.wav" id="55_paatn"]
+[ext_resource type="AudioStream" uid="uid://c1otra0ccccwj" path="res://Assets/Audio/Samples/Piano/B4.wav" id="56_81ngq"]
+[ext_resource type="AudioStream" uid="uid://wgcn7o2xdj13" path="res://Assets/Audio/Samples/Piano/C5.wav" id="57_x3rjh"]
+[ext_resource type="AudioStream" uid="uid://gei84783xfby" path="res://Assets/Audio/Samples/Piano/C#5.wav" id="58_wetpy"]
+[ext_resource type="AudioStream" uid="uid://cxxyat3bkwsu7" path="res://Assets/Audio/Samples/Piano/D5.wav" id="59_waeoo"]
+[ext_resource type="AudioStream" uid="uid://kv7kt2kimpqv" path="res://Assets/Audio/Samples/Piano/D#5.wav" id="60_tm57p"]
+[ext_resource type="AudioStream" uid="uid://bbd0u4borujk3" path="res://Assets/Audio/Samples/Piano/E5.wav" id="61_6so4t"]
+[ext_resource type="AudioStream" uid="uid://d1bxilylqxutf" path="res://Assets/Audio/Samples/Piano/F5.wav" id="62_f5n62"]
+[ext_resource type="AudioStream" uid="uid://yp6gd608i3rq" path="res://Assets/Audio/Samples/Piano/F#5.wav" id="63_0u30k"]
+[ext_resource type="AudioStream" uid="uid://dbndningxa4yq" path="res://Assets/Audio/Samples/Piano/G5.wav" id="64_cl3h8"]
+[ext_resource type="AudioStream" uid="uid://t4ut7reehx5b" path="res://Assets/Audio/Samples/Piano/G#5.wav" id="65_41gl5"]
+[ext_resource type="AudioStream" uid="uid://bm1x3ghxk8pbj" path="res://Assets/Audio/Samples/Piano/A5.wav" id="66_5yquj"]
+[ext_resource type="AudioStream" uid="uid://s0cpfty1jnfn" path="res://Assets/Audio/Samples/Piano/F7.wav" id="66_sldwi"]
+[ext_resource type="AudioStream" uid="uid://c4svsb8j175u1" path="res://Assets/Audio/Samples/Piano/A#5.wav" id="67_chqfw"]
+[ext_resource type="AudioStream" uid="uid://bg0hvv3mjqmtu" path="res://Assets/Audio/Samples/Piano/F#7.wav" id="67_q4wvu"]
+[ext_resource type="AudioStream" uid="uid://8i5k2x6haoc5" path="res://Assets/Audio/Samples/Piano/B5.wav" id="68_1bjh2"]
+[ext_resource type="AudioStream" uid="uid://j8mwds5t8lii" path="res://Assets/Audio/Samples/Piano/G7.wav" id="68_ar1at"]
+[ext_resource type="AudioStream" uid="uid://stgqohxl7xje" path="res://Assets/Audio/Samples/Piano/C6.wav" id="69_4s5sg"]
+[ext_resource type="AudioStream" uid="uid://df78njngtfc5e" path="res://Assets/Audio/Samples/Piano/G#7.wav" id="69_i2mly"]
+[ext_resource type="AudioStream" uid="uid://u31cl6sok8a1" path="res://Assets/Audio/Samples/Piano/A7.wav" id="70_dh0jq"]
+[ext_resource type="AudioStream" uid="uid://daxwnwiqqbtbg" path="res://Assets/Audio/Samples/Piano/C#6.wav" id="70_r4uw4"]
+[ext_resource type="AudioStream" uid="uid://b08nwovk2fuld" path="res://Assets/Audio/Samples/Piano/D6.wav" id="71_8r1bt"]
+[ext_resource type="AudioStream" uid="uid://dxrybq1sdyktu" path="res://Assets/Audio/Samples/Piano/A#7.wav" id="71_vo2t6"]
+[ext_resource type="AudioStream" uid="uid://bnnfwmrbk4i3x" path="res://Assets/Audio/Samples/Piano/B7.wav" id="72_8o2kw"]
+[ext_resource type="AudioStream" uid="uid://bpdt0y0sphsgx" path="res://Assets/Audio/Samples/Piano/D#6.wav" id="72_n3ylk"]
+[ext_resource type="AudioStream" uid="uid://b5cqsbsv5cr13" path="res://Assets/Audio/Samples/Piano/C8.wav" id="73_5yquj"]
+[ext_resource type="AudioStream" uid="uid://cfvyds5u20pra" path="res://Assets/Audio/Samples/Piano/E6.wav" id="73_6so4t"]
+[ext_resource type="AudioStream" uid="uid://b6u26licxlhx0" path="res://Assets/Audio/Samples/Piano/F6.wav" id="74_f5n62"]
+[ext_resource type="AudioStream" uid="uid://bv5nj8cx7hlsv" path="res://Assets/Audio/Samples/Piano/F#6.wav" id="75_0u30k"]
+[ext_resource type="AudioStream" uid="uid://yydtk3f6hl3n" path="res://Assets/Audio/Samples/Piano/G6.wav" id="76_cl3h8"]
+[ext_resource type="AudioStream" uid="uid://dlkjq44iwf5cs" path="res://Assets/Audio/Samples/Piano/G#6.wav" id="77_41gl5"]
+[ext_resource type="AudioStream" uid="uid://shohn00p42cs" path="res://Assets/Audio/Samples/Piano/A6.wav" id="78_1nov8"]
+[ext_resource type="AudioStream" uid="uid://c6taff0rjtqvt" path="res://Assets/Audio/Samples/Piano/A#6.wav" id="79_5bxj7"]
+[ext_resource type="AudioStream" uid="uid://brrf2vu012ln8" path="res://Assets/Audio/Samples/Piano/B6.wav" id="80_vjur3"]
+[ext_resource type="AudioStream" uid="uid://08yoxqxd6p0x" path="res://Assets/Audio/Samples/Piano/C7.wav" id="81_1a5ay"]
+[ext_resource type="AudioStream" uid="uid://coa8sfxkx2iy8" path="res://Assets/Audio/Samples/Piano/C#7.wav" id="82_xahxp"]
+[ext_resource type="AudioStream" uid="uid://bdgykj7sqd4nn" path="res://Assets/Audio/Samples/Piano/D7.wav" id="83_tsx81"]
+[ext_resource type="AudioStream" uid="uid://b5fyyl2mek1oa" path="res://Assets/Audio/Samples/Piano/D#7.wav" id="84_3lk3g"]
+[ext_resource type="AudioStream" uid="uid://bxxc2kfl6i2tq" path="res://Assets/Audio/Samples/Piano/E7.wav" id="85_qvaav"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3urrt"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ojs8"]
+radius = 16.0
+height = 82.0
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_6wtej"]
+[sub_resource type="Resource" id="Resource_3neij"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("6_thsem")
+tone = "A"
+octave = 0
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_r8wdc"]
+[sub_resource type="Resource" id="Resource_ki41x"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("7_ii58f")
+tone = "A#"
+octave = 0
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
 
-[node name="Player" type="CharacterBody3D"]
+[sub_resource type="Resource" id="Resource_by4gh"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("8_cbjo2")
+tone = "B"
+octave = 0
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_nu6hf"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("9_4r051")
+tone = "C"
+octave = 1
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_h86x4"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("10_8wapv")
+tone = "C#"
+octave = 1
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_081e1"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("11_k2un7")
+tone = "D"
+octave = 1
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_toxye"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("12_0pcn3")
+tone = "D#"
+octave = 1
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_vyxcy"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("13_u2773")
+tone = "E"
+octave = 1
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_x7rfd"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("14_jvur2")
+tone = "F"
+octave = 1
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_xyrol"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("15_wlb1y")
+tone = "F#"
+octave = 1
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_1oggs"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("16_huslp")
+tone = "G"
+octave = 1
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_2p7o6"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("17_p50tl")
+tone = "G#"
+octave = 1
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_x7hip"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("18_ffop6")
+tone = "A"
+octave = 1
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_sldwi"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("19_terc3")
+tone = "A#"
+octave = 1
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_q4wvu"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("20_2qnq8")
+tone = "B"
+octave = 1
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_ar1at"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("21_tme81")
+tone = "C"
+octave = 2
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_i2mly"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("22_kv2ip")
+tone = "C#"
+octave = 2
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_dh0jq"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("23_80ghd")
+tone = "D"
+octave = 2
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_vo2t6"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("24_gwyqw")
+tone = "D#"
+octave = 2
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_8o2kw"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("25_er8dj")
+tone = "E"
+octave = 2
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_5yquj"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("26_ikkqt")
+tone = "F"
+octave = 2
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_chqfw"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("27_3no57")
+tone = "F#"
+octave = 2
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_1bjh2"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("28_j1nmi")
+tone = "G"
+octave = 2
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_4s5sg"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("29_6uuvk")
+tone = "G#"
+octave = 2
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_r4uw4"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("30_b55wq")
+tone = "A"
+octave = 2
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_8r1bt"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("31_autyh")
+tone = "A#"
+octave = 2
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_n3ylk"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("32_hquxv")
+tone = "B"
+octave = 2
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_paatn"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("33_081e1")
+tone = "C"
+octave = 3
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_1nov8"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("34_toxye")
+tone = "C#"
+octave = 3
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_5bxj7"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("35_vyxcy")
+tone = "D"
+octave = 3
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_vjur3"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("36_x7rfd")
+tone = "D#"
+octave = 3
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_1a5ay"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("37_xyrol")
+tone = "E"
+octave = 3
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_xahxp"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("38_1oggs")
+tone = "F"
+octave = 3
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_tsx81"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("39_2p7o6")
+tone = "F#"
+octave = 3
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_3lk3g"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("40_x7hip")
+tone = "G"
+octave = 3
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_qvaav"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("41_sldwi")
+tone = "G#"
+octave = 3
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_vawrx"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("42_q4wvu")
+tone = "A"
+octave = 3
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_wq747"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("43_ar1at")
+tone = "A#"
+octave = 3
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_j5etn"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("44_i2mly")
+tone = "B"
+octave = 3
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_v4utj"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("45_dh0jq")
+tone = "C"
+octave = 4
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_6jxrw"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("46_vo2t6")
+tone = "C#"
+octave = 4
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_4f8ho"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("47_8o2kw")
+tone = "D"
+octave = 4
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_1qpbq"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("48_5yquj")
+tone = "D#"
+octave = 4
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_mfp1n"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("49_chqfw")
+tone = "E"
+octave = 4
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_i4h4k"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("50_1bjh2")
+tone = "F"
+octave = 4
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_fsxc6"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("51_4s5sg")
+tone = "F#"
+octave = 4
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_jci8d"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("52_r4uw4")
+tone = "G"
+octave = 4
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_x2j0s"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("53_8r1bt")
+tone = "G#"
+octave = 4
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_r8u22"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("54_n3ylk")
+tone = "A"
+octave = 4
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_q0e3t"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("55_paatn")
+tone = "A#"
+octave = 4
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_yhyl1"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("56_81ngq")
+tone = "B"
+octave = 4
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_t45i7"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("57_x3rjh")
+tone = "C"
+octave = 5
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_kymgr"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("58_wetpy")
+tone = "C#"
+octave = 5
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_j2uw0"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("59_waeoo")
+tone = "D"
+octave = 5
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_bj2av"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("60_tm57p")
+tone = "D#"
+octave = 5
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_q7pou"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("61_6so4t")
+tone = "E"
+octave = 5
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_auroa"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("62_f5n62")
+tone = "F"
+octave = 5
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_tjflv"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("63_0u30k")
+tone = "F#"
+octave = 5
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_vkobd"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("64_cl3h8")
+tone = "G"
+octave = 5
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_g0ddm"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("65_41gl5")
+tone = "G#"
+octave = 5
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_81ngq"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("66_5yquj")
+tone = "A"
+octave = 5
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_x3rjh"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("67_chqfw")
+tone = "A#"
+octave = 5
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_wetpy"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("68_1bjh2")
+tone = "B"
+octave = 5
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_waeoo"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("69_4s5sg")
+tone = "C"
+octave = 6
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_tm57p"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("70_r4uw4")
+tone = "C#"
+octave = 6
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_6so4t"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("71_8r1bt")
+tone = "D"
+octave = 6
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_f5n62"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("72_n3ylk")
+tone = "D#"
+octave = 6
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_0u30k"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("73_6so4t")
+tone = "E"
+octave = 6
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_cl3h8"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("74_f5n62")
+tone = "F"
+octave = 6
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_41gl5"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("75_0u30k")
+tone = "F#"
+octave = 6
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_3l3ue"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("76_cl3h8")
+tone = "G"
+octave = 6
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_tnhlo"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("77_41gl5")
+tone = "G#"
+octave = 6
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_x7hgi"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("78_1nov8")
+tone = "A"
+octave = 6
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_trrl5"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("79_5bxj7")
+tone = "A#"
+octave = 6
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_uo0ju"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("80_vjur3")
+tone = "B"
+octave = 6
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_6p52w"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("81_1a5ay")
+tone = "C"
+octave = 7
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_bmtr7"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("82_xahxp")
+tone = "C#"
+octave = 7
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_8ldsr"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("83_tsx81")
+tone = "D"
+octave = 7
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_1e8at"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("84_3lk3g")
+tone = "D#"
+octave = 7
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_btg6c"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("85_qvaav")
+tone = "E"
+octave = 7
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_p7y4y"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("66_sldwi")
+tone = "F"
+octave = 7
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_2o15i"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("67_q4wvu")
+tone = "F#"
+octave = 7
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_jvmmu"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("68_ar1at")
+tone = "G"
+octave = 7
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_32pxp"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("69_i2mly")
+tone = "G#"
+octave = 7
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_64qa4"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("70_dh0jq")
+tone = "A"
+octave = 7
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_c7l6a"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("71_vo2t6")
+tone = "A#"
+octave = 7
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_ej2j8"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("72_8o2kw")
+tone = "B"
+octave = 7
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[sub_resource type="Resource" id="Resource_bbpbs"]
+script = ExtResource("5_c5wmn")
+stream = ExtResource("73_5yquj")
+tone = "C"
+octave = 8
+velocity = 5
+metadata/_custom_type_script = "uid://568eu7ak3h1m"
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_ddp38")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_3urrt")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -40)
+shape = SubResource("CapsuleShape2D_2ojs8")
 
-[node name="ThirdPersonControler3D" type="Node3D" parent="."]
-script = ExtResource("1_yem0v")
+[node name="PlayerAnim" parent="." instance=ExtResource("2_cyqth")]
+scale = Vector2(0.428951, 0.428951)
 
-[node name="Geometry" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_6wtej")
+[node name="SideScrollingControler2D" type="Node2D" parent="."]
+script = ExtResource("1_a50ic")
+camera_zoom = Vector2(3, 3)
+metadata/_custom_type_script = "uid://yubo6b6hoqam"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.869716, 0, 0, 0, -1.33147e-08, 0.373989, 0, -0.304605, -1.63476e-08, 0, 0.400271, -0.436652)
-mesh = SubResource("CylinderMesh_r8wdc")
-
-[node name="SaveElement3D" type="Node3D" parent="."]
-script = ExtResource("3_7njhj")
-SaveProperties = Array[String](["Hp", "Geometry:rotation"])
-
-[node name="Pause" parent="." instance=ExtResource("4_aen34")]
+[node name="SamplerInstrument" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+script = ExtResource("4_n5pqa")
+samples = Array[ExtResource("5_c5wmn")]([SubResource("Resource_3neij"), SubResource("Resource_ki41x"), SubResource("Resource_by4gh"), SubResource("Resource_nu6hf"), SubResource("Resource_h86x4"), SubResource("Resource_081e1"), SubResource("Resource_toxye"), SubResource("Resource_vyxcy"), SubResource("Resource_x7rfd"), SubResource("Resource_xyrol"), SubResource("Resource_1oggs"), SubResource("Resource_2p7o6"), SubResource("Resource_x7hip"), SubResource("Resource_sldwi"), SubResource("Resource_q4wvu"), SubResource("Resource_ar1at"), SubResource("Resource_i2mly"), SubResource("Resource_dh0jq"), SubResource("Resource_vo2t6"), SubResource("Resource_8o2kw"), SubResource("Resource_5yquj"), SubResource("Resource_chqfw"), SubResource("Resource_1bjh2"), SubResource("Resource_4s5sg"), SubResource("Resource_r4uw4"), SubResource("Resource_8r1bt"), SubResource("Resource_n3ylk"), SubResource("Resource_paatn"), SubResource("Resource_1nov8"), SubResource("Resource_5bxj7"), SubResource("Resource_vjur3"), SubResource("Resource_1a5ay"), SubResource("Resource_xahxp"), SubResource("Resource_tsx81"), SubResource("Resource_3lk3g"), SubResource("Resource_qvaav"), SubResource("Resource_vawrx"), SubResource("Resource_wq747"), SubResource("Resource_j5etn"), SubResource("Resource_v4utj"), SubResource("Resource_6jxrw"), SubResource("Resource_4f8ho"), SubResource("Resource_1qpbq"), SubResource("Resource_mfp1n"), SubResource("Resource_i4h4k"), SubResource("Resource_fsxc6"), SubResource("Resource_jci8d"), SubResource("Resource_x2j0s"), SubResource("Resource_r8u22"), SubResource("Resource_q0e3t"), SubResource("Resource_yhyl1"), SubResource("Resource_t45i7"), SubResource("Resource_kymgr"), SubResource("Resource_j2uw0"), SubResource("Resource_bj2av"), SubResource("Resource_q7pou"), SubResource("Resource_auroa"), SubResource("Resource_tjflv"), SubResource("Resource_vkobd"), SubResource("Resource_g0ddm"), SubResource("Resource_81ngq"), SubResource("Resource_x3rjh"), SubResource("Resource_wetpy"), SubResource("Resource_waeoo"), SubResource("Resource_tm57p"), SubResource("Resource_6so4t"), SubResource("Resource_f5n62"), SubResource("Resource_0u30k"), SubResource("Resource_cl3h8"), SubResource("Resource_41gl5"), SubResource("Resource_3l3ue"), SubResource("Resource_tnhlo"), SubResource("Resource_x7hgi"), SubResource("Resource_trrl5"), SubResource("Resource_uo0ju"), SubResource("Resource_6p52w"), SubResource("Resource_bmtr7"), SubResource("Resource_8ldsr"), SubResource("Resource_1e8at"), SubResource("Resource_btg6c"), SubResource("Resource_p7y4y"), SubResource("Resource_2o15i"), SubResource("Resource_jvmmu"), SubResource("Resource_32pxp"), SubResource("Resource_64qa4"), SubResource("Resource_c7l6a"), SubResource("Resource_ej2j8"), SubResource("Resource_bbpbs")])
+metadata/_custom_type_script = "uid://cfqoxd54gtglh"

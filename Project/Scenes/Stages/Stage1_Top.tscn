@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdbo8k13a1hqw"]
+
+[ext_resource type="Script" uid="uid://da8rnamhqosqf" path="res://Scenes/Stages/stage_1_top.gd" id="1_jdu85"]
+[ext_resource type="PackedScene" uid="uid://df5fil5bw4u0j" path="res://Components/Player/Player.tscn" id="1_x8jrm"]
+[ext_resource type="PackedScene" uid="uid://ckyky5q6ujbml" path="res://Components/Effects/CommonLayers.tscn" id="4_ehuit"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_rcnar"]
+
+[sub_resource type="Gradient" id="Gradient_x8jrm"]
+offsets = PackedFloat32Array(0, 0.987952)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.266667, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rcnar"]
+gradient = SubResource("Gradient_x8jrm")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdu85"]
+size = Vector2(1, 1)
+
+[node name="Stage1Top" type="Node2D"]
+script = ExtResource("1_jdu85")
+
+[node name="CommonLayers" parent="." instance=ExtResource("4_ehuit")]
+position = Vector2(-94, -142)
+
+[node name="Floor" type="MeshInstance2D" parent="."]
+position = Vector2(951, 1078)
+scale = Vector2(2014, 184)
+mesh = SubResource("QuadMesh_rcnar")
+texture = SubResource("GradientTexture1D_rcnar")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor"]
+position = Vector2(-0.472195, -5.8587)
+scale = Vector2(0.000496524, 0.00543478)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D"]
+position = Vector2(951, 1078)
+scale = Vector2(2014, 184)
+shape = SubResource("RectangleShape2D_jdu85")
+
+[node name="Player" parent="." instance=ExtResource("1_x8jrm")]
+position = Vector2(80, 924)
