@@ -29,12 +29,12 @@ ease = 2
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0qwt7"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0qwt7"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dlwrp"]
 noise = SubResource("FastNoiseLite_0qwt7")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hsi7c"]
 shader = ExtResource("3_27gbj")
-shader_parameter/Distortion = SubResource("NoiseTexture2D_0qwt7")
+shader_parameter/Distortion = SubResource("NoiseTexture2D_dlwrp")
 shader_parameter/DistortionStrenght = 0.03
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cs0gx"]
@@ -87,7 +87,7 @@ scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="BackgroundStarts" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 material = SubResource("ShaderMaterial_hsi7c")
 position = Vector2(847, 1187)
 scale = Vector2(2, 2)

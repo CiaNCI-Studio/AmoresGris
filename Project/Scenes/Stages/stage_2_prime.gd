@@ -35,7 +35,7 @@ func Initialize():
 		player.EnableDash()
 		return 
 		
-	if PlayerPersistentStates.CheckPoint == 2:				
+	if PlayerPersistentStates.CheckPoint == 2:
 		checkPoint1Triggered = true
 		guideTriggered = true
 		guia.queue_free()
@@ -50,6 +50,7 @@ func Initialize():
 	save_agent.SaveSceneData()
 	player.AddDeck("C")
 	player.SelectDeck("C")
+	player.CurrentStageChords = 1
 
 func _on_dialogic_signal(argument:String):
 	if argument == "ShowItem":

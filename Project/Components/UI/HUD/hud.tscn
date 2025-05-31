@@ -495,6 +495,7 @@ stretch_mode = 5
 [node name="ChordsCount" type="Label" parent="Control/TopContainer/CounterContainers"]
 layout_mode = 2
 theme = ExtResource("8_spifk")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0-3"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -509,6 +510,7 @@ stretch_mode = 5
 [node name="ScoreCount" type="Label" parent="Control/TopContainer/CounterContainers"]
 layout_mode = 2
 theme = ExtResource("8_spifk")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0-3"
 horizontal_alignment = 1
 vertical_alignment = 1
