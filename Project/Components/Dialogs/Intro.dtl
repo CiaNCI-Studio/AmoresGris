@@ -1,0 +1,11 @@
+GuideChar: TR_DIAL_INTRO_1
+GuideChar: TR_DIAL_INTRO_2
+PlayerChar: TR_DIAL_INTRO_3
+GuideChar: TR_DIAL_INTRO_4
+PlayerChar: TR_DIAL_INTRO_5
+GuideChar: TR_DIAL_INTRO_6
+PlayerChar: TR_DIAL_INTRO_7
+[signal arg="OpenDoor"]
+[wait time="6.0"]
+GuideChar: TR_DIAL_INTRO_8
+[signal arg="IntroFinish"]

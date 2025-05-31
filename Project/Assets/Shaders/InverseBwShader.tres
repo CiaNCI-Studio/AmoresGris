@@ -1,0 +1,46 @@
+[gd_resource type="VisualShader" load_steps=3 format=3 uid="uid://rgjp3vvesfte"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_41arl"]
+expanded_output_ports = [0]
+source = 1
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_adfqj"]
+default_input_values = [0, 0.0, 1, 0.0, 2, 0.0, 3, 0.0]
+op_type = 2
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform sampler2D screen_tex_frg_6 : hint_screen_texture;
+
+
+
+void fragment() {
+	vec4 n_out6p0;
+// Texture2D:6
+	n_out6p0 = texture(screen_tex_frg_6, SCREEN_UV);
+	float n_out6p1 = n_out6p0.r;
+	float n_out6p2 = n_out6p0.g;
+	float n_out6p3 = n_out6p0.b;
+
+
+// VectorCompose:7
+	float n_in7p3 = 0.00000;
+	vec4 n_out7p0 = vec4(n_out6p1, n_out6p2, n_out6p3, n_in7p3);
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out7p0.xyz);
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(420, 100)
+nodes/fragment/6/node = SubResource("VisualShaderNodeTexture_41arl")
+nodes/fragment/6/position = Vector2(-640, 0)
+nodes/fragment/7/node = SubResource("VisualShaderNodeVectorCompose_adfqj")
+nodes/fragment/7/position = Vector2(-80, 40)
+nodes/fragment/connections = PackedInt32Array(7, 0, 0, 0, 6, 1, 7, 0, 6, 2, 7, 1, 6, 3, 7, 2)

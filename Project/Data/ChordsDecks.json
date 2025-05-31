@@ -1,0 +1,116 @@
+{
+	"Decks": [
+		{
+			"Code" : "C",
+			"Name" : "TR_CHORD_C",
+			"TexturePath": "",
+			"Tone": "Major",
+			"Level" : 1,
+			"Chords" : ["C", "Dm", "Em", "F", "G", "Am", "Bdim"]
+		},
+		{
+			"Code" : "D",
+			"Name" : "TR_CHORD_D",
+			"TexturePath": "",
+			"Tone": "Major",
+			"Level" : 1,
+			"Chords" : ["D", "Em", "Fm", "G", "A", "Bm", "Cdim"]
+		},
+		{
+			"Code" : "E",
+			"Name" : "TR_CHORD_E",
+			"TexturePath": "",
+			"Tone": "Major",
+			"Level" : 1,
+			"Chords" : ["E", "F#", "G#m", "A", "B", "C#m", "Ddim"]
+		},
+		{
+			"Code" : "F",
+			"Name" : "TR_CHORD_F",
+			"TexturePath": "",
+			"Tone": "Major",
+			"Level" : 1,
+			"Chords" : ["F", "Gm", "Am", "Bb", "C", "Dm", "Edim"]
+		},
+		{
+			"Code" : "G",
+			"Name" : "TR_CHORD_G",
+			"TexturePath": "",
+			"Tone": "Major",
+			"Level" : 1,
+			"Chords" : ["G", "Am", "Bm", "C", "D", "Em", "F#dim"]
+		},
+		{
+			"Code" : "A",
+			"Name" : "TR_CHORD_A",
+			"TexturePath": "",
+			"Tone": "Major",
+			"Level" : 1,
+			"Chords" : ["A", "Bm", "C#m", "D", "E", "F#m", "G#dim"]
+		},
+		{
+			"Code" : "B",
+			"Name" : "TR_CHORD_B",
+			"TexturePath": "",
+			"Tone": "Major",
+			"Level" : 1,
+			"Chords" : ["B", "C#m", "D#m", "E", "F#", "G#m", "A#dim"]
+		},		
+		{
+			"Code" : "Cm",
+			"Name" : "TR_CHORD_CM",
+			"TexturePath": "",
+			"Tone": "Minor",
+			"Level" : 1,
+			"Chords" : ["Cm", "Ddim", "Eb", "Fm", "Gm", "Ab", "Bb"]
+		},
+		{
+			"Code" : "Dm",
+			"Name" : "TR_CHORD_DM",
+			"TexturePath": "",
+			"Tone": "Minor",
+			"Level" : 1,
+			"Chords" : ["Dm", "Edim", "F", "Gm", "Am", "Bb", "C"]
+		},
+		{
+			"Code" : "Em",
+			"Name" : "TR_CHORD_EM",
+			"TexturePath": "",
+			"Tone": "Minor",
+			"Level" : 1,
+			"Chords" : ["Em", "F#dim", "G", "Am", "Bm", "C", "D"]
+		},
+		{
+			"Code" : "Fm",
+			"Name" : "TR_CHORD_FM",
+			"TexturePath": "",
+			"Tone": "Minor",
+			"Level" : 1,
+			"Chords" : ["Fm", "Gdim", "Ab", "Bbm", "Cm", "Db", "Eb"]
+		},
+		{
+			"Code" : "Gm",
+			"Name" : "TR_CHORD_GM",
+			"TexturePath": "",
+			"Tone": "Minor",
+			"Level" : 1,
+			"Chords" : ["Gm", "Adim", "Bb", "Cm", "Dm", "Eb", "F"]
+		},
+		{
+			"Code" : "Am",
+			"Name" : "TR_CHORD_AM",
+			"TexturePath": "",
+			"Tone": "Minor",
+			"Level" : 1,
+			"Chords" : ["Am", "Bdim", "C", "Dm", "Em", "F", "G"]
+		},
+		{
+			"Code" : "Bm",
+			"Name" : "TR_CHORD_BM",
+			"TexturePath": "",
+			"Tone": "Minor",
+			"Level" : 1,
+			"Chords" : ["Bm", "C#dim", "D", "Em", "F#m", "G", "A"]
+		}
+	]
+}

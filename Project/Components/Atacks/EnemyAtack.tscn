@@ -1,0 +1,54 @@
+[gd_scene load_steps=11 format=3 uid="uid://d1dwcp5hqv17l"]
+
+[ext_resource type="Texture2D" uid="uid://b6040awp4ya5u" path="res://Assets/2D/Particles/Particle2.png" id="1_q1bhd"]
+[ext_resource type="Script" uid="uid://dpl2fqiwqwncg" path="res://Components/Atacks/enemy_atack.gd" id="1_vmppm"]
+[ext_resource type="Texture2D" uid="uid://xifttlds78h1" path="res://Assets/2D/Particles/Particle1.png" id="2_c1tub"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yq77v"]
+
+[sub_resource type="Curve" id="Curve_vmppm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.75, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g4pp0"]
+curve = SubResource("Curve_vmppm")
+
+[sub_resource type="Curve" id="Curve_c1tub"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.65178, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vmppm"]
+curve = SubResource("Curve_c1tub")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vmppm"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_vmppm")
+alpha_curve = SubResource("CurveTexture_g4pp0")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vmppm"]
+radius = 14.0
+
+[node name="EnemyAtack" type="RigidBody2D" groups=["enemyAtack"]]
+gravity_scale = 0.0
+script = ExtResource("1_vmppm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yq77v")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.152018, 0.152018)
+texture = ExtResource("1_q1bhd")
+
+[node name="Trail" type="GPUParticles2D" parent="."]
+texture = ExtResource("2_c1tub")
+process_material = SubResource("ParticleProcessMaterial_vmppm")
+
+[node name="ContactArea" type="Area2D" parent="." groups=["enemyAtack"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactArea"]
+shape = SubResource("CircleShape2D_vmppm")
+
+[connection signal="body_entered" from="ContactArea" to="." method="_on_contact_area_body_entered"]

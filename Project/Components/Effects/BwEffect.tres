@@ -1,0 +1,42 @@
+[gd_resource type="VisualShader" load_steps=3 format=3 uid="uid://buuhrywqmev2b"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_e1jyf"]
+source = 1
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_1rofk"]
+function = 18
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_add;
+
+uniform sampler2D screen_tex_frg_2 : hint_screen_texture;
+
+
+
+void fragment() {
+	vec4 n_out2p0;
+// Texture2D:2
+	n_out2p0 = texture(screen_tex_frg_2, SCREEN_UV);
+
+
+// FloatFunc:3
+	float n_out3p0 = min(max(n_out2p0.x, 0.0), 1.0);
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out3p0);
+
+
+}
+"
+mode = 1
+modes/blend = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(560, 60)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_e1jyf")
+nodes/fragment/2/position = Vector2(-320, 0)
+nodes/fragment/3/node = SubResource("VisualShaderNodeFloatFunc_1rofk")
+nodes/fragment/3/position = Vector2(100, 120)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 0, 3, 0, 0, 0)
+nodes/light/0/position = Vector2(660, 80)

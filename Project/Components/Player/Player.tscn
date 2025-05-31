@@ -1,4 +1,4 @@
-[gd_scene load_steps=183 format=3 uid="uid://df5fil5bw4u0j"]
+[gd_scene load_steps=204 format=3 uid="uid://df5fil5bw4u0j"]
 
 [ext_resource type="Script" uid="uid://yubo6b6hoqam" path="res://addons/2d_controls_toolkit/SideScrollingControler2D.gd" id="1_a50ic"]
 [ext_resource type="Script" uid="uid://cw61tjqtrqj4x" path="res://Components/Player/player.gd" id="1_ddp38"]
@@ -93,10 +93,17 @@
 [ext_resource type="AudioStream" uid="uid://bdgykj7sqd4nn" path="res://Assets/Audio/Samples/Piano/D7.wav" id="83_tsx81"]
 [ext_resource type="AudioStream" uid="uid://b5fyyl2mek1oa" path="res://Assets/Audio/Samples/Piano/D#7.wav" id="84_3lk3g"]
 [ext_resource type="AudioStream" uid="uid://bxxc2kfl6i2tq" path="res://Assets/Audio/Samples/Piano/E7.wav" id="85_qvaav"]
+[ext_resource type="PackedScene" uid="uid://ca7frsl2ua3lw" path="res://Components/UI/HUD/hud.tscn" id="94_f5n62"]
+[ext_resource type="Texture2D" uid="uid://drh7vwdwp5s0p" path="res://Assets/2D/Particles/Particle25.png" id="95_0u30k"]
+[ext_resource type="Texture2D" uid="uid://chy5brqoqkm4o" path="res://Assets/2D/Particles/Particle6.png" id="96_cl3h8"]
+[ext_resource type="PackedScene" uid="uid://blnu0vtsk5obv" path="res://UI/Pause.tscn" id="97_41gl5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ojs8"]
 radius = 16.0
-height = 82.0
+height = 64.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6so4t"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Resource" id="Resource_3neij"]
 script = ExtResource("5_c5wmn")
@@ -802,23 +809,216 @@ octave = 8
 velocity = 5
 metadata/_custom_type_script = "uid://568eu7ak3h1m"
 
+[sub_resource type="Gradient" id="Gradient_rxxsd"]
+offsets = PackedFloat32Array(0, 0.721154)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6so4t"]
+gradient = SubResource("Gradient_rxxsd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_cl3h8"]
+_data = [Vector2(0.0102041, 0.972954), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.4466, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_41gl5"]
+curve = SubResource("Curve_cl3h8")
+
+[sub_resource type="Curve" id="Curve_0u30k"]
+_data = [Vector2(0, 0), 0.0, 5.12368, 0, 0, Vector2(0.187075, 1), 0.0, 0.0, 0, 0, Vector2(0.996599, 0), -2.8926, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_cl3h8"]
+curve = SubResource("Curve_0u30k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cl3h8"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+gravity = Vector3(0, -25, 0)
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_cl3h8")
+alpha_curve = SubResource("CurveTexture_41gl5")
+
+[sub_resource type="Curve" id="Curve_1nov8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.87185, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5bxj7"]
+curve = SubResource("Curve_1nov8")
+
+[sub_resource type="Curve" id="Curve_vjur3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.44749, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1a5ay"]
+curve = SubResource("Curve_vjur3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xahxp"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.6
+scale_curve = SubResource("CurveTexture_1a5ay")
+alpha_curve = SubResource("CurveTexture_5bxj7")
+
+[sub_resource type="Curve" id="Curve_41gl5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.83927, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1nov8"]
+curve = SubResource("Curve_41gl5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5bxj7"]
+lifetime_randomness = 0.82
+particle_flag_disable_z = true
+direction = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_min = 60.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.05
+scale_max = 0.1
+color = Color(0, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_1nov8")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cl3h8"]
+radius = 17.0
+height = 62.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+floor_max_angle = 1.0472
 script = ExtResource("1_ddp38")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, -40)
+visible = false
+position = Vector2(0, -32)
 shape = SubResource("CapsuleShape2D_2ojs8")
 
-[node name="PlayerAnim" parent="." instance=ExtResource("2_cyqth")]
-scale = Vector2(0.428951, 0.428951)
+[node name="Sprite" type="Node2D" parent="."]
 
-[node name="SideScrollingControler2D" type="Node2D" parent="."]
+[node name="PlayerSprite" type="Sprite2D" parent="Sprite"]
+scale = Vector2(0.18, 0.18)
+texture = SubResource("ViewportTexture_6so4t")
+
+[node name="Sensors" type="Node2D" parent="Sprite"]
+visible = false
+
+[node name="HangHighPointRay" type="RayCast2D" parent="Sprite/Sensors"]
+position = Vector2(0, -55)
+rotation = -1.57079
+target_position = Vector2(0, 30)
+
+[node name="HangLowPointRay" type="RayCast2D" parent="Sprite/Sensors"]
+position = Vector2(0, -46)
+rotation = -1.57079
+target_position = Vector2(0, 25)
+
+[node name="AtackSpawnPoint" type="Marker2D" parent="Sprite"]
+visible = false
+position = Vector2(37, -33)
+
+[node name="SideScrollingControler2D" type="Node2D" parent="." node_paths=PackedStringArray("HangHighPointRayCast", "HangLowPointRayCast")]
 script = ExtResource("1_a50ic")
+Handle_Camera = false
 camera_zoom = Vector2(3, 3)
+HangHighPointRayCast = NodePath("../Sprite/Sensors/HangHighPointRay")
+HangLowPointRayCast = NodePath("../Sprite/Sensors/HangLowPointRay")
+CanDash = false
+Input_Sprint = ""
 metadata/_custom_type_script = "uid://yubo6b6hoqam"
 
 [node name="SamplerInstrument" type="AudioStreamPlayer" parent="."]
+volume_db = -8.0
 bus = &"SFX"
 script = ExtResource("4_n5pqa")
 samples = Array[ExtResource("5_c5wmn")]([SubResource("Resource_3neij"), SubResource("Resource_ki41x"), SubResource("Resource_by4gh"), SubResource("Resource_nu6hf"), SubResource("Resource_h86x4"), SubResource("Resource_081e1"), SubResource("Resource_toxye"), SubResource("Resource_vyxcy"), SubResource("Resource_x7rfd"), SubResource("Resource_xyrol"), SubResource("Resource_1oggs"), SubResource("Resource_2p7o6"), SubResource("Resource_x7hip"), SubResource("Resource_sldwi"), SubResource("Resource_q4wvu"), SubResource("Resource_ar1at"), SubResource("Resource_i2mly"), SubResource("Resource_dh0jq"), SubResource("Resource_vo2t6"), SubResource("Resource_8o2kw"), SubResource("Resource_5yquj"), SubResource("Resource_chqfw"), SubResource("Resource_1bjh2"), SubResource("Resource_4s5sg"), SubResource("Resource_r4uw4"), SubResource("Resource_8r1bt"), SubResource("Resource_n3ylk"), SubResource("Resource_paatn"), SubResource("Resource_1nov8"), SubResource("Resource_5bxj7"), SubResource("Resource_vjur3"), SubResource("Resource_1a5ay"), SubResource("Resource_xahxp"), SubResource("Resource_tsx81"), SubResource("Resource_3lk3g"), SubResource("Resource_qvaav"), SubResource("Resource_vawrx"), SubResource("Resource_wq747"), SubResource("Resource_j5etn"), SubResource("Resource_v4utj"), SubResource("Resource_6jxrw"), SubResource("Resource_4f8ho"), SubResource("Resource_1qpbq"), SubResource("Resource_mfp1n"), SubResource("Resource_i4h4k"), SubResource("Resource_fsxc6"), SubResource("Resource_jci8d"), SubResource("Resource_x2j0s"), SubResource("Resource_r8u22"), SubResource("Resource_q0e3t"), SubResource("Resource_yhyl1"), SubResource("Resource_t45i7"), SubResource("Resource_kymgr"), SubResource("Resource_j2uw0"), SubResource("Resource_bj2av"), SubResource("Resource_q7pou"), SubResource("Resource_auroa"), SubResource("Resource_tjflv"), SubResource("Resource_vkobd"), SubResource("Resource_g0ddm"), SubResource("Resource_81ngq"), SubResource("Resource_x3rjh"), SubResource("Resource_wetpy"), SubResource("Resource_waeoo"), SubResource("Resource_tm57p"), SubResource("Resource_6so4t"), SubResource("Resource_f5n62"), SubResource("Resource_0u30k"), SubResource("Resource_cl3h8"), SubResource("Resource_41gl5"), SubResource("Resource_3l3ue"), SubResource("Resource_tnhlo"), SubResource("Resource_x7hgi"), SubResource("Resource_trrl5"), SubResource("Resource_uo0ju"), SubResource("Resource_6p52w"), SubResource("Resource_bmtr7"), SubResource("Resource_8ldsr"), SubResource("Resource_1e8at"), SubResource("Resource_btg6c"), SubResource("Resource_p7y4y"), SubResource("Resource_2o15i"), SubResource("Resource_jvmmu"), SubResource("Resource_32pxp"), SubResource("Resource_64qa4"), SubResource("Resource_c7l6a"), SubResource("Resource_ej2j8"), SubResource("Resource_bbpbs")])
+env_sustain = 3.0
+env_release = 3.0
 metadata/_custom_type_script = "uid://cfqoxd54gtglh"
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1024, 1024)
+
+[node name="PlayerAnim" parent="SubViewport" instance=ExtResource("2_cyqth")]
+position = Vector2(512, 512)
+scale = Vector2(0.98, 0.98)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1, -32)
+energy = 0.39
+range_layer_min = -20
+range_layer_max = 10
+shadow_enabled = true
+shadow_color = Color(0.74558, 0.74558, 0.74558, 0.894118)
+texture = SubResource("GradientTexture2D_6so4t")
+texture_scale = 5.08
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(1, -32)
+energy = 0.5
+range_layer_min = -20
+range_layer_max = 10
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6so4t")
+texture_scale = 5.08
+
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="WalkEffect" type="GPUParticles2D" parent="Effects"]
+emitting = false
+amount = 16
+texture = ExtResource("95_0u30k")
+lifetime = 0.6
+process_material = SubResource("ParticleProcessMaterial_cl3h8")
+
+[node name="JumpEffect" type="GPUParticles2D" parent="Effects"]
+
+[node name="DashEffect" type="GPUParticles2D" parent="Effects"]
+position = Vector2(-2, -26)
+emitting = false
+amount = 30
+texture = ExtResource("95_0u30k")
+lifetime = 0.2
+one_shot = true
+trail_lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_xahxp")
+
+[node name="SpecialEffect" type="GPUParticles2D" parent="Effects"]
+
+[node name="DamageEffect" type="GPUParticles2D" parent="Effects"]
+position = Vector2(1, -32)
+emitting = false
+amount = 30
+texture = ExtResource("96_cl3h8")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_5bxj7")
+
+[node name="HUD" parent="." instance=ExtResource("94_f5n62")]
+layer = 60
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+layer = 99
+visible = false
+
+[node name="Pause" parent="PauseMenu" instance=ExtResource("97_41gl5")]
+
+[node name="ContactArea" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactArea"]
+position = Vector2(0, -30)
+shape = SubResource("CapsuleShape2D_cl3h8")
+
+[connection signal="dash_recovery" from="SideScrollingControler2D" to="." method="_on_side_scrolling_controler_2d_dash_recovery"]
+[connection signal="dash_start" from="SideScrollingControler2D" to="." method="_on_side_scrolling_controler_2d_dash_start"]
+[connection signal="hit_hang" from="SideScrollingControler2D" to="." method="_on_side_scrolling_controler_2d_hit_hang"]
+[connection signal="jump_start" from="SideScrollingControler2D" to="." method="_on_side_scrolling_controler_2d_jump_start"]
+[connection signal="leave_hang" from="SideScrollingControler2D" to="." method="_on_side_scrolling_controler_2d_leave_hang"]
+[connection signal="body_entered" from="ContactArea" to="." method="_on_contact_area_body_entered"]

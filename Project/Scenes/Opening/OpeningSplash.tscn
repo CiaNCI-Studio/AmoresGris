@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cfp041r4xji6b"]
+[gd_scene load_steps=16 format=3 uid="uid://cfp041r4xji6b"]
 
 [ext_resource type="Script" uid="uid://dgcegehos0xy" path="res://Scenes/Opening/opening_splash.gd" id="1_0j7ec"]
 [ext_resource type="Texture2D" uid="uid://3ylajf6omc44" path="res://Assets/2D/Logos/CiaNCI.svg" id="1_1gr0j"]
+[ext_resource type="PackedScene" uid="uid://ckyky5q6ujbml" path="res://Components/Effects/CommonLayers.tscn" id="2_pyglx"]
 [ext_resource type="Texture2D" uid="uid://bqns6plejj1w7" path="res://Assets/2D/Logos/CianCiText.svg" id="3_t73if"]
 [ext_resource type="Texture2D" uid="uid://c3yyv6ptw0iyp" path="res://Assets/2D/Logos/CiaNCI_Bucket.svg" id="4_jh0yw"]
 [ext_resource type="Texture2D" uid="uid://d0w45chf6lgov" path="res://Assets/2D/Logos/GodotLogo.svg" id="5_f0t5i"]
@@ -9,6 +10,7 @@
 [ext_resource type="Theme" uid="uid://kkt1erbkipo5" path="res://Assets/Themes/DefaultButton.tres" id="7_nxd55"]
 [ext_resource type="Script" uid="uid://x6ymfvx2p5v2" path="res://addons/uiJuicer/bounce_button.gd" id="8_jllgk"]
 [ext_resource type="Shader" uid="uid://clv1ksi8c2iyp" path="res://Assets/Shaders/CRT.gdshader" id="9_ajby2"]
+[ext_resource type="Texture2D" uid="uid://ctpe8yddqjlai" path="res://Assets/2D/Logos/NoGenAI_Seal_Yellow_DropShadow.png" id="11_urmmc"]
 
 [sub_resource type="Gradient" id="Gradient_vmsqe"]
 colors = PackedColorArray(0.960784, 0.878431, 0.447059, 1, 0.930891, 0.834463, 0.311388, 1)
@@ -39,6 +41,9 @@ shader_parameter/pixel_strength = -2.0
 
 [node name="OpeningSplash" type="Node2D"]
 script = ExtResource("1_0j7ec")
+
+[node name="CommonLayers" parent="." instance=ExtResource("2_pyglx")]
+position = Vector2(1585.34, 437.825)
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(959.5, 537)
@@ -152,6 +157,7 @@ position = Vector2(-270, 2)
 position = Vector2(-310, 2)
 
 [node name="Front" type="CanvasLayer" parent="."]
+layer = 99
 
 [node name="Control" type="Control" parent="Front"]
 layout_mode = 3
@@ -212,6 +218,14 @@ grow_vertical = 0
 theme = ExtResource("7_nxd55")
 text = "TR_SKIP"
 script = ExtResource("8_jllgk")
+
+[node name="NoGenAiSealYellowDropShadow" type="Sprite2D" parent="Front"]
+modulate = Color(0, 0, 0, 1)
+z_index = 999
+z_as_relative = false
+position = Vector2(1769, 139)
+scale = Vector2(0.461941, 0.461941)
+texture = ExtResource("11_urmmc")
 
 [node name="PostProc" type="CanvasLayer" parent="."]
 

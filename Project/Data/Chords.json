@@ -1,0 +1,259 @@
+{
+	"Chords":[
+		{
+			"Code": "C",
+			"Name":"TR_CHORD_C",
+			"Notes": ["C", "E", "G"]
+		},
+		{
+			"Code": "D",
+			"Name":"TR_CHORD_D",
+			"Notes": ["D", "F#", "A"]
+		},
+		{
+			"Code": "E",
+			"Name":"TR_CHORD_E",
+			"Notes": ["E", "G#", "B"]
+		},
+		{
+			"Code": "F",
+			"Name":"TR_CHORD_F",
+			"Notes": ["F", "A", "C"]
+		},
+		{
+			"Code": "G",
+			"Name":"TR_CHORD_G",
+			"Notes": ["G", "B", "D"]
+		},
+		{
+			"Code": "A",
+			"Name":"TR_CHORD_A",
+			"Notes": ["A", "C#", "E"]
+		},
+		{
+			"Code": "B",
+			"Name":"TR_CHORD_B",
+			"Notes": ["B", "D#", "F#"]
+		},
+		{
+			"Code": "Cm",
+			"Name":"TR_CHORD_CM",
+			"Notes": ["C", "Eb", "G"]
+		},
+		{
+			"Code": "Dm",
+			"Name":"TR_CHORD_DM",
+			"Notes": ["D", "F", "A"]
+		},
+		{
+			"Code": "Em",
+			"Name":"TR_CHORD_EM",
+			"Notes": ["E", "G", "B"]
+		},
+		{
+			"Code": "Fm",
+			"Name":"TR_CHORD_FM",
+			"Notes": ["F", "Ab", "C"]
+		},
+		{
+			"Code": "Gm",
+			"Name":"TR_CHORD_GM",
+			"Notes": ["G", "Bb", "D"]
+		},
+		{
+			"Code": "Am",
+			"Name":"TR_CHORD_AM",
+			"Notes": ["A", "C", "E"]
+		},
+		{
+			"Code": "Bm",
+			"Name":"TR_CHORD_BM",
+			"Notes": ["B", "D", "F#"]
+		},
+		{
+			"Code": "C#",
+			"Name":"TR_CHORD_C#",
+			"Notes": ["C#", "F", "G#"]
+		},
+		{
+			"Code": "D#",
+			"Name":"TR_CHORD_D#",
+			"Notes": ["D#", "G", "A#"]
+		},		
+		{
+			"Code": "F#",
+			"Name":"TR_CHORD_F#",
+			"Notes": ["F#", "A#", "C#"]
+		},
+		{
+			"Code": "G#",
+			"Name":"TR_CHORD_G#",
+			"Notes": ["G#", "C", "D#"]
+		},
+		{
+			"Code": "A#",
+			"Name":"TR_CHORD_A#",
+			"Notes": ["A#", "D", "F"]
+		},
+		{
+			"Code": "C#m",
+			"Name":"TR_CHORD_C#M",
+			"Notes": ["C#", "E", "G#"]
+		},
+		{
+			"Code": "D#m",
+			"Name":"TR_CHORD_D#M",
+			"Notes": ["D#", "F#", "A#"]
+		},		
+		{
+			"Code": "F#m",
+			"Name":"TR_CHORD_F#M",
+			"Notes": ["F#", "A", "C#"]
+		},
+		{
+			"Code": "G#m",
+			"Name":"TR_CHORD_G#M",
+			"Notes": ["G#", "B", "D#"]
+		},
+		{
+			"Code": "A#m",
+			"Name":"TR_CHORD_A#M",
+			"Notes": ["A#", "C#", "F"]
+		},
+		{
+			"Code": "Db",
+			"Name":"TR_CHORD_DB",
+			"Notes": ["Db", "F", "Ab"]
+		},		
+		{
+			"Code": "Eb",
+			"Name":"TR_CHORD_EB",
+			"Notes": ["Eb", "G", "Bb"]
+		},
+		{
+			"Code": "Gb",
+			"Name":"TR_CHORD_GB",
+			"Notes": ["Gb", "Bb", "Db"]
+		},
+		{
+			"Code": "Ab",
+			"Name":"TR_CHORD_AB",
+			"Notes": ["Ab", "C", "Eb"]
+		},
+		{
+			"Code": "Bb",
+			"Name":"TR_CHORD_BB",
+			"Notes": ["Bb", "D", "F"]
+		},
+		{
+			"Code": "Dbm",
+			"Name":"TR_CHORD_DBM",
+			"Notes": ["Db", "E", "Ab"]
+		},		
+		{
+			"Code": "Ebm",
+			"Name":"TR_CHORD_EBM",
+			"Notes": ["Eb", "Gb", "Bb"]
+		},
+		{
+			"Code": "Gbm",
+			"Name":"TR_CHORD_GBM",
+			"Notes": ["Gb", "A", "Db"]
+		},
+		{
+			"Code": "Abm",
+			"Name":"TR_CHORD_ABM",
+			"Notes": ["Ab", "B", "Eb"]
+		},
+		{
+			"Code": "Bbm",
+			"Name":"TR_CHORD_BBM",
+			"Notes": ["Bb", "Db", "F"]
+		},		
+		{
+			"Code": "Cdim",
+			"Name":"TR_CHORD_CDIM",
+			"Notes": ["C", "Eb", "Gb"]
+		},
+		{
+			"Code": "Ddim",
+			"Name":"TR_CHORD_DDIM",
+			"Notes": ["D", "F", "Ab"]
+		},
+		{
+			"Code": "Edim",
+			"Name":"TR_CHORD_EDIM",
+			"Notes": ["E", "G", "Bb"]
+		},
+		{
+			"Code": "Fdim",
+			"Name":"TR_CHORD_FDIM",
+			"Notes": ["F", "Ab", "B"]
+		},
+		{
+			"Code": "Gdim",
+			"Name":"TR_CHORD_GDIM",
+			"Notes": ["G", "Bb", "Db"]
+		},
+		{
+			"Code": "Adim",
+			"Name":"TR_CHORD_ADIM",
+			"Notes": ["A", "C", "Eb"]
+		},
+		{
+			"Code": "Bdim",
+			"Name":"TR_CHORD_BDIM",
+			"Notes": ["B", "D", "F"]
+		},
+		{
+			"Code": "C#dim",
+			"Name":"TR_CHORD_C#DIM",
+			"Notes": ["C#", "E", "G"]
+		},
+		{
+			"Code": "D#dim",
+			"Name":"TR_CHORD_D#DIM",
+			"Notes": ["D#", "F#", "A"]
+		},		
+		{
+			"Code": "F#dim",
+			"Name":"TR_CHORD_F#DIM",
+			"Notes": ["F#", "A", "C"]
+		},
+		{
+			"Code": "G#dim",
+			"Name":"TR_CHORD_G#DIM",
+			"Notes": ["G#", "B", "D"]
+		},
+		{
+			"Code": "A#dim",
+			"Name":"TR_CHORD_A#DIM",
+			"Notes": ["A#", "Db", "E"]
+		},				
+		{
+			"Code": "Dbdim",
+			"Name":"TR_CHORD_DBDIM",
+			"Notes": ["Db", "E", "G"]
+		},
+		{
+			"Code": "Ebdim",
+			"Name":"TR_CHORD_EBDIM",
+			"Notes": ["Eb", "Gb", "A"]
+		},		
+		{
+			"Code": "Gbdim",
+			"Name":"TR_CHORD_GBDIM",
+			"Notes": ["Gb", "A", "C"]
+		},
+		{
+			"Code": "Abdim",
+			"Name":"TR_CHORD_ABDIM",
+			"Notes": ["Ab", "B", "D"]
+		},
+		{
+			"Code": "Bdim",
+			"Name":"TR_CHORD_BBDIM",
+			"Notes": ["Bb", "Db", "E"]
+		}
+	]
+}

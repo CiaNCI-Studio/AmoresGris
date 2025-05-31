@@ -1,0 +1,4 @@
+GuideChar: TR_DIAL_STAGE2_1
+GuideChar: TR_DIAL_STAGE2_2
+GuideChar: TR_DIAL_STAGE2_3
+[signal arg="FinishedGuide2"]

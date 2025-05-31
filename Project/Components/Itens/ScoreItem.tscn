@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq02ktbx3ktfq"]
+
+[ext_resource type="Script" uid="uid://bb12ym1ins6vk" path="res://Components/Itens/score_item.gd" id="1_iyaqd"]
+[ext_resource type="Texture2D" uid="uid://fm5owpx5hmv5" path="res://Assets/2D/UI/ScoreItem.png" id="2_iyaqd"]
+[ext_resource type="Script" uid="uid://dbclxcui0mwab" path="res://addons/uiJuicer/Bouncer.gd" id="4_2vjhf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8lev"]
+size = Vector2(50, 60)
+
+[node name="ScoreItem" type="StaticBody2D"]
+script = ExtResource("1_iyaqd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m8lev")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_iyaqd")
+
+[node name="Bouncer" type="Node" parent="Sprite"]
+script = ExtResource("4_2vjhf")
+metadata/_custom_type_script = "uid://dbclxcui0mwab"

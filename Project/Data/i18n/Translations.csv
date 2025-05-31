@@ -1,7 +1,7 @@
 keys;en;pt;es
-TR_TITLE;Game Template;Modelo de Jogo;Plantilla de juego
+TR_TITLE;Amores Gris;Amores Gris;Amores Gris
 TR_YES;Yes;Sim;Si
-TR_NO;No;Não;No
+TR_NO;No;Nao;No
 TR_SAVE_GAME;Save Game;Salvar o Jogo;Guardar el Juego
 TR_LOAD_GAME;Load Game;Carregar Jogo;Cargar el Juego
 TR_NEW_GAME;New Game;Novo Jogo;Nuevo Juego
@@ -21,12 +21,12 @@ TR_BACK;Back;Voltar;Volver
 TR_NAME;Name: ;Nome: ;Nombre: 
 TR_DATE;Date: ;Data: ;Fecha: 
 TR_GAME_TIME;Game Time: ;Tempo de Jogo: ;Tiempo de juego: 
-TR_NAME_REQUIRED;Name is required;O nome é obrigatório;El nombre es obligatorio
-TR_DUPLICATED_NAME;Name already exists;Este nome já existe;El nombre ya existe
+TR_NAME_REQUIRED;Name is required;O nome e obrigatorio;El nombre es obligatorio
+TR_DUPLICATED_NAME;Name already exists;Este nome ja existe;El nombre ya existe
 TR_OK;Ok;Ok;Ok
 TR_CANCEL;Cancel;Cancelar;Cancelar
-TR_ATTENTION;Attention!;Atenção!;Atención
-TR_CONFIRM_DELETE;Delete can't be undone, are you sure?;A exclusão não pode ser desfeita, tem certeza?;Eliminar no se puede deshacer, ¿estás segure?
+TR_THANKS_TITLE;Thanks for playing;Obrigado por jogar;Gracias por jugar
+TR_THANKS;If everything goes well, I'll turn this prototype into a game.;Se tudo der certo, transformo este prototipo em um jogo.;Si todo va bien, convertiré este prototipo en un juego.
 TR_ABOUT_TEXT;"By CiaNCI - Game Studio
 
 Game Concept – Kelvys B.
@@ -36,29 +36,216 @@ Music – Kelvys B.
 Programming – Kelvys B.";"Por CiaNCI - Estúdio de Jogos
 
 Conceito de jogo – Kelvys B.
-História – Kelvys B.
+Historia – Kelvys B.
 Arte – Kelvys B.
 Música – Kelvys B.
-Programação – Kelvys B.";"Por CiaNCI - Estudio de juegos
+Programaçao – Kelvys B.";"Por CiaNCI - Estudio de juegos
 
 Concepto de juego – Kelvys B.
 Historia – Kelvys B.
 Arte – Kelvys B.
 Música – Kelvys B.
-Programación – Kelvys B."
+Programacion – Kelvys B."
 TR_CONTROLS;Controls;Controles;Controles
-TR_MOVEMENT;Movement;Movimentação;Movimiento
+TR_MOVEMENT;Movement;Movimentaçao;Movimiento
 TR_SPACE;Space;Espaço;Espacio
 TR_JUMP;Jump;Pular;Saltar
-TR_ACTION;Action;Ação;Acción
-TR_INVENTORY;Inventory;Inventário;Inventario
-TR_INTERACT;Interact;Interagir;Interactuar
+TR_ACTION;Atack;Ataque;Ataque
+TR_INVENTORY;Inventory;Inventario;Inventario
+TR_SPECIAL;Special Atack;Ataque Especial;Ataque especial
 TR_PAUSE;Pause;Pausar;Pausar
 TR_MENU;Menu;Menu;Menu
-TR_SPRINT;Spring;Correr;Correr
 TR_ENTER;Enter;Enter;Enter
 TR_SHIFT;Shift;Shift;Shift
 TR_ESC;Esc;Esc;Esc
+TR_KEYS;Keys;Claves;Llaves
+TR_COMBO;Combo;Combo;Combo
 TR_INVENTORY_SELECT;Select Item;Selecionar Item;Seleccionar item
 TR_PAUSED;Paused;Pausado;Pausado
 TR_SAVE;Save Game;Salvar o Jogo;Guardar juego
+TR_DASH;Dash;Dash;Dash
+TR_ATACK;Atack;Ataque;Ataque
+TR_NOTES;Notes;Notas;Notas
+TR_NOTE_C;C;Do;Do
+TR_NOTE_D;D;Re;Re
+TR_NOTE_E;E;Mi;Mi
+TR_NOTE_F;F;Fa;Fa
+TR_NOTE_G;G;Sol;Sol
+TR_NOTE_A;A;La;La
+TR_NOTE_B;B;Si;Si
+TR_NOTE_C#;C#;Do #;Do #
+TR_NOTE_D#;D#;Re #;Re #
+TR_NOTE_F#;F#;Fa #;Fa #
+TR_NOTE_G#;G#;Sol #;Sol #
+TR_NOTE_A#;A#;La #;La #
+TR_NOTE_CB;Cb;Do bm;Do bm
+TR_NOTE_DB;Db;Re bm;Re bm
+TR_NOTE_EB;Eb;Mi bm;Mi bm
+TR_NOTE_GB;Gb;Sol bm;Sol bm
+TR_NOTE_AB;Ab;La bm;La bm
+TR_NOTE_BB;Bb;Si bm;Si bm
+TR_CHORDS;Chords;Acordes;Acordes
+TR_CHORD_C;C Major;Do Maior;Do Mayor
+TR_CHORD_D;D Major;Re Maior;Re Mayor
+TR_CHORD_E;E Major;Mi Maior;Mi Mayor
+TR_CHORD_F;F Major;Fa Maior;Fa Mayor
+TR_CHORD_G;G Major;Sol Maior;Sol Mayor
+TR_CHORD_A;A Major;La Maior;La Mayor
+TR_CHORD_B;B Major;Si Maior;Si Mayor
+TR_CHORD_CM;C Minor;Do Menor;Do Menor
+TR_CHORD_DM;D Minor;Re Menor;Re Menor
+TR_CHORD_EM;E Minor;Mi Menor;Mi Menor
+TR_CHORD_FM;F Minor;Fa Menor;Fa Menor
+TR_CHORD_GM;G Minor;Sol Menor;Sol Menor
+TR_CHORD_AM;A Minor;La Menor;La Menor
+TR_CHORD_BM;B Minor;Si Menor;Si Menor
+TR_CHORD_C#;C Sharp Major;Do Sustenido Maior;Do Sostenido Mayor
+TR_CHORD_D#;D Sharp Major;Re Sustenido Maior;Re Sostenido Mayor
+TR_CHORD_F#;F Sharp Major;Fa Sustenido Maior;Fa Sostenido Mayor
+TR_CHORD_G#;G Sharp Major;Sol Sustenido Maior;Sol Sostenido Mayor
+TR_CHORD_A#;A Sharp Major;La Sustenido Maior;La Sostenido Mayor
+TR_CHORD_C#M;C Sharp Minor;Do Sustenido Menor;Do Sostenido Menor
+TR_CHORD_D#M;D Sharp Minor;Re Sustenido Menor;Re Sostenido Menor
+TR_CHORD_F#M;F Sharp Minor;Fa Sustenido Menor;Fa Sostenido Menor
+TR_CHORD_G#M;G Sharp Minor;Sol Sustenido Menor;Sol Sostenido Menor
+TR_CHORD_A#M;A Sharp Minor;La Sustenido Menor;La Sostenido Menor
+TR_CHORD_DB;D flat Major;Re Bemol Maior;Re Bemol Mayor
+TR_CHORD_EB;E flat Major;Mi Bemol Maior;Mi Bemol Mayor
+TR_CHORD_GB;G flat Major;Sol Bemol Maior;Sol Bemol Mayor
+TR_CHORD_AB;A flat Major;La Bemol Maior;La Bemol Mayor
+TR_CHORD_BB;B flat Major;Si Bemol Maior;Si Bemol Mayor
+TR_CHORD_DBM;D flat Minor;Re Bemol Menor;Re Bemol Menor
+TR_CHORD_EBM;E flat Minor;Mi Bemol Menor;Mi Bemol Menor
+TR_CHORD_GBM;G flat Minor;Sol Bemol Menor;Sol Bemol Menor
+TR_CHORD_ABM;A flat Minor;La Bemol Menor;La Bemol Menor
+TR_CHORD_BBM;B flat Minor;Si Bemol Menor;Si Bemol Menor
+TR_CHORD_CDIM;C Diminished;Do Diminuto;Do Diminuido
+TR_CHORD_DDIM;D Diminished;Re Diminuto;Re Diminuido
+TR_CHORD_EDIM;E Diminished;Mi Diminuto;Mi Diminuido
+TR_CHORD_FDIM;F Diminished;Fa Diminuto;Fa Diminuido
+TR_CHORD_GDIM;G Diminished;Sol Diminuto;Sol Diminuido
+TR_CHORD_ADIM;A Diminished;La Diminuto;La Diminuido
+TR_CHORD_BDIM;B Diminished;Si Diminuto;Si Diminuido
+TR_CHORD_C#DIM;C Sharp Diminished;Do Sustenido Diminuto;Do Sostenido Diminuido
+TR_CHORD_D#DIM;D Sharp Diminished;Re Sustenido Diminuto;Re Sostenido Diminuido
+TR_CHORD_F#DIM;F Sharp Diminished;Fa Sustenido Diminuto;Fa Sostenido Diminuido
+TR_CHORD_G#DIM;G Sharp Diminished;Sol Sustenido Diminuto;Sol Sostenido Diminuido
+TR_CHORD_A#DIM;A Sharp Diminished;La Sustenido Diminuto;La Sostenido Diminuido
+TR_CHORD_DBDIM;D Flat Diminished;Re Bemol Diminuto;Re Bemol Diminuido
+TR_CHORD_EBDIM;E Flat Diminished;Mi Bemol Diminuto;Mi Bemol Diminuido
+TR_CHORD_GBDIM;G Flat Diminished;Sol Bemol Diminuto;Sol Bemol Diminuido
+TR_CHORD_ABDIM;A Flat Diminished;La Bemol Diminuto;La Bemol Diminuido
+TR_CHORD_BBDIM;B Flat Diminished;Si Bemol Diminuto;Si Bemol Diminuido
+TR_CHORD_C_CODE;C;Do;Do
+TR_CHORD_D_CODE;D;Re;Re
+TR_CHORD_E_CODE;E;Mi;Mi
+TR_CHORD_F_CODE;F;Fa;Fa
+TR_CHORD_G_CODE;G;Sol;Sol
+TR_CHORD_A_CODE;A;La;La
+TR_CHORD_B_CODE;B;Si;Si
+TR_CHORD_CM_CODE;Cm;Do m;Do m
+TR_CHORD_DM_CODE;Dm;Re m;Re m
+TR_CHORD_EM_CODE;Em;Mi m;Mi m
+TR_CHORD_FM_CODE;Fm;Fa m;Fa m
+TR_CHORD_GM_CODE;Gm;Sol m;Sol m
+TR_CHORD_AM_CODE;Am;La m;La m
+TR_CHORD_BM_CODE;Bm;Si m;Si m
+TR_CHORD_C#_CODE;C#;Do#;Do#
+TR_CHORD_D#_CODE;D#;Re#;Re#
+TR_CHORD_F#_CODE;F#;Fa#;Fa#
+TR_CHORD_G#_CODE;G#;Sol#;Sol#
+TR_CHORD_A#_CODE;A#;La#;La#
+TR_CHORD_C#M_CODE;C#M;Do#M;Do#M
+TR_CHORD_D#M_CODE;D#M;Re#M;Re#M
+TR_CHORD_F#M_CODE;F#M;Fa#M;Fa#M
+TR_CHORD_G#M_CODE;G#M;Sol#M;Sol#M
+TR_CHORD_A#M_CODE;A#M;La#M;La#M
+TR_CHORD_DB_CODE;Db;Re b;Re b
+TR_CHORD_EB_CODE;Eb;Mi b;Mi b
+TR_CHORD_GB_CODE;Gb;Sol b;Sol b
+TR_CHORD_AB_CODE;Ab;La b;La b
+TR_CHORD_BB_CODE;Bb;Si b;Si b
+TR_CHORD_DBM_CODE;DbM;Re bM;Re bM
+TR_CHORD_EBM_CODE;EbM;Mi bM;Mi bM
+TR_CHORD_GBM_CODE;GbM;Sol bM;Sol bM
+TR_CHORD_ABM_CODE;AbM;La bM;La bM
+TR_CHORD_BBM_CODE;BbM;Si bM;Si bM
+TR_CHORD_CDIM_CODE;Cdim;Do dim;Do dim
+TR_CHORD_DDIM_CODE;Ddim;Re dim;Re dim
+TR_CHORD_EDIM_CODE;Edim;Mi dim;Mi dim
+TR_CHORD_FDIM_CODE;Fdim;Fa dim;Fa dim
+TR_CHORD_GDIM_CODE;Gdim;Sol dim;Sol dim
+TR_CHORD_ADIM_CODE;Adim;La dim;La dim
+TR_CHORD_BDIM_CODE;Bdim;Si dim;Si dim
+TR_CHORD_C#DIM_CODE;C#dim;Do#dim;Do#dim
+TR_CHORD_D#DIM_CODE;D#dim;Re#dim;Re#dim
+TR_CHORD_F#DIM_CODE;F#dim;Fa#dim;Fa#dim
+TR_CHORD_G#DIM_CODE;G#dim;Sol#dim;Sol#dim
+TR_CHORD_A#DIM_CODE;A#dim;La#dim;La#dim
+TR_CHORD_DBDIM_CODE;D#dim;Re bdim;Re bdim
+TR_CHORD_EBDIM_CODE;E#dim;Mi bdim;Mi bdim
+TR_CHORD_GBDIM_CODE;G#dim;Sol bdim;Sol bdim
+TR_CHORD_ABDIM_CODE;A#dim;La bdim;La bdim
+TR_CHORD_BBDIM_CODE;B#dim;Si bdim;Si bdim
+TR_GUIDE;Guide;Guia;Guia
+TR_YOU;You;Voce;Tu
+TR_TEXTS_WALL;Texts;Textos;Textos
+TR_TEXT_LACAN_1;To love is to give what you don't have to someone who doesn't want it.;Amar e dar o que nao se tem a alguem que nao o quer;Amar es dar lo que no tienes a alguien que no lo quiere.
+TR_TEXT_POEMA_1;"'Today I woke up scared
+But I didn't cry, nor did I ask for shelter
+From the darkness I saw an infinity without present
+Past or future'";"'Hoje eu acordei com medo
+Mas nao chorei, nem reclamei abrigo
+Do escuro eu via um infinito sem presente
+Passado ou futuro'";"'Hoy amaneci asustado
+Pero no llore, ni pedi refugio
+Desde la oscuridad vi un infinito sin presente
+Ni pasado ni futuro'"
+TR_TEXT_POEMA_2;"I felt a strong hug, it was no longer fear
+It was something of yours that stayed with me, that has no end";"'Senti um abraço forte, ja nao era medo
+Era uma coisa sua que ficou em mim, que nao tem fim'";'Senti un fuerte abrazo, ya no era miedo, era algo tuyo que se quedo conmigo, que no tiene fin.'
+TR_TEXT_POEMA_3;"'Suddenly, we see that we have lost or are
+Losing something
+Warm and naive, that it's left in the way
+That is dark and cold, but also beautiful
+Because it is illuminated
+By the beauty of what happened minutes ago'
+Cazuza";"'De repente, a gente ve que perdeu ou esta
+Perdendo alguma coisa
+Morna e ingenua, que vai ficando no caminho
+Que e escuro e frio, mas tambem bonito
+Porque e iluminado
+Pela beleza do que aconteceu ha minutos atras'
+Cazuza";"'De repente, vemos que hemos perdido o estamos
+Perdiendo algo
+Calido e ingenuo, que se quedo en el camino
+Que es oscuro y frio, pero tambien hermoso
+Porque esta iluminado
+Por la belleza de lo que sucedio hace minutos'
+Cazuza"
+TR_DIALOGS;Dialogs;Dialogos;Dialogos
+TR_DIAL_INTRO_1;You're back, once again.;Voce voltou, mais uma vez.;Estas de vuelta, una vez mas.
+TR_DIAL_INTRO_2;Let me guess, someone told you that you can only find what you're looking for here? again.;Deixe-me adivinhar, alguem te disse que voce so pode encontrar o que procura aqui? novamente.;Dejame adivinar, ¿alguien te dijo que aqui solo puedes encontrar lo que buscas? ¿Otra vez?
+TR_DIAL_INTRO_3;Yes...;Sim…;Si...
+TR_DIAL_INTRO_4;What will stop you this time? the comfort of the not started journey? or the peace of not knowing?;O que vai te impedir desta vez? o conforto da jornada nao iniciada? ou a paz do nao saber?;¿Que te detendra esta vez? ¿La comodidad del viaje no empezada? ¿O la paz de no saber?
+TR_DIAL_INTRO_5;There is nothing out there, no place to go back to or stay… today I will go in.;Nao ha nada la fora, nenhum lugar para voltar ou ficar… hoje eu vou entrar.;No hay nada alla afuera, ningún lugar donde regresar o quedarse… hoy entrare.
+TR_DIAL_INTRO_6;I understand, as you know, I'm not going to encourage you to continue or stop you from giving up, I'm just keeping the keys.;Entendo, como sabes, nao vou te incentivar a continuar e nem te impedir de desistir, apenas guardo as chaves.;Entiendo, como sabes, que no te voy a animar a continuar ni a impedir que te rindas, simplemente me quedo con las llaves.
+TR_DIAL_INTRO_7;I know;Eu sei.;Se
+TR_DIAL_INTRO_8;You know, whoever told you this, they're not wrong, but that doesn't mean you'll find what you're looking for here, but you'll certainly find something.;Sabe, seja la quem te disse isso, esta pessoa nao esta errada, mas isso nao significa que voce encontrara o que procura aqui, mas certamente voce encontrara algo.;Ya sabes, quien te dijo esto no se equivoca, pero eso no significa que aqui encontraras lo que buscas, pero seguro que encontraras algo.
+TR_DIAL_TUTO_1;The tower communicates with different words, it expresses itself with feelings, they are words that when in an order convey a feeling;A torre se comunica com palavras diferentes, ela se expressa com sentimentos, sao palavras que quando em uma ordem passam um sentimento;La torre se comunica con diferentes palabras, se expresa con sentimientos, son palabras que cuando estan en orden transmiten un sentimiento.
+TR_DIAL_TUTO_2;We can call it an orchid, but it's just a name I just made up, it doesn't really matter.;Podemos chamar de orquidea, mas e apenas um nome que acabei de inventar, nao importa muito.;Podriamos llamarlo orquidea, pero es solo un nombre que acabo de inventar, en realidad no importa.
+TR_DIAL_TUTO_3;Even if you don't speak the words of the tower, the feeling is conveyed all the same, it is something that is deeper than the surface of ordinary words.;Mesmo que voce nao fale as palavras da torre, o sentimento e passado da mesma maneira, e algo que esta mais profundo que a superficie das palavras comuns.;Incluso si no pronuncias las palabras de la torre, el sentimiento se transmite de todos modos, es algo mas profundo que la superficie de las palabras ordinarias.
+TR_DIAL_TUTO_4;I'll give you this word to use, but along the way you'll need to collect more words like these.;Vou te dar esta palavra para usar, mas no caminho voce precisar coletar mais palavras como essas.;Te dare esta palabra para usar, pero por el camino necesitaras recolectar mas palabras como estas.
+TR_DIAL_TUTO_5;There are 7 per floor, you will always have one at the beginning, 6 left, more words you have the more doors will open.;Sao 7 por andar, voce sempre tera uma no inicio, restando 6, quanto mais palavras mais portas se abrem.;Hay 7 por piso, siempre tendras uno al principio, quedando 6, cuantas mas palabras mas puertas se abren.
+TR_DIAL_TUTO_6;You will encounter these creatures along the way, don't be afraid, they just don't know you.;Voce encontrara estas criaturas no caminho, nao tema, elas so nao te conhecem.;Te encontraras con estas criaturas en el camino, no tengas miedo, simplemente no te conocen.
+TR_DIAL_TUTO_7;Use the words, they will calm you down and can even give you comfort, a tip: sequences of different words are more efficient.;Use as palavras elas vao se acalmar e podem ate te dar conforto, uma dica: sequencias de palavras diferentes sao mais eficientes.;Utiliza las palabras, te tranquilizaran e incluso pueden darte consuelo, un consejo: las secuencias de palabras diferentes son mas eficientes.
+TR_DIAL_TUTO_8;Go ahead, go through the shade, we will meet again soon.;Va em frente, vai pela sombra, logo mais nos encontraremos novamente.;Adelante, pasa por la sombra, nos volveremos a encontrar pronto.
+TR_DIAL_STAGE2_1;One day I read a certain psychoanalyst who said that to love is to give what you don't have to someone who doesn't want it.;Um dia li um certo psicanalista que disse, que amar e dar o que nao se tem a alguem que nao o quer.;Un dia lei a un psicoanalista que decia que amar es dar lo que no tienes a alguien que no lo quiere.
+TR_DIAL_STAGE2_2;But I think that before loving, before knowing what it is, and having the chance to not want love, we are loved without being aware of it, without awareness of ourselves or others.;Mas penso que antes de amar, antes de saber o que e isso, e ter a chance de nao querer o amor, somos amados sem ter consciencia disso, sem consciencia de nos mesmos ou de outros.;Pero creo que antes de amar, antes de saber lo que es y tener la posibilidad de no querer el amor, somos amados sin ser conscientes de ello, sin conciencia de nosotros mismos ni de los demas.
+TR_DIAL_STAGE2_3;And at that time, we have no concept of another, in practice we are one with everything and everyone, so with the awareness we gain we forget that our love is the same as the love of others. This is the first.;E nesse tempo, nao temos o conceito de outro, na pratica somos um so com tudo e com todos, entao com a consciencia que ganhamos esquecemos que o nosso amor e o mesmo que o amor dos outros. Este e o primeiro.;"Y en ese momento, no tenemos concepto del otro; en la practica, somos uno con todo y con todos, asi que, con la consciencia que adquirimos, olvidamos que nuestro amor es igual al amor de los demas. Este es el primer."
+TR_DIAL_STAGE2END_1;Behold, the goddess that exists within you, the only and inevitable goddess, everything that exists came from her, and everything that will exist can only arise from her, and what does not exist only and so because she allowed it.;Contemple, a deusa que existe em ti, a única e inevitável deusa, tudo que existe dela veio, e tudo que existira apenas dela pode surgir, e o que não existe apenas e assim porque  ela permitiu. ;He aquí la diosa que existe dentro de ti, la única e inevitable diosa, todo lo que existe proviene de ella, y todo lo que existirá solo puede surgir de ella, y lo que no existe solo y así porque ella lo permitió.
+TR_DIAL_STAGE2END_2;From the most powerful being to the most persistent idea, nothing can resist it, and it will submit to it.;Do ser mais poderoso ate a ideia mais persistente, nada pode resistir, e a ela se submeterá.;Desde el ser más poderoso hasta la idea más persistente, nada podrá resistirse y se someterá a ella.
+TR_DIAL_STAGE2END_3;Contemplate and be amazed, for it is contained within you as it contains you, it is the river that moves from the smallest of particles,;Comtemple e se admire, pois ela esta contida em ti assim como ela te contem, ela é o rio que move desde a menor das partículas,;Contempla y asómbrate, pues está contenido en ti como te contiene a ti, es el río que se mueve desde la más pequeña de las partículas,
+TR_DIAL_STAGE2END_4;even the biggest of stars, which can be counted on one's fingers from the time that was so brief that it never even existed, to the time that will never even exist for so long.;ate a maior das estrelas, que conta nos dedos desde o tempo que de tão breve sequer existiu, ate o tempo que de tão longo sequer existirá.;Incluso la más grande de las estrellas, que se puede contar con los dedos de la mano, desde el tiempo que fue tan breve que nunca existió, hasta el tiempo que nunca existirá por tanto tiempo.
+TR_DIAL_STAGE2END_5;Admire yourself and exist because that is what she allowed, the goddess who existed before being named, and will exist when words run out.;Se admire e exista pois assim ela permitiu, a deusa que existiu antes de ser nomeada, e existirá quando se esgotarem as palavras.;Admírate y existe porque eso fue lo que ella permitió, la diosa que existía antes de ser nombrada, y existirá cuando las palabras se acaben.
+TR_DIAL_STAGE2END_6;Accept it and you will not be the same, reject it and the same will happen, her name is what you seek, find it in the deepest point.;Aceite-a e não serás a mesma, recuse-a e o mesmo acontecerá, o nome dela é o que você procura, o encontre no ponto mais profundo.;Acéptalo y no serás el mismo, recházalo y sucederá lo mismo, su nombre es lo que buscas, encuéntralo en lo más profundo.

@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://h6yuremd8lvp"]
+
+[ext_resource type="Script" uid="uid://dd4jhx7r8h3v6" path="res://Components/Doors/door.gd" id="1_scryh"]
+[ext_resource type="Texture2D" uid="uid://cl27lpjrvynow" path="res://Assets/2D/Sprites/Structures/DoorBase.png" id="2_38yky"]
+[ext_resource type="Shader" uid="uid://dycohgd5t4gle" path="res://Assets/Shaders/Disolve.gdshader" id="3_0bgtp"]
+[ext_resource type="Texture2D" uid="uid://djoktkc6kl4rn" path="res://Assets/2D/Sprites/Structures/DoorTop.png" id="4_0bgtp"]
+
+[sub_resource type="Gradient" id="Gradient_l0bwj"]
+colors = PackedColorArray(0, 0, 0, 1, 0.133196, 0.133196, 0.133196, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kubfg"]
+gradient = SubResource("Gradient_l0bwj")
+fill_from = Vector2(0.547009, 1)
+fill_to = Vector2(0.611111, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_38yky"]
+frequency = 0.0045
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_smy74"]
+noise = SubResource("FastNoiseLite_38yky")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0bgtp"]
+resource_local_to_scene = true
+shader = ExtResource("3_0bgtp")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_smy74")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.1
+shader_parameter/burn_color = Color(0.506, 0, 0.66, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l0bwj"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Door.png-896d12d51421c7785904d26624c60325.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scryh"]
+size = Vector2(139, 213)
+
+[node name="Door" type="Node2D" groups=["door"]]
+script = ExtResource("1_scryh")
+
+[node name="DoorBack" type="Sprite2D" parent="."]
+position = Vector2(-1, -112)
+scale = Vector2(2.8, 3.44)
+texture = SubResource("GradientTexture2D_kubfg")
+
+[node name="FrameBase" type="Sprite2D" parent="."]
+position = Vector2(0, -74)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_38yky")
+
+[node name="Door" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0bgtp")
+position = Vector2(-5, -112)
+scale = Vector2(0.4, 0.4)
+texture = SubResource("CompressedTexture2D_l0bwj")
+
+[node name="FrameTop" type="Sprite2D" parent="."]
+position = Vector2(0, -246)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_0bgtp")
+
+[node name="DoorArea" type="Area2D" parent="."]
+visible = false
+position = Vector2(0, -87)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
+position = Vector2(-5.5, -20.5)
+shape = SubResource("RectangleShape2D_scryh")
+
+[connection signal="body_entered" from="DoorArea" to="." method="_on_door_area_body_entered"]
+[connection signal="body_exited" from="DoorArea" to="." method="_on_door_area_body_exited"]

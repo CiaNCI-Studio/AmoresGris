@@ -1,0 +1,582 @@
+[gd_scene load_steps=54 format=3 uid="uid://bw3ni4k6cx8nv"]
+
+[ext_resource type="Script" uid="uid://bb856x8072put" path="res://Components/Enemies/enemy_small.gd" id="1_rjp5i"]
+[ext_resource type="Texture2D" uid="uid://bonmj5xj3ox6p" path="res://Assets/2D/Sprites/Enemies/Leaves.png" id="2_pphkg"]
+[ext_resource type="Texture2D" uid="uid://ct8rtqbv3ht18" path="res://Assets/2D/UI/Heart.png" id="4_31h0w"]
+[ext_resource type="Texture2D" uid="uid://chy5brqoqkm4o" path="res://Assets/2D/Particles/Particle6.png" id="4_hmjl4"]
+[ext_resource type="Texture2D" uid="uid://bmiss68asjiht" path="res://Assets/2D/Sprites/Enemies/enemySmall.png" id="6_2lrst"]
+[ext_resource type="AnimationLibrary" uid="uid://br5u1bkxk5r1u" path="res://Assets/Animations/EnemyAnimations.res" id="7_vm3o3"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_31h0w"]
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_31h0w"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.40361, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_j0te8"]
+curve = SubResource("Curve_31h0w")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2lrst"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(20, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+gravity = Vector3(0, -50, 0)
+scale_min = 0.1
+scale_max = 0.2
+alpha_curve = SubResource("CurveTexture_j0te8")
+anim_offset_max = 1.0
+turbulence_enabled = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vm3o3"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(50, 5, 50)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = 1.07288e-05
+angle_max = 360.0
+gravity = Vector3(0, -50, 0)
+scale_min = 0.1
+scale_max = 0.3
+scale_over_velocity_min = 1.0
+scale_over_velocity_max = 1.0
+turbulence_enabled = true
+
+[sub_resource type="Curve" id="Curve_01fwt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.52974, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_k1e1b"]
+curve = SubResource("Curve_01fwt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k7qb2"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(25, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, -50, 0)
+scale_min = 0.1
+scale_max = 0.3
+alpha_curve = SubResource("CurveTexture_k1e1b")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1cnl"]
+size = Vector2(68, 33)
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_pphkg"]
+var/atackResult/name = &"atackResult"
+var/atackResult/type = 1
+var/atackResult/value = false
+var/atackResult/hint = 0
+var/atackResult/hint_string = ""
+var/WalkDir/name = &"WalkDir"
+var/WalkDir/type = 2
+var/WalkDir/value = 0
+var/WalkDir/hint = 0
+var/WalkDir/hint_string = ""
+
+[sub_resource type="BTRandomWait" id="BTRandomWait_31h0w"]
+
+[sub_resource type="BTSequence" id="BTSequence_j0te8"]
+custom_name = "ShortBreak"
+children = [SubResource("BTRandomWait_31h0w")]
+
+[sub_resource type="BBNode" id="BBNode_2lrst"]
+saved_value = NodePath(".")
+resource_name = "."
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_vm3o3"]
+node = SubResource("BBNode_2lrst")
+method = &"Atack"
+result_var = &"atackResult"
+
+[sub_resource type="BBVariant" id="BBVariant_01fwt"]
+type = 1
+saved_value = true
+resource_name = "true"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_k1e1b"]
+variable = &"atackResult"
+value = SubResource("BBVariant_01fwt")
+
+[sub_resource type="BTInvert" id="BTInvert_k7qb2"]
+children = [SubResource("BTCheckVar_k1e1b")]
+
+[sub_resource type="BTSequence" id="BTSequence_w385e"]
+custom_name = "Atack"
+children = [SubResource("BTCallMethod_vm3o3"), SubResource("BTInvert_k7qb2")]
+
+[sub_resource type="BBNode" id="BBNode_aqlmt"]
+saved_value = NodePath(".")
+resource_name = "."
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_1hjys"]
+node = SubResource("BBNode_aqlmt")
+method = &"Move"
+
+[sub_resource type="BTSequence" id="BTSequence_8iafj"]
+custom_name = "Walk"
+children = [SubResource("BTCallMethod_1hjys")]
+
+[sub_resource type="BTSequence" id="BTSequence_ohp3j"]
+custom_name = "ChargeAtack"
+children = [SubResource("BTSequence_j0te8"), SubResource("BTSequence_w385e"), SubResource("BTSequence_8iafj")]
+
+[sub_resource type="BehaviorTree" id="BehaviorTree_k2h0b"]
+blackboard_plan = SubResource("BlackboardPlan_pphkg")
+root_task = SubResource("BTSequence_ohp3j")
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_1sdls"]
+resource_local_to_scene = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_c53lj"]
+resource_local_to_scene = true
+target_nodepath = NodePath("../Targets/LegRF")
+tip_nodepath = NodePath("Body/LegRF0/LegRF1/LegRF2/LegRF3")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 15
+joint_data/0/bone2d_node = NodePath("Body/LegRF0/LegRF1/LegRF2")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = 300.0
+joint_data/0/constraint_angle_max = 115.0
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 14
+joint_data/1/bone2d_node = NodePath("Body/LegRF0/LegRF1")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = false
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_8x7t2"]
+resource_local_to_scene = true
+target_nodepath = NodePath("../Targets/LegRB")
+tip_nodepath = NodePath("Body/LegRB0/LegRB1/LegRB2/LegRB3")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 11
+joint_data/0/bone2d_node = NodePath("Body/LegRB0/LegRB1/LegRB2")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = -54.0
+joint_data/0/constraint_angle_max = 126.0
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 10
+joint_data/1/bone2d_node = NodePath("Body/LegRB0/LegRB1")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = false
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_r53do"]
+resource_local_to_scene = true
+target_nodepath = NodePath("../Targets/LegLF")
+tip_nodepath = NodePath("Body/LegLF0/LegLF1/LegLF2/LegLF3")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 3
+joint_data/0/bone2d_node = NodePath("Body/LegLF0/LegLF1/LegLF2")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = 60.0
+joint_data/0/constraint_angle_max = 180.0
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 2
+joint_data/1/bone2d_node = NodePath("Body/LegLF0/LegLF1")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = false
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_cy1t0"]
+resource_local_to_scene = true
+target_nodepath = NodePath("../Targets/LegLB")
+tip_nodepath = NodePath("Body/LegLB0/LegLB1/LegLB2/LegLB3")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 7
+joint_data/0/bone2d_node = NodePath("Body/LegLB0/LegLB1/LegLB2")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = 60.0
+joint_data/0/constraint_angle_max = 252.0
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 6
+joint_data/1/bone2d_node = NodePath("Body/LegLB0/LegLB1")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = false
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_8x7t2"]
+resource_local_to_scene = true
+enabled = true
+modification_count = 4
+modifications/0 = SubResource("SkeletonModification2DCCDIK_c53lj")
+modifications/1 = SubResource("SkeletonModification2DCCDIK_8x7t2")
+modifications/2 = SubResource("SkeletonModification2DCCDIK_r53do")
+modifications/3 = SubResource("SkeletonModification2DCCDIK_cy1t0")
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cy1t0"]
+animation = &"EnemyAnimations/AtackRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uqmrd"]
+animation = &"EnemyAnimations/Inactive"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c53lj"]
+animation = &"EnemyAnimations/AntecipationLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8x7t2"]
+animation = &"EnemyAnimations/AntecipationRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lw4pi"]
+animation = &"EnemyAnimations/AtackLeft"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_8x7t2"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_r53do"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_uqmrd"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_cvo81"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_cvo81"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vm3o3"]
+animation = &"EnemyAnimations/Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_01fwt"]
+animation = &"EnemyAnimations/Walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k1e1b"]
+animation = &"EnemyAnimations/Walk"
+play_mode = 1
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_cy1t0"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_vm3o3")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_01fwt")
+blend_point_1/pos = -1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_k1e1b")
+blend_point_2/pos = 1.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_c53lj"]
+resource_local_to_scene = true
+graph_offset = Vector2(-456.674, -15.2783)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_lw4pi")
+nodes/Animation/position = Vector2(-620, 280)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_cy1t0")
+"nodes/Animation 2/position" = Vector2(-620, 480)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_uqmrd")
+"nodes/Animation 3/position" = Vector2(620, 600)
+"nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_c53lj")
+"nodes/Animation 4/position" = Vector2(-80, 640)
+"nodes/Animation 5/node" = SubResource("AnimationNodeAnimation_8x7t2")
+"nodes/Animation 5/position" = Vector2(20, 820)
+nodes/AntecipationLeft/node = SubResource("AnimationNodeOneShot_8x7t2")
+nodes/AntecipationLeft/position = Vector2(300, 220)
+nodes/AntecipationRight/node = SubResource("AnimationNodeOneShot_r53do")
+nodes/AntecipationRight/position = Vector2(640, 240)
+nodes/AtackLeft/node = SubResource("AnimationNodeOneShot_uqmrd")
+nodes/AtackLeft/position = Vector2(-200, 140)
+nodes/AtackRight/node = SubResource("AnimationNodeOneShot_cvo81")
+nodes/AtackRight/position = Vector2(20, 300)
+nodes/Inactive/node = SubResource("AnimationNodeBlend2_cvo81")
+nodes/Inactive/position = Vector2(980, 60)
+nodes/Speed/node = SubResource("AnimationNodeBlendSpace1D_cy1t0")
+nodes/Speed/position = Vector2(-640, 80)
+nodes/output/position = Vector2(1260, 200)
+node_connections = [&"AntecipationLeft", 0, &"AtackRight", &"AntecipationLeft", 1, &"Animation 4", &"AntecipationRight", 0, &"AntecipationLeft", &"AntecipationRight", 1, &"Animation 5", &"AtackLeft", 0, &"Speed", &"AtackLeft", 1, &"Animation", &"AtackRight", 0, &"AtackLeft", &"AtackRight", 1, &"Animation 2", &"Inactive", 0, &"AntecipationRight", &"Inactive", 1, &"Animation 3", &"output", 0, &"Inactive"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krk0y"]
+size = Vector2(68, 33)
+
+[sub_resource type="Gradient" id="Gradient_krk0y"]
+offsets = PackedFloat32Array(0, 0.503205)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hmjl4"]
+gradient = SubResource("Gradient_krk0y")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="EnemySmall" type="CharacterBody2D" groups=["enemy"]]
+modulate = Color(0, 0, 0, 1)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_rjp5i")
+
+[node name="LeavesParticles" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_31h0w")
+position = Vector2(0, -15)
+emitting = false
+texture = ExtResource("2_pphkg")
+lifetime = 5.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_2lrst")
+
+[node name="ShadowParticles" type="GPUParticles2D" parent="."]
+use_parent_material = true
+position = Vector2(-1, -16)
+amount = 10
+texture = ExtResource("4_hmjl4")
+lifetime = 5.0
+trail_sections = 3
+process_material = SubResource("ParticleProcessMaterial_vm3o3")
+
+[node name="HeartParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, -16)
+emitting = false
+texture = ExtResource("4_31h0w")
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_k7qb2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_l1cnl")
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = SubResource("BehaviorTree_k2h0b")
+blackboard_plan = SubResource("BlackboardPlan_1sdls")
+
+[node name="EnemySmallAnimation" type="Node2D" parent="."]
+scale = Vector2(0.1, 0.1)
+
+[node name="Skeleton2D" type="Skeleton2D" parent="EnemySmallAnimation"]
+visible = false
+position = Vector2(0, -204)
+modification_stack = SubResource("SkeletonModificationStack2D_8x7t2")
+
+[node name="Body" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D"]
+position = Vector2(0, 22.2802)
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="LegLF0" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D/Body"]
+position = Vector2(0, 49)
+rest = Transform2D(1, 0, 0, 1, 0, 49)
+
+[node name="LegLF1" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D/Body/LegLF0"]
+position = Vector2(-167, 33)
+rest = Transform2D(1, 0, 0, 1, -167, 33)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="LegLF2" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D/Body/LegLF0/LegLF1"]
+position = Vector2(-191, -100)
+rest = Transform2D(1, 0, 0, 1, -191, -100)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="LegLF3" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D/Body/LegLF0/LegLF1/LegLF2"]
+position = Vector2(-179, 100)
+rest = Transform2D(1, 0, 0, 1, -179, 100)
+
+[node name="LegLB0" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D/Body"]
+position = Vector2(0, 49)
+rest = Transform2D(1, 0, 0, 1, 0, 49)
+
+[node name="LegLB1" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D/Body/LegLB0"]
+position = Vector2(-196, 4)
+rotation = -0.689964
+scale = Vector2(0.999999, 0.999999)
+rest = Transform2D(1, 0, 0, 1, -187, -65)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="LegLB2" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D/Body/LegLB0/LegLB1"]
+position = Vector2(-204, -75)
+rest = Transform2D(1, 0, 0, 1, -204, -75)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="LegLB3" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D/Body/LegLB0/LegLB1/LegLB2"]
+position = Vector2(-155, 85)
+rest = Transform2D(1, 0, 0, 1, -155, 85)
+
+[node name="LegRB0" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D/Body"]
+position = Vector2(0, 49)
+rest = Transform2D(1, 0, 0, 1, 0, 49)
+
+[node name="LegRB1" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D/Body/LegRB0"]
+position = Vector2(193, -11)
+rotation = 0.640783
+rest = Transform2D(1, 0, 0, 1, 202, -80)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="LegRB2" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D/Body/LegRB0/LegRB1"]
+position = Vector2(187, -74)
+rest = Transform2D(1, 0, 0, 1, 187, -74)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="LegRB3" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D/Body/LegRB0/LegRB1/LegRB2"]
+position = Vector2(130, 77)
+rest = Transform2D(1, 0, 0, 1, 130, 77)
+
+[node name="LegRF0" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D/Body"]
+position = Vector2(0, 49)
+rest = Transform2D(1, 0, 0, 1, 0, 49)
+
+[node name="LegRF1" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D/Body/LegRF0"]
+position = Vector2(158, 41)
+rest = Transform2D(1, 0, 0, 1, 158, 41)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="LegRF2" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D/Body/LegRF0/LegRF1"]
+position = Vector2(183, -109)
+rest = Transform2D(1, 0, 0, 1, 183, -109)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="LegRF3" type="Bone2D" parent="EnemySmallAnimation/Skeleton2D/Body/LegRF0/LegRF1/LegRF2"]
+position = Vector2(186, 101)
+rest = Transform2D(1, 0, 0, 1, 186, 101)
+
+[node name="Sprites" type="Node2D" parent="EnemySmallAnimation"]
+position = Vector2(0, -204)
+
+[node name="LegLB2" type="Polygon2D" parent="EnemySmallAnimation/Sprites"]
+texture = ExtResource("6_2lrst")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-349.016, -94.6082, -351.411, -132.933, -423.27, -138.322, -497.523, -83.2307, -601.12, -2.38977, -589.141, 26.9505, -450.813, 13.1776, -363.385, -28.7388)
+uv = PackedVector2Array(396.636, 214.982, 394.241, 176.658, 322.383, 171.268, 248.129, 226.36, 144.533, 307.201, 156.511, 336.541, 294.839, 322.768, 382.268, 280.852)
+polygons = [PackedInt32Array(2, 7, 0, 1), PackedInt32Array(2, 3, 6, 7), PackedInt32Array(3, 4, 5, 6)]
+bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1/LegLF2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1/LegLF2/LegLF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1/LegLB2", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1), "Body/LegLB0/LegLB1/LegLB2/LegLB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1/LegRB2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1/LegRB2/LegRB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1/LegRF2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1/LegRF2/LegRF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="LegLB1" type="Polygon2D" parent="EnemySmallAnimation/Sprites"]
+texture = ExtResource("6_2lrst")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-410.221, -110.93, -369.392, -132.161, -282.291, -110.385, -199, -70.6454, -149.461, -17.2959, -173.96, 28.4326, -256.162, 14.2787, -332.374, -18.9269, -403.689, -61.3888, -417.298, -91.3299)
+uv = PackedVector2Array(374.058, 369.68, 414.887, 348.449, 501.988, 370.224, 585.278, 409.964, 634.817, 463.314, 610.319, 509.042, 528.117, 494.888, 451.904, 461.683, 380.59, 419.221, 366.98, 389.28)
+polygons = [PackedInt32Array(8, 1, 0, 9), PackedInt32Array(8, 7, 2, 1), PackedInt32Array(7, 6, 3, 2), PackedInt32Array(6, 5, 4, 3)]
+bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1/LegLF2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1/LegLF2/LegLF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Body/LegLB0/LegLB1/LegLB2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1/LegLB2/LegLB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1/LegRB2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1/LegRB2/LegRB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1/LegRF2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1/LegRF2/LegRF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="LegRB2" type="Polygon2D" parent="EnemySmallAnimation/Sprites"]
+texture = ExtResource("6_2lrst")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(360.015, -101.722, 371.872, -124.118, 407.442, -138.609, 454.869, -108.309, 520.08, -54.954, 560.261, -26.6298, 549.063, -0.940355, 500.319, -5.55126, 421.933, -20.7015, 362.65, -66.152)
+uv = PackedVector2Array(1658.96, 397.128, 1670.81, 374.732, 1706.38, 360.24, 1753.81, 390.54, 1819.02, 443.895, 1859.2, 472.22, 1848.01, 497.909, 1799.26, 493.298, 1720.88, 478.148, 1661.59, 432.697)
+polygons = [PackedInt32Array(9, 2, 1, 0), PackedInt32Array(9, 8, 3, 2), PackedInt32Array(8, 7, 4, 3), PackedInt32Array(7, 6, 5, 4)]
+bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1/LegLF2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1/LegLF2/LegLF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1/LegLB2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1/LegLB2/LegLB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1/LegRB2", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Body/LegRB0/LegRB1/LegRB2/LegRB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1/LegRF2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1/LegRF2/LegRF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="LegRB1" type="Polygon2D" parent="EnemySmallAnimation/Sprites"]
+texture = ExtResource("6_2lrst")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(179.337, -45.2122, 230.258, -92.9504, 308.761, -124.776, 377.716, -136.445, 413.785, -134.323, 427.576, -112.046, 393.629, -70.6725, 351.195, -42.0297, 283.3, -11.265, 210.102, 9.95193, 176.155, 4.6477, 165.546, -15.5084)
+uv = PackedVector2Array(1421.64, 431.423, 1472.56, 383.685, 1551.06, 351.859, 1620.01, 340.19, 1656.08, 342.312, 1669.87, 364.59, 1635.93, 405.963, 1593.49, 434.606, 1525.6, 465.37, 1452.4, 486.587, 1418.45, 481.283, 1407.85, 461.127)
+polygons = [PackedInt32Array(0, 9, 10, 11), PackedInt32Array(0, 1, 8, 9), PackedInt32Array(1, 2, 7, 8), PackedInt32Array(2, 3, 6, 7), PackedInt32Array(3, 4, 5, 6)]
+bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1/LegLF2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1/LegLF2/LegLF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1/LegLB2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1/LegLB2/LegLB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Body/LegRB0/LegRB1/LegRB2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1/LegRB2/LegRB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1/LegRF2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1/LegRF2/LegRF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="Body" type="Polygon2D" parent="EnemySmallAnimation/Sprites"]
+texture = ExtResource("6_2lrst")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-24.9511, -140.449, 86.174, -130.786, 166.7, -106.628, 218.236, -84.0809, 255.278, -56.7022, 271.383, -18.05, 245.615, 70.5281, 176.363, 151.054, 74.9006, 194.537, -31.3932, 192.927, -145.739, 175.211, -231.097, 117.233, -263.307, 31.8759, -268.138, -5.16589, -221.433, -87.3019, -137.687, -125.954)
+uv = PackedVector2Array(1004.72, 197.874, 1115.84, 207.537, 1196.37, 231.695, 1247.9, 254.242, 1284.95, 281.621, 1301.05, 320.273, 1275.28, 408.851, 1206.03, 489.376, 1104.57, 532.86, 998.275, 531.25, 883.928, 513.534, 798.571, 455.556, 766.361, 370.199, 761.53, 333.157, 808.234, 251.021, 891.981, 212.369)
+polygons = [PackedInt32Array(0, 9, 8, 1), PackedInt32Array(1, 8, 7, 2), PackedInt32Array(3, 6, 7, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(15, 0, 9, 10), PackedInt32Array(15, 10, 11, 14), PackedInt32Array(14, 11, 12, 13)]
+bones = ["Body", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Body/LegLF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1/LegLF2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1/LegLF2/LegLF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1/LegLB2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1/LegLB2/LegLB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1/LegRB2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1/LegRB2/LegRB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1/LegRF2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1/LegRF2/LegRF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="LegRF1" type="Polygon2D" parent="EnemySmallAnimation/Sprites"]
+texture = ExtResource("6_2lrst")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(125.365, 118.805, 108.365, 87.8049, 156.365, 1.80489, 267.365, -58.1951, 354.365, -60.1951, 380.365, -25.1951, 354.365, 45.8049, 226.365, 126.805)
+uv = PackedVector2Array(1383.36, 320.805, 1366.36, 289.805, 1414.36, 203.805, 1525.36, 143.805, 1612.36, 141.805, 1638.36, 176.805, 1612.36, 247.805, 1484.36, 328.805)
+polygons = [PackedInt32Array(2, 7, 0, 1), PackedInt32Array(2, 3, 6, 7), PackedInt32Array(3, 4, 5, 6)]
+bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1/LegLF2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1/LegLF2/LegLF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1/LegLB2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1/LegLB2/LegLB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1/LegRB2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1/LegRB2/LegRB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1), "Body/LegRF0/LegRF1/LegRF2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1/LegRF2/LegRF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="LegRF2" type="Polygon2D" parent="EnemySmallAnimation/Sprites"]
+texture = ExtResource("6_2lrst")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(316.547, 18.642, 318.141, -24.3976, 332.487, -49.9026, 361.18, -56.2789, 384.294, -50.6997, 463.997, 22.6272, 572.394, 80.8105, 550.077, 119.068, 484.72, 104.721, 430.522, 99.9392, 387.482, 87.9837, 345.24, 69.652)
+uv = PackedVector2Array(1640.67, 230.92, 1642.26, 187.88, 1656.61, 162.375, 1685.3, 155.999, 1708.42, 161.578, 1788.12, 234.905, 1896.51, 293.088, 1874.2, 331.346, 1808.84, 316.999, 1754.64, 312.217, 1711.6, 300.262, 1669.36, 281.93)
+polygons = [PackedInt32Array(8, 5, 6, 7), PackedInt32Array(4, 9, 8, 5), PackedInt32Array(3, 10, 9, 4), PackedInt32Array(10, 11, 2, 3), PackedInt32Array(11, 0, 1, 2)]
+bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1/LegLF2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1/LegLF2/LegLF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1/LegLB2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1/LegLB2/LegLB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1/LegRB2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1/LegRB2/LegRB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1/LegRF2", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Body/LegRF0/LegRF1/LegRF2/LegRF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="LegLF1" type="Polygon2D" parent="EnemySmallAnimation/Sprites"]
+texture = ExtResource("6_2lrst")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-392.201, -19.5851, -380.344, -48.5681, -321.719, -53.8377, -188.003, -1.14143, -117.521, 82.5139, -139.917, 119.401, -246.627, 107.545, -354.655, 48.2613)
+uv = PackedVector2Array(395.202, 203.817, 407.059, 174.835, 465.683, 169.565, 599.4, 222.261, 669.881, 305.917, 647.485, 342.804, 540.776, 330.947, 428.796, 276.934)
+polygons = [PackedInt32Array(7, 2, 1, 0), PackedInt32Array(7, 6, 3, 2), PackedInt32Array(6, 5, 4, 3)]
+bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1), "Body/LegLF0/LegLF1/LegLF2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1/LegLF2/LegLF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1/LegLB2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1/LegLB2/LegLB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1/LegRB2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1/LegRB2/LegRB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1/LegRF2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1/LegRF2/LegRF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="LegLF2" type="Polygon2D" parent="EnemySmallAnimation/Sprites"]
+texture = ExtResource("6_2lrst")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-329.314, -3.44945, -334.584, -48.9, -405.065, -49.5587, -475.546, -4.10815, -582.256, 86.1342, -567.765, 114.458, -448.539, 107.213, -353.027, 70.9841)
+uv = PackedVector2Array(397.236, 217.875, 391.966, 172.424, 321.485, 171.766, 251.004, 217.216, 144.294, 307.459, 158.785, 335.783, 278.011, 328.537, 373.523, 292.308)
+polygons = [PackedInt32Array(4, 3, 6, 5), PackedInt32Array(3, 2, 7, 6), PackedInt32Array(2, 1, 0, 7)]
+bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLF0/LegLF1/LegLF2", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1), "Body/LegLF0/LegLF1/LegLF2/LegLF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1/LegLB2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegLB0/LegLB1/LegLB2/LegLB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1/LegRB2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRB0/LegRB1/LegRB2/LegRB3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1/LegRF2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegRF0/LegRF1/LegRF2/LegRF3", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="Targets" type="Node2D" parent="EnemySmallAnimation"]
+visible = false
+position = Vector2(0, -204)
+
+[node name="LegRF" type="Marker2D" parent="EnemySmallAnimation/Targets"]
+position = Vector2(451, 188)
+rotation = -0.0514558
+
+[node name="LegRB" type="Marker2D" parent="EnemySmallAnimation/Targets"]
+position = Vector2(330, 180)
+
+[node name="LegLF" type="Marker2D" parent="EnemySmallAnimation/Targets"]
+position = Vector2(-424, 173)
+
+[node name="LegLB" type="Marker2D" parent="EnemySmallAnimation/Targets"]
+position = Vector2(-527, 175)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemySmallAnimation"]
+root_node = NodePath("../..")
+libraries = {
+&"EnemyAnimations": ExtResource("7_vm3o3")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="EnemySmallAnimation"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeBlendTree_c53lj")
+anim_player = NodePath("../AnimationPlayer")
+parameters/AntecipationLeft/active = false
+parameters/AntecipationLeft/internal_active = false
+parameters/AntecipationLeft/request = 0
+parameters/AntecipationRight/active = false
+parameters/AntecipationRight/internal_active = false
+parameters/AntecipationRight/request = 0
+parameters/AtackLeft/active = false
+parameters/AtackLeft/internal_active = false
+parameters/AtackLeft/request = 0
+parameters/AtackRight/active = false
+parameters/AtackRight/internal_active = false
+parameters/AtackRight/request = 0
+parameters/Inactive/blend_amount = 0.0
+parameters/Speed/blend_position = 0.0
+
+[node name="HitArea" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_krk0y")
+
+[node name="DarkLight" type="PointLight2D" parent="."]
+position = Vector2(-1, -15)
+color = Color(0.237539, 0.237539, 0.237539, 1)
+blend_mode = 1
+range_layer_min = -20
+range_layer_max = 99
+texture = SubResource("GradientTexture2D_hmjl4")
+texture_scale = 3.72
+
+[node name="Light" type="PointLight2D" parent="."]
+position = Vector2(-1, -15)
+enabled = false
+range_layer_min = -20
+range_layer_max = 99
+texture = SubResource("GradientTexture2D_hmjl4")
+texture_scale = 3.72
+
+[node name="RecoverTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="Deactivate" from="." to="." method="_on_deactivate"]
+[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
+[connection signal="timeout" from="RecoverTimer" to="." method="_on_recover_timer_timeout"]

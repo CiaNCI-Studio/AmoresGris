@@ -1,5 +1,4 @@
-extends Node
-class_name Fader
+class_name Fader extends Node
 
 signal started
 signal startedFadeIn

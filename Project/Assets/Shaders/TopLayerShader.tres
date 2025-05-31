@@ -164,7 +164,7 @@ void fragment() {
 "
 mode = 1
 flags/light_only = false
-nodes/fragment/0/position = Vector2(200, 0)
+nodes/fragment/0/position = Vector2(380, -40)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_bvwhu")
 nodes/fragment/2/position = Vector2(-600, 200)
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_3x0nm")

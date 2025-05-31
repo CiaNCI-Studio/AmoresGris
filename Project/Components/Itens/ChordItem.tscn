@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://di7posb6t2obr"]
+
+[ext_resource type="Script" uid="uid://dhh3be0cyg1nb" path="res://Components/Itens/chord_item.gd" id="1_tadyx"]
+[ext_resource type="Texture2D" uid="uid://cmqky31msevri" path="res://Assets/2D/UI/SmallCard.png" id="2_5n8cw"]
+[ext_resource type="Theme" uid="uid://b7irt4tnc7to1" path="res://Assets/Themes/SmallCardTheme.tres" id="3_e5xqe"]
+[ext_resource type="Script" uid="uid://dbclxcui0mwab" path="res://addons/uiJuicer/Bouncer.gd" id="3_m8lev"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8lev"]
+size = Vector2(50, 60)
+
+[node name="ChordItem" type="StaticBody2D"]
+script = ExtResource("1_tadyx")
+Type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m8lev")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_5n8cw")
+
+[node name="ItemLabel" type="Label" parent="Sprite"]
+offset_left = -66.6667
+offset_top = -103.333
+offset_right = 54.3333
+offset_bottom = 14.6667
+scale = Vector2(1.09654, 1.31804)
+theme = ExtResource("3_e5xqe")
+text = "C
+MAJOR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bouncer" type="Node" parent="Sprite"]
+script = ExtResource("3_m8lev")
+metadata/_custom_type_script = "uid://dbclxcui0mwab"

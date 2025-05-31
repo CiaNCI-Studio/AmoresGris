@@ -1,17 +1,42 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3mx12tipbvmt"]
+[gd_scene load_steps=13 format=3 uid="uid://c3mx12tipbvmt"]
 
 [ext_resource type="Script" uid="uid://dadyewkkrgrhu" path="res://Scenes/Menus/about.gd" id="1_6neqy"]
+[ext_resource type="Shader" uid="uid://ddgwo6qauo3x0" path="res://Assets/Shaders/DistortionShader.tres" id="2_3a2kd"]
 [ext_resource type="Script" uid="uid://dqk7ntehf58k6" path="res://addons/uiJuicer/Fader.gd" id="2_osy40"]
+[ext_resource type="Texture2D" uid="uid://fge70i1xk7j3" path="res://Assets/2D/Textures/CeuNoite.png" id="3_84llq"]
 [ext_resource type="Theme" uid="uid://buiuaglnsgymo" path="res://Assets/Themes/DefaultLabel_Light.tres" id="3_u41u0"]
 [ext_resource type="Texture2D" uid="uid://3ylajf6omc44" path="res://Assets/2D/Logos/CiaNCI.svg" id="5_4w5u2"]
 [ext_resource type="Theme" uid="uid://c8wwbt4is82pd" path="res://Assets/Themes/DefaultButton_Light.tres" id="6_05ulr"]
 [ext_resource type="Texture2D" uid="uid://bqns6plejj1w7" path="res://Assets/2D/Logos/CianCiText.svg" id="6_83cdn"]
 [ext_resource type="Theme" uid="uid://cmfndxokwpbft" path="res://Assets/Themes/TitleTheme.tres" id="7_62viw"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bvu8i"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0qwt7"]
+noise = SubResource("FastNoiseLite_bvu8i")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cirwc"]
+shader = ExtResource("2_3a2kd")
+shader_parameter/Distortion = SubResource("NoiseTexture2D_0qwt7")
+shader_parameter/DistortionStrenght = 0.03
+
 [node name="About" type="Node2D"]
 script = ExtResource("1_6neqy")
 
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_cirwc")
+position = Vector2(973, 537)
+texture = ExtResource("3_84llq")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.188235)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="BlackScreen" type="ColorRect" parent="CanvasLayer"]
 visible = false

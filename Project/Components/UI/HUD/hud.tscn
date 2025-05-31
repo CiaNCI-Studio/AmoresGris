@@ -1,0 +1,565 @@
+[gd_scene load_steps=17 format=3 uid="uid://ca7frsl2ua3lw"]
+
+[ext_resource type="Script" uid="uid://syrmmrkntqsk" path="res://Components/UI/HUD/hud.gd" id="1_bu34m"]
+[ext_resource type="Texture2D" uid="uid://ct8rtqbv3ht18" path="res://Assets/2D/UI/Heart.png" id="2_o3b34"]
+[ext_resource type="Texture2D" uid="uid://nol3avgh3fgu" path="res://Assets/2D/UI/Special.png" id="3_moy2l"]
+[ext_resource type="Theme" uid="uid://1vnp0oj4k7pq" path="res://Assets/Themes/HpBarTheme.tres" id="3_r5uip"]
+[ext_resource type="Theme" uid="uid://dvpcdf7yy7uc5" path="res://Assets/Themes/SpBarTheme.tres" id="5_vu3y5"]
+[ext_resource type="Texture2D" uid="uid://byf8d50f8alvq" path="res://Assets/2D/UI/CardsFrame.png" id="6_vu3y5"]
+[ext_resource type="Theme" uid="uid://dynchjtmj1fvu" path="res://Assets/Themes/DashBarTheme.tres" id="7_i5nh1"]
+[ext_resource type="FontFile" uid="uid://de10ohe7w4we4" path="res://Assets/Fonts/Sublima-ExtraBold.otf" id="7_rw0p8"]
+[ext_resource type="Texture2D" uid="uid://cmqky31msevri" path="res://Assets/2D/UI/SmallCard.png" id="7_v5bs6"]
+[ext_resource type="Script" uid="uid://dfkio5csrgf1e" path="res://addons/uiJuicer/fadeLabel.gd" id="8_k2aej"]
+[ext_resource type="Theme" uid="uid://b7irt4tnc7to1" path="res://Assets/Themes/SmallCardTheme.tres" id="8_spifk"]
+[ext_resource type="Texture2D" uid="uid://djsupv1r0nq5f" path="res://Assets/2D/UI/Selection.png" id="9_2tg7s"]
+[ext_resource type="Texture2D" uid="uid://fm5owpx5hmv5" path="res://Assets/2D/UI/ScoreItem.png" id="10_spifk"]
+[ext_resource type="Script" uid="uid://dqk7ntehf58k6" path="res://addons/uiJuicer/Fader.gd" id="12_i5nh1"]
+[ext_resource type="Theme" uid="uid://drscqrujh1xck" path="res://Assets/Themes/MessageLabelTheme.tres" id="13_ofa57"]
+
+[sub_resource type="Theme" id="Theme_bl2dp"]
+Label/colors/font_color = Color(2.69532e-06, 0.852268, 0.407748, 1)
+Label/font_sizes/font_size = 36
+Label/fonts/font = ExtResource("7_rw0p8")
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_bu34m")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 19.0
+offset_top = 21.0
+offset_right = 19.0
+offset_bottom = 153.0
+grow_horizontal = 2
+scale = Vector2(0.976639, 1)
+
+[node name="StatsContainer" type="VBoxContainer" parent="Control/TopContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HpContainer" type="HBoxContainer" parent="Control/TopContainer/StatsContainer"]
+layout_mode = 2
+
+[node name="HeartIcon" type="TextureRect" parent="Control/TopContainer/StatsContainer/HpContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_o3b34")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="HpBar" type="ProgressBar" parent="Control/TopContainer/StatsContainer/HpContainer"]
+custom_minimum_size = Vector2(512, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_r5uip")
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="SpContainer" type="HBoxContainer" parent="Control/TopContainer/StatsContainer"]
+visible = false
+layout_mode = 2
+
+[node name="SpecialIcon" type="TextureRect" parent="Control/TopContainer/StatsContainer/SpContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_moy2l")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="SpBar" type="ProgressBar" parent="Control/TopContainer/StatsContainer/SpContainer"]
+custom_minimum_size = Vector2(512, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("5_vu3y5")
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="AtackContainer" type="HBoxContainer" parent="Control/TopContainer/StatsContainer"]
+layout_mode = 2
+
+[node name="AtackBar" type="ProgressBar" parent="Control/TopContainer/StatsContainer/AtackContainer"]
+custom_minimum_size = Vector2(512, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("5_vu3y5")
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="DashContainer" type="HBoxContainer" parent="Control/TopContainer/StatsContainer"]
+layout_mode = 2
+
+[node name="DashBar" type="ProgressBar" parent="Control/TopContainer/StatsContainer/DashContainer"]
+custom_minimum_size = Vector2(512, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("7_i5nh1")
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="Control" type="Control" parent="Control/TopContainer"]
+layout_mode = 2
+
+[node name="AtackText" type="Label" parent="Control/TopContainer/Control"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -38.0
+offset_right = 223.0
+offset_bottom = 39.0
+grow_vertical = 2
+theme = SubResource("Theme_bl2dp")
+text = "Keys  +5 
+Combo +5"
+script = ExtResource("8_k2aej")
+AutoFadeIn = false
+metadata/_custom_type_script = "uid://dfkio5csrgf1e"
+
+[node name="ChordsContainer" type="Control" parent="Control/TopContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ChordsFrame" type="TextureRect" parent="Control/TopContainer/ChordsContainer"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -345.0
+offset_top = -30.0
+offset_right = 371.0
+offset_bottom = 158.0
+grow_horizontal = 2
+pivot_offset = Vector2(256, 0)
+texture = ExtResource("6_vu3y5")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Chords" type="Control" parent="Control/TopContainer/ChordsContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -251.0
+offset_top = 23.0
+offset_right = 1565.0
+offset_bottom = 279.0
+grow_horizontal = 2
+scale = Vector2(0.425725, 0.415386)
+
+[node name="Chord1" type="TextureRect" parent="Control/TopContainer/ChordsContainer/Chords"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+offset_left = -155.216
+offset_top = 4.8148
+offset_right = 24.7845
+offset_bottom = 185.815
+scale = Vector2(1.35851, 1.35851)
+texture = ExtResource("7_v5bs6")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="ChordLabel1" type="Label" parent="Control/TopContainer/ChordsContainer/Chords/Chord1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -39.5
+offset_right = 35.5
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_spifk")
+text = "SOL
+M"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Chord2" type="TextureRect" parent="Control/TopContainer/ChordsContainer/Chords"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+offset_left = 56.435
+offset_top = 2.4074
+offset_right = 236.435
+offset_bottom = 183.407
+scale = Vector2(1.35851, 1.35851)
+texture = ExtResource("7_v5bs6")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="ChordLabel2" type="Label" parent="Control/TopContainer/ChordsContainer/Chords/Chord2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -59.0
+offset_right = 35.5
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_spifk")
+text = "SOL
+M"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Chord3" type="TextureRect" parent="Control/TopContainer/ChordsContainer/Chords"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+offset_left = 274.111
+offset_top = 4.8148
+offset_right = 454.111
+offset_bottom = 185.815
+scale = Vector2(1.35851, 1.35851)
+texture = ExtResource("7_v5bs6")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="ChordLabel3" type="Label" parent="Control/TopContainer/ChordsContainer/Chords/Chord3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -59.0
+offset_right = 35.5
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_spifk")
+text = "SOL
+M"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Chord4" type="TextureRect" parent="Control/TopContainer/ChordsContainer/Chords"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+offset_left = 484.514
+offset_top = 4.8148
+offset_right = 664.514
+offset_bottom = 185.815
+scale = Vector2(1.35851, 1.35851)
+texture = ExtResource("7_v5bs6")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="ChordLabel4" type="Label" parent="Control/TopContainer/ChordsContainer/Chords/Chord4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -59.0
+offset_right = 35.5
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_spifk")
+text = "SOL
+M"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Chord5" type="TextureRect" parent="Control/TopContainer/ChordsContainer/Chords"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+offset_left = 697.266
+offset_top = 4.8148
+offset_right = 877.266
+offset_bottom = 185.815
+scale = Vector2(1.35851, 1.35851)
+texture = ExtResource("7_v5bs6")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="ChordLabel5" type="Label" parent="Control/TopContainer/ChordsContainer/Chords/Chord5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -59.0
+offset_right = 35.5
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_spifk")
+text = "SOL
+M"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Chord6" type="TextureRect" parent="Control/TopContainer/ChordsContainer/Chords"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+offset_left = 912.592
+offset_top = 4.8148
+offset_right = 1092.59
+offset_bottom = 185.815
+scale = Vector2(1.35851, 1.35851)
+texture = ExtResource("7_v5bs6")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="ChordLabel6" type="Label" parent="Control/TopContainer/ChordsContainer/Chords/Chord6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -59.0
+offset_right = 35.5
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_spifk")
+text = "SOL
+M"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Chord7" type="TextureRect" parent="Control/TopContainer/ChordsContainer/Chords"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+offset_left = 1123.05
+offset_top = 4.8148
+offset_right = 1303.05
+offset_bottom = 185.815
+scale = Vector2(1.35851, 1.35851)
+texture = ExtResource("7_v5bs6")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="ChordLabel7" type="Label" parent="Control/TopContainer/ChordsContainer/Chords/Chord7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -59.0
+offset_right = 35.5
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_spifk")
+text = "SOL
+M"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ChordsSelector" type="Control" parent="Control/TopContainer/ChordsContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -251.0
+offset_top = 23.0
+offset_right = 1565.0
+offset_bottom = 279.0
+grow_horizontal = 2
+scale = Vector2(0.425725, 0.415386)
+
+[node name="ChordSelector1" type="TextureRect" parent="Control/TopContainer/ChordsContainer/ChordsSelector"]
+visible = false
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+offset_left = -205.723
+offset_top = -50.5554
+offset_right = 50.277
+offset_bottom = 205.445
+scale = Vector2(1.38498, 1.38498)
+texture = ExtResource("9_2tg7s")
+
+[node name="ChordSelector2" type="TextureRect" parent="Control/TopContainer/ChordsContainer/ChordsSelector"]
+visible = false
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+offset_left = 7.0517
+offset_top = -50.5554
+offset_right = 263.052
+offset_bottom = 205.445
+scale = Vector2(1.38498, 1.38498)
+texture = ExtResource("9_2tg7s")
+
+[node name="ChordSelector3" type="TextureRect" parent="Control/TopContainer/ChordsContainer/ChordsSelector"]
+visible = false
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+offset_left = 219.883
+offset_top = -50.5554
+offset_right = 475.883
+offset_bottom = 205.445
+scale = Vector2(1.38498, 1.38498)
+texture = ExtResource("9_2tg7s")
+
+[node name="ChordSelector4" type="TextureRect" parent="Control/TopContainer/ChordsContainer/ChordsSelector"]
+visible = false
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+offset_left = 430.253
+offset_top = -50.5554
+offset_right = 686.253
+offset_bottom = 205.445
+scale = Vector2(1.38498, 1.38498)
+texture = ExtResource("9_2tg7s")
+
+[node name="ChordSelector5" type="TextureRect" parent="Control/TopContainer/ChordsContainer/ChordsSelector"]
+visible = false
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+offset_left = 643.027
+offset_top = -50.5554
+offset_right = 899.027
+offset_bottom = 205.445
+scale = Vector2(1.38498, 1.38498)
+texture = ExtResource("9_2tg7s")
+
+[node name="ChordSelector6" type="TextureRect" parent="Control/TopContainer/ChordsContainer/ChordsSelector"]
+visible = false
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+offset_left = 855.859
+offset_top = -50.5554
+offset_right = 1111.86
+offset_bottom = 205.445
+scale = Vector2(1.38498, 1.38498)
+texture = ExtResource("9_2tg7s")
+
+[node name="ChordSelector7" type="TextureRect" parent="Control/TopContainer/ChordsContainer/ChordsSelector"]
+visible = false
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+offset_left = 1066.28
+offset_top = -50.5554
+offset_right = 1322.28
+offset_bottom = 205.445
+scale = Vector2(1.38498, 1.38498)
+texture = ExtResource("9_2tg7s")
+
+[node name="CounterContainers" type="HBoxContainer" parent="Control/TopContainer"]
+layout_mode = 2
+
+[node name="CardIcon" type="TextureRect" parent="Control/TopContainer/CounterContainers"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("7_v5bs6")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="ChordsCount" type="Label" parent="Control/TopContainer/CounterContainers"]
+layout_mode = 2
+theme = ExtResource("8_spifk")
+text = "0-3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreIcon" type="TextureRect" parent="Control/TopContainer/CounterContainers"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("10_spifk")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="ScoreCount" type="Label" parent="Control/TopContainer/CounterContainers"]
+layout_mode = 2
+theme = ExtResource("8_spifk")
+text = "0-3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -512.0
+offset_top = 170.0
+offset_right = 512.0
+offset_bottom = 682.0
+grow_horizontal = 2
+pivot_offset = Vector2(512, 256)
+
+[node name="MessageFader" type="Node" parent="Message"]
+script = ExtResource("12_i5nh1")
+AutoFadeIn = false
+metadata/_custom_type_script = "uid://dqk7ntehf58k6"
+
+[node name="ColorRect" type="ColorRect" parent="Message"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.054902)
+
+[node name="Message" type="Label" parent="Message"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -446.0
+offset_top = -218.0
+offset_right = 447.0
+offset_bottom = 215.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_ofa57")
+text = "'De repente, a gente vê que perdeu ou esta
+Perdendo alguma coisa
+Morna e ingênua, que vai ficando no caminho
+Que é escuro e frio, mas também bonito
+Porque é iluminado
+Pela beleza do que aconteceu ha minutos atras'
+Cazuza"
+horizontal_alignment = 1
+vertical_alignment = 1

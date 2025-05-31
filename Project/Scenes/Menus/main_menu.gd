@@ -1,6 +1,6 @@
 extends Node2D
 
-const  NewGameScene = "res://Scenes/Stages/FirstRunCutScene.tscn"
+const  NewGameScene = "res://Scenes/Stages/Stage1_Top.tscn"
 
 @onready var black_screen_fader: Fader = $CanvasLayer/BlackScreen/BlackScreenFader
 @onready var title: FadeLabel = $CanvasLayer/Main/Title
@@ -12,15 +12,7 @@ const  NewGameScene = "res://Scenes/Stages/FirstRunCutScene.tscn"
 @onready var language_label: FadeLabel = $CanvasLayer/Main/LanguageContainer/LanguageLabel
 @onready var language_opt: OptionButton = $CanvasLayer/Main/LanguageContainer/LanguageOpt
 @onready var language_opt_fader: Fader = $CanvasLayer/Main/LanguageContainer/LanguageOpt/LanguageOptFader
-@onready var load_game_fader: Fader = $CanvasLayer/LoadGame/LoadGameFader
-@onready var new_game_fader: Fader = $CanvasLayer/NewGame/NewGameFader
 @onready var main_fader: Fader = $CanvasLayer/Main/MainFader
-@onready var load_game: Control = $CanvasLayer/LoadGame
-@onready var saves_stack: VBoxContainer = $CanvasLayer/LoadGame/ScrollContainer/SavesStack
-@onready var new_name_warning: TextureRect = $CanvasLayer/NewGame/Container/NameGroup/NewNameWarning
-@onready var new_game_name: TextEdit = $CanvasLayer/NewGame/Container/NameGroup/NewGameName
-@onready var delete_confirmation_dialog: ConfirmationDialog = $CanvasLayer/DeleteConfirmationDialog
-@onready var new_game: Control = $CanvasLayer/NewGame
 
 var saveSlots : Array[SaveFile] = []
 var deleteSlotRequested : SaveFile
@@ -64,8 +56,6 @@ func Finilize(nextScene : String, stopMusic : bool = true):
 	if stopMusic:
 		GlobalAudio.Stop()
 	title.FadeOut()	
-	load_game_fader.FadeOut()
-	new_game_fader.FadeOut()
 	await get_tree().create_timer(0.5).timeout
 	new_game_button.FadeOut()
 	load_game_button.FadeOut()
@@ -109,42 +99,12 @@ func LoadLanguage():
 			language_opt.select(2)	
 
 func LoadSlots():
-	for child in saves_stack.get_children():
-		child.queue_free()	
 	saveSlots = SaveService.GetSlots()
-	saveSlots.sort()
-	for slot in saveSlots:
-		var slotView = load("res://Components/UI/SaveSlot.tscn").instantiate() as SaveSlot
-		slotView.saveSlot = slot
-		slotView.Load.connect(LoadSlot)
-		slotView.Delete.connect(AskDeleteSlot)
-		saves_stack.add_child(slotView)
-		
-func NewGame():
-	var name = new_game_name.text.strip_edges()
-	new_name_warning.visible = false
-	
-	if name.is_empty():
-		new_name_warning.tooltip_text = tr("TR_NAME_REQUIRED")
-		new_name_warning.visible = true		
-		return
-	
-	if saveSlots.any(func(item : SaveFile): return item.Name == name):
-		new_name_warning.tooltip_text = tr("TR_DUPLICATED_NAME")
-		new_name_warning.visible = true
-		return
-	
-	var slotId = name.replace(" ", "_")
-	SaveService.NewSlot(slotId, name, NewGameScene)
-	Finilize(NewGameScene)
-	
+
 func LoadSlot(slot : SaveFile):	
 	SaveService.LoadGame(slot.SlotId)
 	Finilize(SaveService.CurrentLoadedSlot.CurrentSceneId)
 
-func AskDeleteSlot(slot : SaveFile):
-	deleteSlotRequested = slot
-	delete_confirmation_dialog.visible = true
 		
 func DeleteSlot():
 	if deleteSlotRequested:
@@ -155,16 +115,13 @@ func DeleteSlot():
 			BackButtons()
 		
 func _on_new_game_button_pressed() -> void:
-	new_game_fader.FadeIn()
-	main_fader.FadeOut()
-	new_game_name.grab_focus()
+	SaveService.DeleteSlot(GameOptions.SAVE_SLOT_NAME)
+	SaveService.NewSlot(GameOptions.SAVE_SLOT_NAME, GameOptions.SAVE_SLOT_NAME, NewGameScene)
+	Finilize(NewGameScene)
 
 func _on_load_game_button_pressed() -> void:
-	load_game_fader.FadeIn()	
-	main_fader.FadeOut()
-	var slots = saves_stack.get_children()
-	if len(slots) > 0:
-		(slots[0] as SaveSlot).Focus()
+	SaveService.LoadGame(saveSlots[0].SlotId)
+	Finilize(SaveService.CurrentLoadedSlot.CurrentSceneId)	
 
 func _on_settings_button_pressed() -> void:
 	Finilize("res://Scenes/Menus/SettingsMenu.tscn", false)
@@ -178,22 +135,12 @@ func _on_exit_button_pressed() -> void:
 func _on_language_opt_item_selected(index: int) -> void:
 	ChangeLanguage()
 
-func BackButtons() -> void:
-	load_game_fader.FadeOut()
-	new_game_fader.FadeOut()
+func BackButtons() -> void:	
 	main_fader.FadeIn()
 	if len(saveSlots) > 0:		
 		load_game_button.grab_focus()	
 	else:
 		new_game_button.grab_focus()
-	
-
-func _on_create_new_game_pressed() -> void:
-	NewGame()
 
 func _on_confirmation_dialog_confirmed() -> void:
 	DeleteSlot()
-
-func _on_confirmation_dialog_canceled() -> void:
-	deleteSlotRequested = null
-	delete_confirmation_dialog.visible = false

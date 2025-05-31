@@ -6,6 +6,13 @@ signal sprint_end
 signal jump_start
 signal jump_cancel
 signal jump_end
+signal hit_wall
+signal leave_wall
+signal hit_hang
+signal leave_hang
+signal dash_start
+signal dash_end
+signal dash_recovery(time : float)
 
 @export_category("Camera")
 @export var Handle_Camera : bool = true
@@ -29,6 +36,19 @@ signal jump_end
 @export var Coyote_Time = 0.2
 @export var Jump_Buffer_Time = 0.2
 
+@export_category("Wall")
+@export var HangHighPointRayCast : RayCast2D
+@export var HangLowPointRayCast : RayCast2D
+@export var WallIgnoreGroups : Array[String] = []
+
+
+@export_category("Dash")
+@export var CanDash : bool = true
+@export var CanCancelDash : bool = true
+@export var DashSpeed : float = 2000
+@export var DashTime : float = 0.2
+@export var DashRecoverTime : float = 2.0
+
 
 @onready var jump_velocity = (2.0 * Jump_Height) / Jump_Time_To_Peak
 @onready var jump_gravity = (-2.0 * Jump_Height) / (Jump_Time_To_Peak * Jump_Time_To_Peak)
@@ -38,6 +58,12 @@ var pivot : Node2D
 var camera : Camera2D 
 var camera_rest_position : Vector2
 var use_pivot = true
+var on_hang : bool = false
+var lastXDirection : float = 0
+var dashTimer : float = 0
+var dashRecoverTimer : float = 0
+var dashing : bool = false
+var dashRecover : bool = true
 
 func _ready() -> void:
 	if Handle_Camera:
@@ -57,17 +83,21 @@ func _ready() -> void:
 				
 	toggle_active(Active)
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not Active:
 		return
-		
+	
+	HandleWall()
 	handle_gravity(delta)
-	HandleJump(delta)			
+	HandleJump(delta)	
+	HandleDash(delta)
+		
 	var direction = get_direction()
 	var currentSpeed = get_speed()
 			
 	if direction:
 		velocity.x = move_toward(velocity.x, direction.x * currentSpeed, Acceleration * delta)
+		lastXDirection = direction.x
 		if Handle_Camera:
 			if use_pivot:		
 				if Camera_Smooth_Distance and abs(pivot.position.x) < Camera_Smooth_Distance:	
@@ -115,18 +145,20 @@ func get_gravity() -> Vector2:
 	else:
 		return parent.get_gravity()
 
-func handle_gravity(delta : float):
-	if Handle_Gravity and not parent.is_on_floor():
+func handle_gravity(delta : float):	
+	if dashing:
+		velocity.y = 0
+	elif Handle_Gravity and not OnFloorOrHang():
 		velocity += (get_gravity() * delta) * -1
 	else:
 		velocity.y = 0
-	
+
 func HandleJump(delta : float) -> void:
 	
-	if not Can_Jump or not Active:
-		return
+	if not Can_Jump or not Active or not InputEnabled:
+		return			
 		
-	if parent.is_on_floor():
+	if OnFloorOrHang():
 		coyote_timer = Coyote_Time;
 		if jumping:
 			emit_signal("jump_end")
@@ -145,12 +177,12 @@ func HandleJump(delta : float) -> void:
 		
 	if Input.is_action_just_pressed(Input_Jump) and coyote_timer > 0 and not jumping:
 		do_jump = true
-	elif Input.is_action_just_pressed(Input_Jump) and not parent.is_on_floor() and Jump_Buffer_Time > 0:
+	elif Input.is_action_just_pressed(Input_Jump) and not OnFloorOrHang() and Jump_Buffer_Time > 0:
 		jump_buffer_timer = Jump_Buffer_Time
-	elif Input.is_action_just_pressed(Input_Jump) and parent.is_on_floor() and Jump_Buffer_Time <= 0:
+	elif Input.is_action_just_pressed(Input_Jump) and OnFloorOrHang() and Jump_Buffer_Time <= 0:
 		do_jump = true
 		
-	if parent.is_on_floor() and jump_buffer_timer > 0 and not jumping:
+	if OnFloorOrHang() and jump_buffer_timer > 0 and not jumping:
 		jump_buffer_timer = 0 
 		do_jump = true			
 	
@@ -159,13 +191,51 @@ func HandleJump(delta : float) -> void:
 		emit_signal("jump_start")
 		velocity.y = jump_velocity * -1
 		
-	if (parent.is_on_ceiling() and velocity.y > 0) :
-		emit_signal("hit_ceiling")
+	if (parent.is_on_ceiling() and velocity.y < 0) :
+		emit_signal("hit_ceiling")		
 		velocity.y = 0
 	if (Input.is_action_just_released(Input_Jump) and Variable_Jump and jumping) :
 		emit_signal("jump_cancel")
 		velocity.y = 0
 		
+func HandleDash(delta : float) -> void:
+	if not CanDash or not Active or not InputEnabled:
+		return
+	
+	if not dashRecover and not dashing:
+		dashRecoverTimer -= delta
+		dash_recovery.emit(dashRecoverTimer)
+		if dashRecoverTimer <= 0:
+			dashRecover = true
+	
+	var cancel_dash = false	
+		
+	if dashing:
+		dashTimer -= delta
+		if dashTimer <= 0 or velocity.x == 0 or (Input.is_action_just_released("dash") and CanCancelDash):
+			cancel_dash = true
+		
+	if cancel_dash:
+		dashing = false
+		dashRecover = false 
+		dashTimer = 0
+		dashRecoverTimer = DashRecoverTime
+		velocity.x = 0
+		dash_end.emit()
+		return
+				
+	if Input.is_action_just_pressed(Input_Dash) and not dashing and dashRecover:
+		dashing = true
+		dashRecover = false
+		dashTimer = DashTime
+		dash_start.emit()		
+		if lastXDirection >= 0:			
+			velocity.x = DashSpeed
+		else:
+			velocity.x = -DashSpeed
+		
+
+
 func toggle_active(state : bool):
 	Active = state
 	if Handle_Camera:
@@ -173,3 +243,38 @@ func toggle_active(state : bool):
 			camera.make_current()
 		else:		
 			camera.clear_current()
+	
+func OnFloorOrHang():
+	return (on_hang and __CheckDirectionHold()) or parent.is_on_floor()
+	
+func HandleWall():
+	if not InputEnabled:
+		return
+	if  HangHighPointRayCast and HangLowPointRayCast:		
+		var hangHighColliding = __GetColiding(HangHighPointRayCast)
+		var hangLowColliding = __GetColiding(HangLowPointRayCast)
+		var hangColliding = hangLowColliding and not hangHighColliding
+		
+		if on_hang and not hangColliding:
+			on_hang = false
+			leave_hang.emit()
+			print_debug("leave Hang")
+		elif hangColliding and not on_hang and velocity.y > 0:
+			on_hang = true
+			hit_hang.emit()
+			print_debug("Hit Hang")			
+
+func __CheckDirectionHold() -> bool:
+	if Input.is_action_pressed(Input_Right) and lastXDirection > 0:
+		return true	
+	if Input.is_action_pressed(Input_Left) and lastXDirection < 0:
+		return true		
+	return false
+
+func __GetColiding(rayCast : RayCast2D) -> bool:	
+	if rayCast.is_colliding():
+		var collider = rayCast.get_collider()
+		if WallIgnoreGroups.any(func(ignore : String) : return (collider as Node).is_in_group(ignore)):
+			return false
+		return true
+	return false

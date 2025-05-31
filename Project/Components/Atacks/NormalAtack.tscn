@@ -1,0 +1,275 @@
+[gd_scene load_steps=17 format=3 uid="uid://c37idivku4xhn"]
+
+[ext_resource type="Script" uid="uid://ch1stfu5d08gu" path="res://Components/Atacks/normal_atack.gd" id="1_5sebs"]
+[ext_resource type="Texture2D" uid="uid://b57tpshfmc35b" path="res://Assets/2D/Particles/Particle9.png" id="2_nhdrh"]
+[ext_resource type="Texture2D" uid="uid://dj0nbp6qq3v1k" path="res://Assets/2D/Particles/Particle10.png" id="3_sgmch"]
+[ext_resource type="Texture2D" uid="uid://chy5brqoqkm4o" path="res://Assets/2D/Particles/Particle6.png" id="3_xykpv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5sebs"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nhdrh"]
+radius = 7.0
+
+[sub_resource type="Curve" id="Curve_xykpv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xykpv"]
+curve = SubResource("Curve_xykpv")
+
+[sub_resource type="Curve" id="Curve_fte7x"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3ro6x"]
+curve = SubResource("Curve_fte7x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nhdrh"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.05
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_3ro6x")
+alpha_curve = SubResource("CurveTexture_xykpv")
+turbulence_enabled = true
+turbulence_noise_scale = 2.643
+
+[sub_resource type="Animation" id="Animation_5sebs"]
+length = 0.01
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fifth:z_index")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Third:z_index")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fifth:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.2, -0.2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fifth:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(31, 18)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Third:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.2, -0.2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Third:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18, -18)]
+}
+
+[sub_resource type="Animation" id="Animation_sgmch"]
+resource_name = "Spin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fifth:z_index")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.766667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [2, 2, 0, 0, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Third:z_index")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.766667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 0, 2, 2, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fifth:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.766667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.2, -0.2), Vector2(-0.25, -0.25), Vector2(-0.2, -0.2), Vector2(-0.15, -0.15), Vector2(-0.2, -0.2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fifth:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(31, 18), Vector2(31, -18), Vector2(31, 18)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Third:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.766667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.2, -0.2), Vector2(-0.15, -0.15), Vector2(-0.2, -0.2), Vector2(-0.25, -0.25), Vector2(-0.2, -0.2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Third:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(18, -18), Vector2(18, 18), Vector2(18, -18)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nhdrh"]
+_data = {
+&"RESET": SubResource("Animation_5sebs"),
+&"Spin": SubResource("Animation_sgmch")
+}
+
+[sub_resource type="Gradient" id="Gradient_xykpv"]
+offsets = PackedFloat32Array(0, 0.583333)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3ro6x"]
+gradient = SubResource("Gradient_xykpv")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="NormalAtack" type="RigidBody2D" groups=["atack"]]
+collision_layer = 3
+collision_mask = 3
+gravity_scale = 0.0
+script = ExtResource("1_5sebs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5sebs")
+
+[node name="ContactArea" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactArea"]
+shape = SubResource("CircleShape2D_nhdrh")
+
+[node name="Root" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(-0.39, -0.389)
+texture = ExtResource("2_nhdrh")
+
+[node name="BaseTrail" type="GPUParticles2D" parent="Root"]
+position = Vector2(0, -0.101177)
+amount = 100
+texture = ExtResource("3_xykpv")
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_nhdrh")
+
+[node name="Third" type="Sprite2D" parent="."]
+modulate = Color(0, 0.133333, 1, 1)
+position = Vector2(18, -18)
+scale = Vector2(-0.2, -0.2)
+texture = ExtResource("3_sgmch")
+
+[node name="ThirdTrail" type="GPUParticles2D" parent="Third"]
+position = Vector2(0, -0.22338)
+scale = Vector2(1.45545, 1.45545)
+amount = 100
+texture = ExtResource("3_xykpv")
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_nhdrh")
+
+[node name="Fifth" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+z_index = 2
+position = Vector2(31, 18)
+scale = Vector2(-0.2, -0.2)
+texture = ExtResource("3_sgmch")
+
+[node name="FifhtTrail" type="GPUParticles2D" parent="Fifth"]
+position = Vector2(5.96046e-08, -0.112911)
+scale = Vector2(1.45545, 1.45545)
+amount = 100
+texture = ExtResource("3_xykpv")
+lifetime = 2.0
+trail_lifetime = 1.63
+trail_sections = 20
+process_material = SubResource("ParticleProcessMaterial_nhdrh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nhdrh")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_3ro6x")
+texture_scale = 3.19
+
+[connection signal="body_entered" from="ContactArea" to="." method="_on_contact_area_body_entered"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://bad4krpnm7q5j"]
+
+[ext_resource type="Script" uid="uid://cgicuhl16fg0b" path="res://Components/Atacks/impact.gd" id="1_du8vk"]
+[ext_resource type="Texture2D" uid="uid://p8nf7k3bxpb0" path="res://Assets/2D/Particles/Particle28.png" id="2_l74m1"]
+[ext_resource type="Texture2D" uid="uid://d0l3urc2bxr1m" path="res://Assets/2D/Particles/Particle27.png" id="3_rsttu"]
+[ext_resource type="Texture2D" uid="uid://bvnfsuibwqep5" path="res://Assets/2D/Particles/Particle26.png" id="4_wo2js"]
+
+[sub_resource type="Curve" id="Curve_l74m1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rsttu"]
+curve = SubResource("Curve_l74m1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_du8vk"]
+particle_flag_disable_z = true
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.05
+scale_max = 0.1
+alpha_curve = SubResource("CurveTexture_rsttu")
+
+[node name="Impact" type="Node2D"]
+z_index = 10
+script = ExtResource("1_du8vk")
+
+[node name="RootParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+texture = ExtResource("2_l74m1")
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_du8vk")
+
+[node name="ThirdParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+texture = ExtResource("3_rsttu")
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_du8vk")
+
+[node name="FifthParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+texture = ExtResource("4_wo2js")
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_du8vk")

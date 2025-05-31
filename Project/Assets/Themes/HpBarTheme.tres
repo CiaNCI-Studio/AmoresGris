@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://1vnp0oj4k7pq"]
+
+[ext_resource type="Texture2D" uid="uid://4krteui32loc" path="res://Assets/2D/UI/BarFrame.png" id="1_h8c65"]
+[ext_resource type="Texture2D" uid="uid://dd673hiq8iff7" path="res://Assets/2D/UI/RedBar.png" id="2_uim1a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3tndu"]
+texture = ExtResource("1_h8c65")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ixcwp"]
+texture = ExtResource("2_uim1a")
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[resource]
+ProgressBar/styles/background = SubResource("StyleBoxTexture_3tndu")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_ixcwp")

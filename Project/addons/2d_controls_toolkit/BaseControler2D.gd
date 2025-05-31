@@ -13,6 +13,7 @@ signal hit_ceiling
 signal ChangeSpriteDirection(Vector2)
 
 @export var Active : bool = true
+@export var InputEnabled : bool = true
 @export_category("Inputs")
 @export var Input_Up = "up"
 @export var Input_Down = "down"
@@ -20,7 +21,9 @@ signal ChangeSpriteDirection(Vector2)
 @export var Input_Right = "right"
 @export var Input_Sprint = "sprint"
 @export var Input_Jump = "jump"
+@export var Input_Dash = "dash"
 @export var Input_Cancel = "ui_cancel"
+
 @export_category("Movement")
 @export var Speed_Walk = 400.0
 @export var Speed_Sprint = 600.0
@@ -41,6 +44,8 @@ var last_direction : Vector2
 @onready var parent = get_parent() as CharacterBody2D
 
 func get_direction(refernce : Node2D = parent) -> Vector2:
+	if not InputEnabled:
+		return  Vector2.ZERO
 	var current = last_direction
 	if (not jumping or Air_Control):
 		var input_dir = Input.get_vector(Input_Left, Input_Right, Input_Up, Input_Down)

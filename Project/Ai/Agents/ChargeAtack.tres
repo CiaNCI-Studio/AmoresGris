@@ -1,0 +1,64 @@
+[gd_resource type="BehaviorTree" load_steps=14 format=3 uid="uid://och432sxlpja"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_g4hiw"]
+var/atackResult/name = &"atackResult"
+var/atackResult/type = 1
+var/atackResult/value = false
+var/atackResult/hint = 0
+var/atackResult/hint_string = ""
+var/WalkDir/name = &"WalkDir"
+var/WalkDir/type = 2
+var/WalkDir/value = 0
+var/WalkDir/hint = 0
+var/WalkDir/hint_string = ""
+
+[sub_resource type="BTRandomWait" id="BTRandomWait_g4hiw"]
+
+[sub_resource type="BTSequence" id="BTSequence_bvw3o"]
+custom_name = "ShortBreak"
+children = [SubResource("BTRandomWait_g4hiw")]
+
+[sub_resource type="BBNode" id="BBNode_i42u3"]
+saved_value = NodePath(".")
+resource_name = "."
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_d0cdh"]
+node = SubResource("BBNode_i42u3")
+method = &"Atack"
+result_var = &"atackResult"
+
+[sub_resource type="BBVariant" id="BBVariant_d0cdh"]
+type = 1
+saved_value = true
+resource_name = "true"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_d0cdh"]
+variable = &"atackResult"
+value = SubResource("BBVariant_d0cdh")
+
+[sub_resource type="BTInvert" id="BTInvert_i42u3"]
+children = [SubResource("BTCheckVar_d0cdh")]
+
+[sub_resource type="BTSequence" id="BTSequence_l0d2k"]
+custom_name = "Atack"
+children = [SubResource("BTCallMethod_d0cdh"), SubResource("BTInvert_i42u3")]
+
+[sub_resource type="BBNode" id="BBNode_ihqyt"]
+saved_value = NodePath(".")
+resource_name = "."
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_choj2"]
+node = SubResource("BBNode_ihqyt")
+method = &"Move"
+
+[sub_resource type="BTSequence" id="BTSequence_yxqh5"]
+custom_name = "Walk"
+children = [SubResource("BTCallMethod_choj2")]
+
+[sub_resource type="BTSequence" id="BTSequence_hc0ca"]
+custom_name = "ChargeAtack"
+children = [SubResource("BTSequence_bvw3o"), SubResource("BTSequence_l0d2k"), SubResource("BTSequence_yxqh5")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_g4hiw")
+root_task = SubResource("BTSequence_hc0ca")

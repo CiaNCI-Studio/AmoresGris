@@ -4,7 +4,6 @@ class_name PauseMenu
 @onready var fader: Fader = $Fader
 @onready var black_scren_fader: Fader = $BlackScreen/BlackScrenFader
 @onready var continue_button: FadeButton = $PauseGroup/MenuContainer/ContinueButton
-@onready var save_button: FadeButton = $PauseGroup/MenuContainer/SaveButton
 @onready var options_button: FadeButton = $PauseGroup/MenuContainer/OptionsButton
 @onready var main_menu_button: FadeButton = $PauseGroup/MenuContainer/MainMenuButton
 @onready var pause_group: Control = $PauseGroup
@@ -26,8 +25,6 @@ func Pause():
 	await fader.finished
 	continue_button.FadeIn()
 	options_button.FadeIn()
-	if CheckSave():
-		save_button.FadeIn()
 	main_menu_button.FadeIn()
 	continue_button.grab_focus()
 	
@@ -35,7 +32,6 @@ func Unpause():
 	continue_button.FadeOut()
 	options_button.FadeOut()
 	main_menu_button.FadeOut()
-	save_button.FadeOut()
 	fader.FadeOut()
 	await fader.finished
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -60,17 +56,6 @@ func ShowOptions():
 func CloseSettings():
 	settingsOpen = false
 	pause_group_fader.FadeIn()	
-
-func CheckSave() -> bool:
-	saveAgent = get_tree().get_first_node_in_group("saveAgent")
-	if saveAgent:
-		return true
-	return false
-
-func Save():
-	if saveAgent:
-		saveAgent.SaveSceneData()	
-		Unpause()
 	
 func _on_continue_button_pressed() -> void:
 	Unpause()
@@ -80,6 +65,3 @@ func _on_options_button_pressed() -> void:
 
 func _on_main_menu_button_pressed() -> void:
 	GoToMainMenu()
-
-func _on_save_button_pressed() -> void:
-	Save()

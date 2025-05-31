@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://d11krxjvkxtr6"]
+
+[ext_resource type="Script" uid="uid://djrpgvtovwlcw" path="res://Components/Doors/path_block.gd" id="1_vbcom"]
+
+[sub_resource type="Shader" id="Shader_vbcom"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform sampler2D dissolve_texture : source_color;
+uniform float dissolve_value : hint_range(0,1);
+uniform float burn_size: hint_range(0.0, 1.0, 0.01);
+uniform vec4 burn_color: source_color;
+
+void fragment(){
+    vec4 main_texture = texture(TEXTURE, UV);
+    vec4 noise_texture = texture(dissolve_texture, UV);
+	
+	// This is needed to avoid keeping a small burn_color dot with dissolve being 0 or 1
+	// is there another way to do it?
+	float burn_size_step = burn_size * step(0.001, dissolve_value) * step(dissolve_value, 0.999);
+	float threshold = smoothstep(noise_texture.x-burn_size_step, noise_texture.x, dissolve_value);
+	float border = smoothstep(noise_texture.x, noise_texture.x + burn_size_step, dissolve_value);
+	
+	COLOR.a *= threshold;
+	COLOR.rgb = mix(burn_color.rgb, main_texture.rgb, border);
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6ij7x"]
+frequency = 0.0083
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n08ay"]
+noise = SubResource("FastNoiseLite_6ij7x")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_icbtf"]
+resource_local_to_scene = true
+shader = SubResource("Shader_vbcom")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_n08ay")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.12
+shader_parameter/burn_color = Color(0.427093, 0.00130059, 0.621193, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vu61r"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/DoorSmall.png-baeaef0cb0ca88b9f4131257e5fa1e34.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icbtf"]
+size = Vector2(56, 182)
+
+[node name="PathBlock" type="Node2D"]
+script = ExtResource("1_vbcom")
+
+[node name="Door" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_icbtf")
+scale = Vector2(0.4, 0.4)
+texture = SubResource("CompressedTexture2D_vu61r")
+
+[node name="Blocker" type="StaticBody2D" parent="."]
+visible = false
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker"]
+shape = SubResource("RectangleShape2D_icbtf")

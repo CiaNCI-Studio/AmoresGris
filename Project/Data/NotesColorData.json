@@ -1,833 +1,1324 @@
 {
 	"Notes": [
 		{
-			"Code": 127,
+			
+			"MidiCode": 127,
 			"Octave": 9,
-			"NoteName": "G",
+			"Code": "G",
 			"Hue": 210,
 			"Saturation": 50,
 			"Value": 100
 		},
 		{
-			"Code": 126,
+			
+			"MidiCode": 126,
 			"Octave": 9,
-			"NoteName": "F#",
+			"Code": "Gb",
 			"Hue": 180,
 			"Saturation": 50,
 			"Value": 100
 		},
 		{
-			"Code": 125,
+			
+			"MidiCode": 126,
 			"Octave": 9,
-			"NoteName": "F",
+			"Code": "F#",
+			"Hue": 180,
+			"Saturation": 50,
+			"Value": 100
+		},		
+		{
+			
+			"MidiCode": 125,
+			"Octave": 9,
+			"Code": "F",
 			"Hue": 150,
 			"Saturation": 50,
 			"Value": 100
 		},
 		{
-			"Code": 124,
+			
+			"MidiCode": 124,
 			"Octave": 9,
-			"NoteName": "E",
+			"Code": "E",
 			"Hue": 120,
 			"Saturation": 50,
 			"Value": 100
 		},
 		{
-			"Code": 123,
+			
+			"MidiCode": 123,
 			"Octave": 9,
-			"NoteName": "D#",
+			"Code": "Eb",
 			"Hue": 90,
 			"Saturation": 50,
 			"Value": 100
 		},
 		{
-			"Code": 122,
+			
+			"MidiCode": 123,
 			"Octave": 9,
-			"NoteName": "D",
+			"Code": "D#",
+			"Hue": 90,
+			"Saturation": 50,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 122,
+			"Octave": 9,
+			"Code": "D",
 			"Hue": 60,
 			"Saturation": 50,
 			"Value": 100
 		},
 		{
-			"Code": 121,
+			
+			"MidiCode": 121,
 			"Octave": 9,
-			"NoteName": "C#",
+			"Code": "Db",
 			"Hue": 30,
 			"Saturation": 50,
 			"Value": 100
 		},
 		{
-			"Code": 120,
+			
+			"MidiCode": 121,
 			"Octave": 9,
-			"NoteName": "C",
+			"Code": "C#",
+			"Hue": 30,
+			"Saturation": 50,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 120,
+			"Octave": 9,
+			"Code": "C",
 			"Hue": 0,
 			"Saturation": 50,
 			"Value": 100
 		},
 		{
-			"Code": 119,
+			
+			"MidiCode": 119,
 			"Octave": 8,
-			"NoteName": "B",
+			"Code": "B",
 			"Hue": 330,
 			"Saturation": 60,
 			"Value": 100
 		},
 		{
-			"Code": 118,
+			
+			"MidiCode": 118,
 			"Octave": 8,
-			"NoteName": "A#",
+			"Code": "Bb",
 			"Hue": 300,
 			"Saturation": 60,
 			"Value": 100
 		},
 		{
-			"Code": 117,
+			
+			"MidiCode": 118,
 			"Octave": 8,
-			"NoteName": "A",
+			"Code": "A#",
+			"Hue": 300,
+			"Saturation": 60,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 117,
+			"Octave": 8,
+			"Code": "A",
 			"Hue": 270,
 			"Saturation": 60,
 			"Value": 100
 		},
 		{
-			"Code": 116,
+			
+			"MidiCode": 116,
 			"Octave": 8,
-			"NoteName": "G#",
+			"Code": "Ab",
 			"Hue": 240,
 			"Saturation": 60,
 			"Value": 100
 		},
 		{
-			"Code": 115,
+			
+			"MidiCode": 116,
 			"Octave": 8,
-			"NoteName": "G",
+			"Code": "G#",
+			"Hue": 240,
+			"Saturation": 60,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 115,
+			"Octave": 8,
+			"Code": "G",
 			"Hue": 210,
 			"Saturation": 60,
 			"Value": 100
 		},
 		{
-			"Code": 114,
+			
+			"MidiCode": 114,
 			"Octave": 8,
-			"NoteName": "F#",
+			"Code": "Gb",
 			"Hue": 180,
 			"Saturation": 60,
 			"Value": 100
 		},
 		{
-			"Code": 113,
+			
+			"MidiCode": 114,
 			"Octave": 8,
-			"NoteName": "F",
+			"Code": "F#",
+			"Hue": 180,
+			"Saturation": 60,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 113,
+			"Octave": 8,
+			"Code": "F",
 			"Hue": 150,
 			"Saturation": 60,
 			"Value": 100
 		},
 		{
-			"Code": 112,
+			
+			"MidiCode": 112,
 			"Octave": 8,
-			"NoteName": "E",
+			"Code": "E",
 			"Hue": 120,
 			"Saturation": 60,
 			"Value": 100
 		},
 		{
-			"Code": 111,
+			
+			"MidiCode": 111,
 			"Octave": 8,
-			"NoteName": "D#",
+			"Code": "Eb",
 			"Hue": 90,
 			"Saturation": 60,
 			"Value": 100
 		},
 		{
-			"Code": 110,
+			
+			"MidiCode": 111,
 			"Octave": 8,
-			"NoteName": "D",
+			"Code": "D#",
+			"Hue": 90,
+			"Saturation": 60,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 110,
+			"Octave": 8,
+			"Code": "D",
 			"Hue": 60,
 			"Saturation": 60,
 			"Value": 100
 		},
 		{
-			"Code": 109,
+			
+			"MidiCode": 109,
 			"Octave": 8,
-			"NoteName": "C#",
+			"Code": "Db",
 			"Hue": 30,
 			"Saturation": 60,
 			"Value": 100
 		},
 		{
-			"Code": 108,
+			
+			"MidiCode": 109,
 			"Octave": 8,
-			"NoteName": "C",
+			"Code": "C#",
+			"Hue": 30,
+			"Saturation": 60,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 108,
+			"Octave": 8,
+			"Code": "C",
 			"Hue": 0,
 			"Saturation": 60,
 			"Value": 100
 		},
 		{
-			"Code": 107,
+			
+			"MidiCode": 107,
 			"Octave": 7,
-			"NoteName": "B",
+			"Code": "B",
 			"Hue": 330,
 			"Saturation": 70,
 			"Value": 100
 		},
 		{
-			"Code": 106,
+			
+			"MidiCode": 106,
 			"Octave": 7,
-			"NoteName": "A#",
+			"Code": "Bb",
 			"Hue": 300,
 			"Saturation": 70,
 			"Value": 100
 		},
 		{
-			"Code": 105,
+			
+			"MidiCode": 106,
 			"Octave": 7,
-			"NoteName": "A",
+			"Code": "A#",
+			"Hue": 300,
+			"Saturation": 70,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 105,
+			"Octave": 7,
+			"Code": "A",
 			"Hue": 270,
 			"Saturation": 70,
 			"Value": 100
 		},
 		{
-			"Code": 104,
+			
+			"MidiCode": 104,
 			"Octave": 7,
-			"NoteName": "G#",
+			"Code": "Ab",
 			"Hue": 240,
 			"Saturation": 70,
 			"Value": 100
 		},
 		{
-			"Code": 103,
+			
+			"MidiCode": 104,
 			"Octave": 7,
-			"NoteName": "G",
+			"Code": "G#",
+			"Hue": 240,
+			"Saturation": 70,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 103,
+			"Octave": 7,
+			"Code": "G",
 			"Hue": 210,
 			"Saturation": 70,
 			"Value": 100
 		},
 		{
-			"Code": 102,
+			
+			"MidiCode": 102,
 			"Octave": 7,
-			"NoteName": "F#",
+			"Code": "Gb",
 			"Hue": 180,
 			"Saturation": 70,
 			"Value": 100
 		},
 		{
-			"Code": 101,
+			
+			"MidiCode": 102,
 			"Octave": 7,
-			"NoteName": "F",
+			"Code": "F#",
+			"Hue": 180,
+			"Saturation": 70,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 101,
+			"Octave": 7,
+			"Code": "F",
 			"Hue": 150,
 			"Saturation": 70,
 			"Value": 100
 		},
 		{
-			"Code": 100,
+			
+			"MidiCode": 100,
 			"Octave": 7,
-			"NoteName": "E",
+			"Code": "E",
 			"Hue": 120,
 			"Saturation": 70,
 			"Value": 100
 		},
 		{
-			"Code": 99,
+			
+			"MidiCode": 99,
 			"Octave": 7,
-			"NoteName": "D#",
+			"Code": "Eb",
 			"Hue": 90,
 			"Saturation": 70,
 			"Value": 100
 		},
 		{
-			"Code": 98,
+			
+			"MidiCode": 99,
 			"Octave": 7,
-			"NoteName": "D",
+			"Code": "D#",
+			"Hue": 90,
+			"Saturation": 70,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 98,
+			"Octave": 7,
+			"Code": "D",
 			"Hue": 60,
 			"Saturation": 70,
 			"Value": 100
 		},
 		{
-			"Code": 97,
+			
+			"MidiCode": 97,
 			"Octave": 7,
-			"NoteName": "C#",
+			"Code": "Db",
 			"Hue": 30,
 			"Saturation": 70,
 			"Value": 100
 		},
 		{
-			"Code": 96,
+			
+			"MidiCode": 97,
 			"Octave": 7,
-			"NoteName": "C",
+			"Code": "C#",
+			"Hue": 30,
+			"Saturation": 70,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 96,
+			"Octave": 7,
+			"Code": "C",
 			"Hue": 0,
 			"Saturation": 70,
 			"Value": 100
 		},
 		{
-			"Code": 95,
+			
+			"MidiCode": 95,
 			"Octave": 6,
-			"NoteName": "B",
+			"Code": "B",
 			"Hue": 330,
 			"Saturation": 80,
 			"Value": 100
 		},
 		{
-			"Code": 94,
+			
+			"MidiCode": 94,
 			"Octave": 6,
-			"NoteName": "A#",
+			"Code": "Bb",
 			"Hue": 300,
 			"Saturation": 80,
 			"Value": 100
 		},
 		{
-			"Code": 93,
+			
+			"MidiCode": 94,
 			"Octave": 6,
-			"NoteName": "A",
+			"Code": "A#",
+			"Hue": 300,
+			"Saturation": 80,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 93,
+			"Octave": 6,
+			"Code": "A",
 			"Hue": 270,
 			"Saturation": 80,
 			"Value": 100
 		},
 		{
-			"Code": 92,
+			
+			"MidiCode": 92,
 			"Octave": 6,
-			"NoteName": "G#",
+			"Code": "Ab",
 			"Hue": 240,
 			"Saturation": 80,
 			"Value": 100
 		},
 		{
-			"Code": 91,
+			
+			"MidiCode": 92,
 			"Octave": 6,
-			"NoteName": "G",
+			"Code": "G#",
+			"Hue": 240,
+			"Saturation": 80,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 91,
+			"Octave": 6,
+			"Code": "G",
 			"Hue": 210,
 			"Saturation": 80,
 			"Value": 100
 		},
 		{
-			"Code": 90,
+			
+			"MidiCode": 90,
 			"Octave": 6,
-			"NoteName": "F#",
+			"Code": "Gb",
 			"Hue": 180,
 			"Saturation": 80,
 			"Value": 100
 		},
 		{
-			"Code": 89,
+			
+			"MidiCode": 90,
 			"Octave": 6,
-			"NoteName": "F",
+			"Code": "F#",
+			"Hue": 180,
+			"Saturation": 80,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 89,
+			"Octave": 6,
+			"Code": "F",
 			"Hue": 150,
 			"Saturation": 80,
 			"Value": 100
 		},
 		{
-			"Code": 88,
+			
+			"MidiCode": 88,
 			"Octave": 6,
-			"NoteName": "E",
+			"Code": "E",
 			"Hue": 120,
 			"Saturation": 80,
 			"Value": 100
 		},
 		{
-			"Code": 87,
+			
+			"MidiCode": 87,
 			"Octave": 6,
-			"NoteName": "D#",
+			"Code": "Eb",
 			"Hue": 90,
 			"Saturation": 80,
 			"Value": 100
 		},
 		{
-			"Code": 86,
+			
+			"MidiCode": 87,
 			"Octave": 6,
-			"NoteName": "D",
+			"Code": "D#",
+			"Hue": 90,
+			"Saturation": 80,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 86,
+			"Octave": 6,
+			"Code": "D",
 			"Hue": 60,
 			"Saturation": 80,
 			"Value": 100
 		},
 		{
-			"Code": 85,
+			
+			"MidiCode": 85,
 			"Octave": 6,
-			"NoteName": "C#",
+			"Code": "Db",
 			"Hue": 30,
 			"Saturation": 80,
 			"Value": 100
 		},
 		{
-			"Code": 84,
+			
+			"MidiCode": 85,
 			"Octave": 6,
-			"NoteName": "C",
+			"Code": "C#",
+			"Hue": 30,
+			"Saturation": 80,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 84,
+			"Octave": 6,
+			"Code": "C",
 			"Hue": 0,
 			"Saturation": 80,
 			"Value": 100
 		},
 		{
-			"Code": 83,
+			
+			"MidiCode": 83,
 			"Octave": 5,
-			"NoteName": "B",
+			"Code": "B",
 			"Hue": 330,
 			"Saturation": 90,
 			"Value": 100
 		},
 		{
-			"Code": 82,
+			
+			"MidiCode": 82,
 			"Octave": 5,
-			"NoteName": "A#",
+			"Code": "Bb",
 			"Hue": 300,
 			"Saturation": 90,
 			"Value": 100
 		},
 		{
-			"Code": 81,
+			
+			"MidiCode": 82,
 			"Octave": 5,
-			"NoteName": "A",
+			"Code": "A#",
+			"Hue": 300,
+			"Saturation": 90,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 81,
+			"Octave": 5,
+			"Code": "A",
 			"Hue": 270,
 			"Saturation": 90,
 			"Value": 100
 		},
 		{
-			"Code": 80,
+			
+			"MidiCode": 80,
 			"Octave": 5,
-			"NoteName": "G#",
+			"Code": "Ab",
 			"Hue": 240,
 			"Saturation": 90,
 			"Value": 100
 		},
 		{
-			"Code": 79,
+			
+			"MidiCode": 80,
 			"Octave": 5,
-			"NoteName": "G",
+			"Code": "G#",
+			"Hue": 240,
+			"Saturation": 90,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 79,
+			"Octave": 5,
+			"Code": "G",
 			"Hue": 210,
 			"Saturation": 90,
 			"Value": 100
 		},
 		{
-			"Code": 78,
+			
+			"MidiCode": 78,
 			"Octave": 5,
-			"NoteName": "F#",
+			"Code": "Gb",
 			"Hue": 180,
 			"Saturation": 90,
 			"Value": 100
 		},
 		{
-			"Code": 77,
+			
+			"MidiCode": 78,
 			"Octave": 5,
-			"NoteName": "F",
+			"Code": "F#",
+			"Hue": 180,
+			"Saturation": 90,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 77,
+			"Octave": 5,
+			"Code": "F",
 			"Hue": 150,
 			"Saturation": 90,
 			"Value": 100
 		},
 		{
-			"Code": 76,
+			
+			"MidiCode": 76,
 			"Octave": 5,
-			"NoteName": "E",
+			"Code": "E",
 			"Hue": 120,
 			"Saturation": 90,
 			"Value": 100
 		},
 		{
-			"Code": 75,
+			
+			"MidiCode": 75,
 			"Octave": 5,
-			"NoteName": "D#",
+			"Code": "Eb",
 			"Hue": 90,
 			"Saturation": 90,
 			"Value": 100
 		},
 		{
-			"Code": 74,
+			
+			"MidiCode": 75,
 			"Octave": 5,
-			"NoteName": "D",
+			"Code": "D#",
+			"Hue": 90,
+			"Saturation": 90,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 74,
+			"Octave": 5,
+			"Code": "D",
 			"Hue": 60,
 			"Saturation": 90,
 			"Value": 100
 		},
 		{
-			"Code": 73,
+			
+			"MidiCode": 73,
 			"Octave": 5,
-			"NoteName": "C#",
+			"Code": "Db",
 			"Hue": 30,
 			"Saturation": 90,
 			"Value": 100
 		},
 		{
-			"Code": 72,
+			
+			"MidiCode": 73,
 			"Octave": 5,
-			"NoteName": "C",
+			"Code": "C#",
+			"Hue": 30,
+			"Saturation": 90,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 72,
+			"Octave": 5,
+			"Code": "C",
 			"Hue": 0,
 			"Saturation": 90,
 			"Value": 100
 		},
 		{
-			"Code": 71,
+			
+			"MidiCode": 71,
 			"Octave": 4,
-			"NoteName": "B",
+			"Code": "B",
 			"Hue": 330,
 			"Saturation": 100,
 			"Value": 100
 		},
 		{
-			"Code": 70,
+			
+			"MidiCode": 70,
 			"Octave": 4,
-			"NoteName": "A#",
+			"Code": "Bb",
 			"Hue": 300,
 			"Saturation": 100,
 			"Value": 100
 		},
 		{
-			"Code": 69,
+			
+			"MidiCode": 70,
 			"Octave": 4,
-			"NoteName": "A",
+			"Code": "A#",
+			"Hue": 300,
+			"Saturation": 100,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 69,
+			"Octave": 4,
+			"Code": "A",
 			"Hue": 270,
 			"Saturation": 100,
 			"Value": 100
 		},
 		{
-			"Code": 68,
+			
+			"MidiCode": 68,
 			"Octave": 4,
-			"NoteName": "G#",
+			"Code": "Ab",
 			"Hue": 240,
 			"Saturation": 100,
 			"Value": 100
 		},
 		{
-			"Code": 67,
+			
+			"MidiCode": 68,
 			"Octave": 4,
-			"NoteName": "G",
+			"Code": "G#",
+			"Hue": 240,
+			"Saturation": 100,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 67,
+			"Octave": 4,
+			"Code": "G",
 			"Hue": 210,
 			"Saturation": 100,
 			"Value": 100
 		},
 		{
-			"Code": 66,
+			
+			"MidiCode": 66,
 			"Octave": 4,
-			"NoteName": "F#",
+			"Code": "Gb",
 			"Hue": 180,
 			"Saturation": 100,
 			"Value": 100
 		},
 		{
-			"Code": 65,
+			
+			"MidiCode": 66,
 			"Octave": 4,
-			"NoteName": "F",
+			"Code": "F#",
+			"Hue": 180,
+			"Saturation": 100,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 65,
+			"Octave": 4,
+			"Code": "F",
 			"Hue": 150,
 			"Saturation": 100,
 			"Value": 100
 		},
 		{
-			"Code": 64,
+			
+			"MidiCode": 64,
 			"Octave": 4,
-			"NoteName": "E",
+			"Code": "E",
 			"Hue": 120,
 			"Saturation": 100,
 			"Value": 100
 		},
 		{
-			"Code": 63,
+			
+			"MidiCode": 63,
 			"Octave": 4,
-			"NoteName": "D#",
+			"Code": "Eb",
 			"Hue": 90,
 			"Saturation": 100,
 			"Value": 100
 		},
 		{
-			"Code": 62,
+			
+			"MidiCode": 63,
 			"Octave": 4,
-			"NoteName": "D",
+			"Code": "D#",
+			"Hue": 90,
+			"Saturation": 100,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 62,
+			"Octave": 4,
+			"Code": "D",
 			"Hue": 60,
 			"Saturation": 100,
 			"Value": 100
 		},
 		{
-			"Code": 61,
+			
+			"MidiCode": 61,
 			"Octave": 4,
-			"NoteName": "C#",
+			"Code": "Db",
 			"Hue": 30,
 			"Saturation": 100,
 			"Value": 100
 		},
 		{
-			"Code": 60,
+			
+			"MidiCode": 61,
 			"Octave": 4,
-			"NoteName": "C",
+			"Code": "C#",
+			"Hue": 30,
+			"Saturation": 100,
+			"Value": 100
+		},
+		{
+			
+			"MidiCode": 60,
+			"Octave": 4,
+			"Code": "C",
 			"Hue": 0,
 			"Saturation": 100,
 			"Value": 100
 		},
 		{
-			"Code": 59,
+			
+			"MidiCode": 59,
 			"Octave": 3,
-			"NoteName": "B",
+			"Code": "B",
 			"Hue": 330,
 			"Saturation": 100,
 			"Value": 75
 		},
 		{
-			"Code": 58,
+			
+			"MidiCode": 58,
 			"Octave": 3,
-			"NoteName": "A#",
+			"Code": "Bb",
 			"Hue": 300,
 			"Saturation": 100,
 			"Value": 75
 		},
 		{
-			"Code": 57,
+			
+			"MidiCode": 58,
 			"Octave": 3,
-			"NoteName": "A",
+			"Code": "A#",
+			"Hue": 300,
+			"Saturation": 100,
+			"Value": 75
+		},
+		{
+			
+			"MidiCode": 57,
+			"Octave": 3,
+			"Code": "A",
 			"Hue": 270,
 			"Saturation": 100,
 			"Value": 75
 		},
 		{
-			"Code": 56,
+			
+			"MidiCode": 56,
 			"Octave": 3,
-			"NoteName": "G#",
+			"Code": "Ab",
 			"Hue": 240,
 			"Saturation": 100,
 			"Value": 75
 		},
 		{
-			"Code": 55,
+			
+			"MidiCode": 56,
 			"Octave": 3,
-			"NoteName": "G",
+			"Code": "G#",
+			"Hue": 240,
+			"Saturation": 100,
+			"Value": 75
+		},
+		{
+			
+			"MidiCode": 55,
+			"Octave": 3,
+			"Code": "G",
 			"Hue": 210,
 			"Saturation": 100,
 			"Value": 75
 		},
 		{
-			"Code": 54,
+			
+			"MidiCode": 54,
 			"Octave": 3,
-			"NoteName": "F#",
+			"Code": "Gb",
 			"Hue": 180,
 			"Saturation": 100,
 			"Value": 75
 		},
 		{
-			"Code": 53,
+			
+			"MidiCode": 54,
 			"Octave": 3,
-			"NoteName": "F",
+			"Code": "F#",
+			"Hue": 180,
+			"Saturation": 100,
+			"Value": 75
+		},
+		{
+			
+			"MidiCode": 53,
+			"Octave": 3,
+			"Code": "F",
 			"Hue": 150,
 			"Saturation": 100,
 			"Value": 75
 		},
 		{
-			"Code": 52,
+			
+			"MidiCode": 52,
 			"Octave": 3,
-			"NoteName": "E",
+			"Code": "E",
 			"Hue": 120,
 			"Saturation": 100,
 			"Value": 75
 		},
 		{
-			"Code": 51,
+			
+			"MidiCode": 51,
 			"Octave": 3,
-			"NoteName": "D#",
+			"Code": "Eb",
 			"Hue": 90,
 			"Saturation": 100,
 			"Value": 75
 		},
 		{
-			"Code": 50,
+			
+			"MidiCode": 51,
 			"Octave": 3,
-			"NoteName": "D",
+			"Code": "D#",
+			"Hue": 90,
+			"Saturation": 100,
+			"Value": 75
+		},
+		{
+			
+			"MidiCode": 50,
+			"Octave": 3,
+			"Code": "D",
 			"Hue": 60,
 			"Saturation": 100,
 			"Value": 75
 		},
 		{
-			"Code": 49,
+			
+			"MidiCode": 49,
 			"Octave": 3,
-			"NoteName": "C#",
+			"Code": "Db",
 			"Hue": 30,
 			"Saturation": 100,
 			"Value": 75
 		},
 		{
-			"Code": 48,
+			
+			"MidiCode": 49,
 			"Octave": 3,
-			"NoteName": "C",
+			"Code": "C#",
+			"Hue": 30,
+			"Saturation": 100,
+			"Value": 75
+		},
+		{
+			
+			"MidiCode": 48,
+			"Octave": 3,
+			"Code": "C",
 			"Hue": 0,
 			"Saturation": 100,
 			"Value": 75
 		},
 		{
-			"Code": 47,
+			
+			"MidiCode": 47,
 			"Octave": 2,
-			"NoteName": "B",
+			"Code": "B",
 			"Hue": 330,
 			"Saturation": 100,
 			"Value": 50
 		},
 		{
-			"Code": 46,
+			
+			"MidiCode": 46,
 			"Octave": 2,
-			"NoteName": "A#",
+			"Code": "Bb",
 			"Hue": 300,
 			"Saturation": 100,
 			"Value": 50
 		},
 		{
-			"Code": 45,
+			
+			"MidiCode": 46,
 			"Octave": 2,
-			"NoteName": "A",
+			"Code": "A#",
+			"Hue": 300,
+			"Saturation": 100,
+			"Value": 50
+		},
+		{
+			
+			"MidiCode": 45,
+			"Octave": 2,
+			"Code": "A",
 			"Hue": 270,
 			"Saturation": 100,
 			"Value": 50
 		},
 		{
-			"Code": 44,
+			
+			"MidiCode": 44,
 			"Octave": 2,
-			"NoteName": "G#",
+			"Code": "Ab",
 			"Hue": 240,
 			"Saturation": 100,
 			"Value": 50
 		},
 		{
-			"Code": 43,
+			
+			"MidiCode": 44,
 			"Octave": 2,
-			"NoteName": "G",
+			"Code": "G#",
+			"Hue": 240,
+			"Saturation": 100,
+			"Value": 50
+		},
+		{
+			
+			"MidiCode": 43,
+			"Octave": 2,
+			"Code": "G",
 			"Hue": 210,
 			"Saturation": 100,
 			"Value": 50
 		},
 		{
-			"Code": 42,
+			
+			"MidiCode": 42,
 			"Octave": 2,
-			"NoteName": "F#",
+			"Code": "Gb",
 			"Hue": 180,
 			"Saturation": 100,
 			"Value": 50
 		},
 		{
-			"Code": 41,
+			
+			"MidiCode": 42,
 			"Octave": 2,
-			"NoteName": "F",
+			"Code": "F#",
+			"Hue": 180,
+			"Saturation": 100,
+			"Value": 50
+		},
+		{
+			
+			"MidiCode": 41,
+			"Octave": 2,
+			"Code": "F",
 			"Hue": 150,
 			"Saturation": 100,
 			"Value": 50
 		},
 		{
-			"Code": 40,
+			
+			"MidiCode": 40,
 			"Octave": 2,
-			"NoteName": "E",
+			"Code": "E",
 			"Hue": 120,
 			"Saturation": 100,
 			"Value": 50
 		},
 		{
-			"Code": 39,
+			
+			"MidiCode": 39,
 			"Octave": 2,
-			"NoteName": "D#",
+			"Code": "Eb",
 			"Hue": 90,
 			"Saturation": 100,
 			"Value": 50
 		},
 		{
-			"Code": 38,
+			
+			"MidiCode": 39,
 			"Octave": 2,
-			"NoteName": "D",
+			"Code": "D#",
+			"Hue": 90,
+			"Saturation": 100,
+			"Value": 50
+		},
+		{
+			
+			"MidiCode": 38,
+			"Octave": 2,
+			"Code": "D",
 			"Hue": 60,
 			"Saturation": 100,
 			"Value": 50
 		},
 		{
-			"Code": 37,
+			
+			"MidiCode": 37,
 			"Octave": 2,
-			"NoteName": "C#",
+			"Code": "Db",
 			"Hue": 30,
 			"Saturation": 100,
 			"Value": 50
 		},
 		{
-			"Code": 36,
+			
+			"MidiCode": 37,
 			"Octave": 2,
-			"NoteName": "C",
+			"Code": "C#",
+			"Hue": 30,
+			"Saturation": 100,
+			"Value": 50
+		},
+		{
+			
+			"MidiCode": 36,
+			"Octave": 2,
+			"Code": "C",
 			"Hue": 0,
 			"Saturation": 100,
 			"Value": 50
 		},
 		{
-			"Code": 35,
+			
+			"MidiCode": 35,
 			"Octave": 1,
-			"NoteName": "B",
+			"Code": "B",
 			"Hue": 330,
 			"Saturation": 100,
 			"Value": 25
 		},
 		{
-			"Code": 34,
+			
+			"MidiCode": 34,
 			"Octave": 1,
-			"NoteName": "A#",
+			"Code": "Bb",
 			"Hue": 300,
 			"Saturation": 100,
 			"Value": 25
 		},
 		{
-			"Code": 33,
+			
+			"MidiCode": 34,
 			"Octave": 1,
-			"NoteName": "A",
+			"Code": "A#",
+			"Hue": 300,
+			"Saturation": 100,
+			"Value": 25
+		},
+		{
+			
+			"MidiCode": 33,
+			"Octave": 1,
+			"Code": "A",
 			"Hue": 270,
 			"Saturation": 100,
 			"Value": 25
 		},
 		{
-			"Code": 32,
+			
+			"MidiCode": 32,
 			"Octave": 1,
-			"NoteName": "G#",
+			"Code": "Ab",
 			"Hue": 240,
 			"Saturation": 100,
 			"Value": 25
 		},
 		{
-			"Code": 31,
+			
+			"MidiCode": 32,
 			"Octave": 1,
-			"NoteName": "G",
+			"Code": "G#",
+			"Hue": 240,
+			"Saturation": 100,
+			"Value": 25
+		},
+		{
+			
+			"MidiCode": 31,
+			"Octave": 1,
+			"Code": "G",
 			"Hue": 210,
 			"Saturation": 100,
 			"Value": 25
 		},
 		{
-			"Code": 30,
+			
+			"MidiCode": 30,
 			"Octave": 1,
-			"NoteName": "F#",
+			"Code": "Gb",
 			"Hue": 180,
 			"Saturation": 100,
 			"Value": 25
 		},
 		{
-			"Code": 29,
+			
+			"MidiCode": 30,
 			"Octave": 1,
-			"NoteName": "F",
+			"Code": "F#",
+			"Hue": 180,
+			"Saturation": 100,
+			"Value": 25
+		},
+		{
+			
+			"MidiCode": 29,
+			"Octave": 1,
+			"Code": "F",
 			"Hue": 150,
 			"Saturation": 100,
 			"Value": 25
 		},
 		{
-			"Code": 28,
+			
+			"MidiCode": 28,
 			"Octave": 1,
-			"NoteName": "E",
+			"Code": "E",
 			"Hue": 120,
 			"Saturation": 100,
 			"Value": 25
 		},
 		{
-			"Code": 27,
+			
+			"MidiCode": 27,
 			"Octave": 1,
-			"NoteName": "D#",
+			"Code": "Eb",
 			"Hue": 90,
 			"Saturation": 100,
 			"Value": 25
 		},
 		{
-			"Code": 26,
+			
+			"MidiCode": 27,
 			"Octave": 1,
-			"NoteName": "D",
+			"Code": "D#",
+			"Hue": 90,
+			"Saturation": 100,
+			"Value": 25
+		},
+		{
+			
+			"MidiCode": 26,
+			"Octave": 1,
+			"Code": "D",
 			"Hue": 60,
 			"Saturation": 100,
 			"Value": 25
 		},
 		{
-			"Code": 25,
+			
+			"MidiCode": 25,
 			"Octave": 1,
-			"NoteName": "C#",
+			"Code": "Db",
 			"Hue": 30,
 			"Saturation": 100,
 			"Value": 25
 		},
 		{
-			"Code": 24,
+			
+			"MidiCode": 25,
 			"Octave": 1,
-			"NoteName": "C",
+			"Code": "C#",
+			"Hue": 30,
+			"Saturation": 100,
+			"Value": 25
+		},
+		{
+			
+			"MidiCode": 24,
+			"Octave": 1,
+			"Code": "C",
 			"Hue": 0,
 			"Saturation": 100,
 			"Value": 25

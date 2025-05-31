@@ -1,0 +1,13 @@
+GuideChar: TR_DIAL_TUTO_1
+GuideChar: TR_DIAL_TUTO_2
+GuideChar: TR_DIAL_TUTO_3
+GuideChar: TR_DIAL_TUTO_4
+[signal arg="ShowItem"]
+[wait time="5.0"]
+GuideChar: TR_DIAL_TUTO_5
+GuideChar: TR_DIAL_TUTO_6
+[signal arg="ShowEnemy"]
+[wait time="5.0"]
+GuideChar: TR_DIAL_TUTO_7
+GuideChar: TR_DIAL_TUTO_8
+[signal arg="FinishTutorial"]

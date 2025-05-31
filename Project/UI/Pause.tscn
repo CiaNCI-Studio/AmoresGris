@@ -72,8 +72,6 @@ theme_override_constants/separation = 13
 [node name="ContinueButton" type="Button" parent="PauseGroup/MenuContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../MainMenuButton")
-focus_neighbor_bottom = NodePath("../SaveButton")
-focus_next = NodePath("../SaveButton")
 focus_previous = NodePath("../MainMenuButton")
 theme = ExtResource("3_lhdog")
 text = "TR_CONTINUE"
@@ -82,25 +80,10 @@ AutoFadeIn = false
 FadeInTime = 0.5
 FadeOutTime = 0.5
 
-[node name="SaveButton" type="Button" parent="PauseGroup/MenuContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../ContinueButton")
-focus_neighbor_bottom = NodePath("../OptionsButton")
-focus_next = NodePath("../OptionsButton")
-focus_previous = NodePath("../ContinueButton")
-theme = ExtResource("3_lhdog")
-text = "TR_SAVE"
-script = ExtResource("4_u0gck")
-AutoFadeIn = false
-FadeInTime = 0.5
-FadeOutTime = 0.5
-
 [node name="OptionsButton" type="Button" parent="PauseGroup/MenuContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../SaveButton")
 focus_neighbor_bottom = NodePath("../MainMenuButton")
 focus_next = NodePath("../MainMenuButton")
-focus_previous = NodePath("../SaveButton")
 theme = ExtResource("3_lhdog")
 text = "TR_OPTIONS"
 script = ExtResource("4_u0gck")
@@ -143,6 +126,5 @@ script = ExtResource("1_ler6u")
 AutoFadeIn = false
 
 [connection signal="pressed" from="PauseGroup/MenuContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="PauseGroup/MenuContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="PauseGroup/MenuContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="PauseGroup/MenuContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

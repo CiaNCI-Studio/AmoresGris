@@ -2,6 +2,7 @@ extends Node
 
 const  OPTIONS_FOLDER_PATH : String = "user://Data/Settings/"
 const  OPTIONS_FILE_NAME : String = "options.cfg"
+const  SAVE_SLOT_NAME : String = "save"
 
 @export var CurrentLanguage : String = "pt"
 @export var SfxVolume : int = 100
