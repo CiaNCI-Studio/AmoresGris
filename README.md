@@ -1,5 +1,7 @@
 # Amores Gris - Game
 
+Jogo: https://ciancistudio.itch.io/amores-gris
+
 Jogo criado para Gamejam : [Psiche Jam ](https://itch.io/jam/psyche-game-jam-2025)
 
 
